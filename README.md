@@ -3,7 +3,6 @@
 ## Índice
 
 * [Definición del producto](#definición-del-producto)
-* [](#introducción)
 * [Entrevistas](#entrevistas)
 * [Prototipo de baja fidelidad](#prototipo-de-baja-fidelidad)
 * [Conclusión de prueba con el producto HTML](#conclusión-de-prueba-con-el-producto-HTML)
