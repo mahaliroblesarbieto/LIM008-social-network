@@ -1,5 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import { authenticateGoogleAccount } from './lib/index.js';
 
-myFunction();
+document.getElementById('button-google').addEventListener('click', authenticateGoogleAccount);
+// myFunction();
