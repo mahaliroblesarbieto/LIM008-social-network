@@ -40,3 +40,28 @@ export const authenticateFacebookAccount = () => {
     firebase.auth().signOut();
   }
 };
+
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
+
+export const createUserWithEmailAndPassword = () => {
+  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+    .catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+};
+
+export const authenticateWithEmailAndPassword = () => {
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+    .catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
+};
