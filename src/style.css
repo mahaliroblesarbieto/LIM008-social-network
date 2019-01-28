@@ -1,5 +1,4 @@
-.type-google {
-    background: rgb(0, 81, 255);
+.type{
     color: #ffffff;
     font-weight: bold;
     border: none;
@@ -15,12 +14,21 @@
     width: 100%;
     box-shadow: 0 4px 7px rgba(0,0,0,0.16);
 }
-.icon-google{
+.icon{
     background: #ffffff;
 }
 
 .content{
     display: flex;
     justify-content: center
+}
+
+.google{
+    background: rgb(0, 81, 255);
+}
+
+.facebook{
+    background: rgb(42, 65, 170);
+    margin-bottom: 10px
 }
 
