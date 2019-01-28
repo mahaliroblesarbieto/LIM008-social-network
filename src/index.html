@@ -4,23 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css"/>
   <title>Document</title>
   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
 
 </head>
 <body>
-
-  <div id="firstScreenContainer">
-    <input id="txtEmail" type = "email" placeholder="Email"/>
-    <input id="txtPassword" type = "password" placeholder="Password"/>
-    <button id = "btnLogIn" class=" btn btn-action">Log In</button>
-    <button id = "btnSignUp" class=" btn btn-secondary">Sign Up</button>
-    <button id = "btnLogOut" class=" btn btn-action hide">Log Out</button>
+<div class="content">
+    <section>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+          <div>
+              <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
+            </div>
+        <div>
+          <h3>Te damos la bienvenida a WorldPet</h3>
+        </div>
+        <div>
+          <input id="txtEmail" type = "email" placeholder="Correo"/>
+        </div>
+        <div>
+          <input id="txtPassword" type = "password" placeholder="Contraseña"/>
+        </div>
+        <div>
+          <button class="type logIn" id = "btnLogIn" class=" btn btn-action">Iniciar sesión</button>
+        </div>
+        <div>
+          <button class="type facebook" type="button" id="button-facebook"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
+        </div>
+        <div>
+          <button class="type google" type="button" id="button-google"><img class = "icon" src = "img/search.png"></img>  Continuar con Google</button>
+        </div>
+        <div>
+          <button class="type logIn" id = "btnSignUp" class=" btn btn-secondary">Crear cuenta</button>
+        </div>
+      </div>
+    </section>
   </div>
-  <script type="text/javascript" src = "fireBase.js"></script>
-  <script  type="module" src="main.js"></script>
-  <script   type="module" src="lib/index.js"></script>
-  <div id="secondScreenContainer">
   
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+  <script type="text/javascript" src="lib/ConfigFireBase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  <script type="module" src="lib/index.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

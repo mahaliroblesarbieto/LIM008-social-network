@@ -1,16 +1,9 @@
+import { authenticateGoogleAccount,
+  authenticateFacebookAccount,
+  authenticateWithEmailAndPassword,
+  createUserWithEmailAndPassword} from './lib/index.js';
 
-
-
-
-
-import { authenticateWithEmailAndPassword, createUserWithEmailAndPassword }  from './lib/index.js';
-// Obtener los elementos
-const btnLogIn = document.getElementById('btnLogIn');
-const btnSignUp = document.getElementById('btnSignUp');
-const btnLogOut = document.getElementById('btnLogOut');
-
-btnSignUp.addEventListener('click', createUserWithEmailAndPassword);
-btnLogIn.addEventListener('click', authenticateWithEmailAndPassword);
-
-
-
+document.getElementById('button-google').addEventListener('click', authenticateGoogleAccount);
+document.getElementById('button-facebook').addEventListener('click', authenticateFacebookAccount);
+document.getElementById('btnSignUp').addEventListener('click', createUserWithEmailAndPassword);
+document.getElementById('btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
