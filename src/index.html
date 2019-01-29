@@ -16,7 +16,7 @@
       <div class="col-md-12 col-sm-12 col-xs-12">
           <div>
               <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
-            </div>
+          </div>
         <div>
           <h3>Te damos la bienvenida a WorldPet</h3>
         </div>
@@ -37,6 +37,23 @@
         </div>
         <div>
           <button class="type logIn" id = "btnSignUp" class=" btn btn-secondary">Crear cuenta</button>
+        </div>
+        <div id = "windowModal">
+         <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Registrarse</h2>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="nombres" placeholder = " Ingresa tus nombres"></input>
+            <input type="text" id="apellidos" placeholder = " Ingresa tus apellidos"></input>
+            <input id="emailSignUp" type = "email" placeholder=" Correo"/>
+            <input id="passwordSignUp" type = "password" placeholder=" Contraseña"/>
+          </div>
+          <div class="modal-footer">
+            <button class="type logIn" id=signUpUser>Registrar</button>
+          </div> 
+         </div>
         </div>
       </div>
     </section>
