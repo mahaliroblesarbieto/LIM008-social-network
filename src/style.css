@@ -3,6 +3,19 @@
     background-size: cover;
     background-repeat: no-repeat;
 } */
+body{
+    font-family: -apple-
+    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
+    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
+    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #ffffff;
+    font-weight: bold;
+}
+.content{
+    display: flex;
+    justify-content: center
+}
 .type{
     color: #ffffff;
     font-weight: bold;
@@ -17,63 +30,52 @@
     border-radius: 5px;
 	padding: 10px;
     width: 100%;
-    box-shadow: 0 4px 7px rgba(0,0,0,0.16);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
 }
 .icon{
     background: #ffffff;
 }
 
-.content{
-    display: flex;
-    justify-content: center
-}
-
 .google{
-    background: rgb(0, 81, 255);
-    margin-bottom: 10px
+    background: rgb(0, 162, 255);
 }
 
 .facebook{
     background: rgb(42, 65, 170);
-    margin-top: 30px;
-    margin-bottom: 10px
 }
 
 input{
     background: #ffffff;
     border: 1px solid rgb(152, 153, 155);
-    border-radius: 5px;
     text-align: left;
     width: 100%;
-    /*margin: 5px;*/
-    margin-bottom: 10px;
-    font-family: -apple-
-    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
-    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
-    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     color:  rgb(152, 153, 155);
-    height: 35px
+    height: 37px
 }
 
 .logIn{
-    background: rgb(43, 238, 131);
-    margin-bottom: 10px
+    background: rgb(0, 24, 153);
 }
 
 h3{
-    font-family: -apple-
-    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
-    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
-    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-weight: bold;
-    margin-top: 10px;
+    color:black;
     margin-bottom: 30px;
 }
 
 .img-logo{
-    margin: 50px 0px 10px 120px;
+    margin: 50px 0px 10px 140px;
+}
+
+.margin-b{
+    margin-bottom: 10px
+}
+
+.margin-t{
+    margin-top: 30px;
+}
+
+.border{
+    border-radius: 5px;
 }
 
 #windowModal{
@@ -103,7 +105,9 @@ h3{
 .modal {
     padding: 2px 16px;
 }
-
+.modal-header{
+    color:black;
+}
 .modal-header,
 .modal-footer,
 .modal-body {
@@ -125,5 +129,3 @@ h3{
     text-decoration: none;
     cursor: pointer;
   }
-
-
