@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet" href="css/bootstrap.min.css">
- <link href="style.css" rel="stylesheet" type="text/css"/>
- <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <title>Document</title>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+
 </head>
 <body>
- <div class="content">
-   <section>
-     <div class="col-md-12 col-sm-12 col-xs-12">
-         <div>
-             <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
-           </div>
-       <div>
-         <h3>Te damos la bienvenida a WorldPet</h3>
-       </div>
-       <div>
-         <input id="txtEmail" type = "email" placeholder="Correo"/>
-       </div>
-       <div>
-         <input id="txtPassword" type = "password" placeholder="Contraseña"/>
-       </div>
-       <div>
-         <button class="type logIn" id = "btnLogIn" class=" btn btn-action">Iniciar sesión</button>
-       </div>
-       <div>
-         <button class="type facebook" type="button" id="button-facebook"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
-       </div>
-       <div>
-         <button class="type google" type="button" id="button-google"><img class = "icon" src = "img/search.png"></img>  Continuar con Google</button>
-       </div>
-       <div>
-         <button class="type logIn" id = "btnSignUp" class=" btn btn-secondary">Crear cuenta</button>
-       </div>
-     </div>
-   </section>
- </div>
-
- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
- <script type="text/javascript" src="lib/ConfigFireBase.js"></script>
- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
- <script type="module" src="lib/index.js"></script>
- <script type="module" src="main.js"></script>
+<div class="content">
+    <section>
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div>
+            <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
+        </div>
+        <div>
+          <h3 class = "margin-t">Te damos la bienvenida a WorldPet</h3>
+        </div>
+        <div>
+        <div>
+          <input id="txtEmail" type = "email" class = "margin-b border" placeholder="Correo"/>
+        </div>
+        <div>
+          <input id="txtPassword" type = "password" class = "margin-b border" placeholder="Contraseña"/>
+        </div>
+        <div>
+          <button id = "btnLogIn" class="type logIn margin-b border">Iniciar sesión</button>
+        </div>
+        <div>
+          <button type="button" id="button-facebook" class="type facebook margin-b margin-t border"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
+        </div>
+        <div>
+          <button type="button" id="button-google" class="type google margin-b border"><img class = "icon" src = "img/search.png"></img>  Continuar con Google</button>
+        </div>
+        <div>
+          <button id = "btnSignUp" class="type logIn margin-b">Crear cuenta</button>
+        </div>
+        <div id = "windowModal">
+         <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Registrarse</h2>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="nombres" placeholder = " Ingresa tus nombres"></input>
+            <input type="text" id="apellidos" placeholder = " Ingresa tus apellidos"></input>
+            <input id="emailSignUp" type = "email" placeholder=" Correo"/>
+            <input id="passwordSignUp" type = "password" placeholder=" Contraseña"/>
+          </div>
+          <div class="modal-footer">
+            <button class="type logIn" id=signUpUser>Registrar</button>
+          </div> 
+         </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+  <script type="text/javascript" src="lib/ConfigFireBase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  <script type="module" src="lib/index.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
