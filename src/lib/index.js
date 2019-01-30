@@ -1,39 +1,45 @@
+const createDocumentUID = (id , data) => {
+  firebase.firestore().collection('users').doc(id).set({
+    id: data.uid,
+    dateUser: data.user,
+    nameUser: data.email
+  });
+};
 export const authenticateGoogleAccount = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithPopup(provider).then(result => {
-      const token = result.credential.accessToken;
-      const user = result.user;
-    }).catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
-      const credential = error.credential;
-      if (error.code === 'auth/account-exists-with-different-credential') {
-        alert('Es el mismo usuario');
-      }
-    });
+    firebase.auth().signInWithPopup(provider)
+      .then(result => {
+        const uid = result.user.uid;
+        const user = result.user.displayName;  
+        const email = result.user.email;
+        createDocumentUID(uid, {uid,user,email});
+      }).catch(error => {
+        const errorCode = error.code;
+        if (errorCode === 'auth/account-exists-with-different-credential') {
+          return 'Es el mismo usuario';
+        }
+      });
   } else {
     firebase.auth().signOut();
   }
 };
-
 export const authenticateFacebookAccount = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
     firebase.auth().signInWithPopup(provider)
-      .then(function(result) {
-        const token = result.credential.accessToken;
-        const user = result.user;    
+      .then(result => {
+        const uid = result.user.uid;
+        const user = result.user.displayName;  
+        const email = result.user.email;
+
+        createDocumentUID(uid, {uid, user, email});
       }).catch(error => {
         const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-        if (error.code === 'auth/account-exists-with-different-credential') {
-          alert('Es el mismo usuario');
+        if (errorCode === 'auth/account-exists-with-different-credential') {
+          return 'Es el mismo usuario';
         }
       });
   } else {
