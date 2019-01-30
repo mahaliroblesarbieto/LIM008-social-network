@@ -41,21 +41,26 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-const email = document.getElementById('emailSignUp');
-const password = document.getElementById('passwordSignUp');
 
-export const createUserWithEmailAndPassword = () => {
-  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+export const createUserWithEmailAndPassword = (email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  // .then(function(result) {
+
+    // })
     .catch(function(error) {
       const errorCode = error.code;
-      const errorMessage = error.message;
+      if (errorCode === 'auth/email-already-in-use') {
+        return 'Correo electrónico ya registrado';
+      } else if (errorCode === 'auth/invalid-email') {
+        return 'Correo electrónico inválido';
+      } 
     });
 };
 
-const emailLog = document.getElementById('txtEmail');
-const passwordLog = document.getElementById('txtPassword');
-export const authenticateWithEmailAndPassword = () => {
-  firebase.auth().signInWithEmailAndPassword(emailLog.value, passwordLog.value)
+
+export const authenticateWithEmailAndPassword = (email, password) => {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -64,6 +69,5 @@ export const authenticateWithEmailAndPassword = () => {
       } else {
         alert(errorMessage);
       }
-      console.log(error);
     });
 };

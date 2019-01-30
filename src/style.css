@@ -114,18 +114,18 @@ h3{
     background-color: #ffffff;
 }
 
-
 /* Close button*/
 .close {
-    color: white;
+    color:#000;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
     cursor: pointer;
   }
+.error{
+    color: red;
+}  
+section{
+    color: #000;
+    height: 30px;
+}

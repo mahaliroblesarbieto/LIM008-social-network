@@ -11,9 +11,10 @@
 
 </head>
 <body>
-<div class="content">
+  <div class="content" id = "content">
     <section>
       <div class="col-md-12 col-sm-12 col-xs-12">
+      <div>
         <div>
             <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
         </div>
@@ -27,9 +28,11 @@
         <div>
           <input id="txtPassword" type = "password" class = "margin-b border" placeholder="Contraseña"/>
         </div>
-        <div>
-          <button id = "btnLogIn" class="type logIn margin-b border">Iniciar sesión</button>
-        </div>
+        <nav>
+        <li>
+          <a  href="#/accesorios" id = "btnLogIn" class="type logIn margin-b border">Iniciar sesión</a>
+        </li>
+        </nav>
         <div>
           <button type="button" id="button-facebook" class="type facebook margin-b margin-t border"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
         </div>
@@ -38,7 +41,9 @@
         </div>
         <div>
           <button id = "btnSignUp" class="type logIn margin-b">Crear cuenta</button>
-        </div>
+        </div> 
+      </div> 
+      <section id = "container"></section>
         <div id = "windowModal">
          <div class="modal-content">
           <div class="modal-header">
@@ -46,14 +51,16 @@
             <h2>Registrarse</h2>
           </div>
           <div class="modal-body">
-            <input type="text" id="nombres" placeholder = " Ingresa tus nombres"></input>
-            <input type="text" id="apellidos" placeholder = " Ingresa tus apellidos"></input>
-            <input id="emailSignUp" type = "email" placeholder=" Correo"/>
-            <input id="passwordSignUp" type = "password" placeholder=" Contraseña"/>
+            <input type="text" id="nombres" class = "margin-b border" placeholder = " Ingresa tus nombres"></input>
+            <input type="text" id="apellidos" class = "margin-b border" placeholder = " Ingresa tus apellidos"></input>
+            <input id="emailSignUp" type = "email" class = "margin-b border" placeholder=" Correo"/>
+            <div id= "errorEmail" class="error"></div>
+            <input id="passwordSignUp" type = "password" class = "margin-b border" placeholder=" Contraseña"/>
+            <div id= "errorPassword" class="error"></div>
           </div>
-          <div class="modal-footer">
-            <button class="type logIn" id=signUpUser>Registrar</button>
-          </div> 
+          <li class="modal-footer">
+            <a class="type logIn" id=signUpUser href="#/home">Registrar</a>
+          </li> 
          </div>
         </div>
       </div>
@@ -61,9 +68,11 @@
   </div>
   
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
-  <script type="text/javascript" src="lib/ConfigFireBase.js"></script>
+  <script type="text/javascript" src="ConfigFireBase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
   <script type="module" src="lib/index.js"></script>
   <script type="module" src="main.js"></script>
+  <script type="module" src="app.js"></script>
+
 </body>
 </html>

@@ -7,15 +7,24 @@ document.getElementById('button-google').addEventListener('click', authenticateG
 document.getElementById('button-facebook').addEventListener('click', authenticateFacebookAccount);
 const modal = document.getElementById('windowModal');
 document.getElementsByClassName('close')[0].addEventListener('click', () => {
-  modal.style.display = "none";
+  modal.style.display = 'none';
 });
 document.getElementById('btnSignUp').addEventListener('click', () => {
-modal.style.display = "block";
+  modal.style.display = 'block';
 });
-window.addEventListener('click', (event) =>{
-  if(event.target == modal){
-    modal.style.display = "none";
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = 'none';
   }
 });
-document.getElementById('signUpUser').addEventListener('click', createUserWithEmailAndPassword);
-document.getElementById('btnLogIn').addEventListener('click',authenticateWithEmailAndPassword);
+// DOM para createUser
+const emailSign = document.getElementById('emailSignUp');
+const passwordSign = document.getElementById('passwordSignUp');
+
+const emailLog = document.getElementById('txtEmail');
+const passwordLog = document.getElementById('txtPassword');
+
+document.getElementById('signUpUser').addEventListener('click', () => {
+  createUserWithEmailAndPassword(emailSign.value, passwordSign.value);
+});
+document.getElementById('btnLogIn').addEventListener('click', authenticateWithEmailAndPassword(emailLog, passwordLog));
