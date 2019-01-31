@@ -27,6 +27,8 @@ export const authenticateFacebookAccount = () => {
       .then(function(result) {
         const token = result.credential.accessToken;
         const user = result.user;    
+        
+        console.log(href.location);
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -36,9 +38,9 @@ export const authenticateFacebookAccount = () => {
           alert('Es el mismo usuario');
         }
       });
-  } else {
+  } /*else {
     firebase.auth().signOut();
-  }
+  }*/
 };
 
 const email = document.getElementById('txtEmail');

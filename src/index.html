@@ -4,31 +4,30 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet" href="css/bootstrap.min.css">
  <link href="style.css" rel="stylesheet" type="text/css"/>
  <title>Document</title>
 </head>
-<body>
- <div class="content">
-   <section>
-     <div class="col-md-12 col-sm-12 col-xs-12">
-         <div>
-             <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
-           </div>
+<body class="loginImg" >
+<section  >
+ 
+   <div>
+     <h1>WordPet</h1>
+     <div >
+        <form class="form_login responsive_form">
        <div>
-         <h3>Te damos la bienvenida a WorldPet</h3>
+         <h2 class="title-form title-form-size">Bienvenido</h2>
        </div>
-       <div>
-         <input id="txtEmail" type = "email" placeholder="Correo"/>
+       <div class="margin-form">
+         <input id="txtEmail" class="input-form" type = "email" placeholder="Correo"/>
        </div>
-       <div>
-         <input id="txtPassword" type = "password" placeholder="Contraseña"/>
+       <div class="margin-form">
+         <input id="txtPassword" class="input-form" type = "password" placeholder="Contraseña"/>
        </div>
-       <div>
-         <button class="type logIn" id = "btnLogIn" class=" btn btn-action">Iniciar sesión</button>
+       <div class="margin-form">
+         <button class="type logIn" class="input-form" id = "btnLogIn" class=" btn btn-action">Iniciar sesión</button>
        </div>
-       <div>
-         <button class="type facebook" type="button" id="button-facebook"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
+       <div class="margin-form">
+         <button class="type facebook" class="input-form" type="button" id="button-facebook"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
        </div>
        <div>
          <button class="type google" type="button" id="button-google"><img class = "icon" src = "img/search.png"></img>  Continuar con Google</button>
@@ -36,10 +35,11 @@
        <div>
          <button class="type logIn" id = "btnSignUp" class=" btn btn-secondary">Crear cuenta</button>
        </div>
+      </form>
      </div>
-   </section>
- </div>
+    </div>
 
+  </section>
  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
  <script type="text/javascript" src="lib/ConfigFireBase.js"></script>
  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>

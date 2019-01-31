@@ -1,3 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+.loginImg{
+    background-image: url(img/3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.img-responsive{
+    max-width: 100%;
+    height: auto;
+  }
+.form_login{
+    background: rgba(25, 24, 24, 0.47);
+    box-shadow: 0px 2px 13px 0px rgba(0,0,0,0.75);
+}
+.responsive_form{
+    width: 80%;
+    padding: 1.5em 1em;
+    margin: 1em auto;
+}
+.title-form-size{
+    font-size: 1.15em;
+}
+.title-form{
+    color: #fdd103;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.margin-form{
+    margin-top: 1.5em;
+}
+.input-form{
+    padding: 0.9em 1em;
+    color: #fff;
+    width: 88%;
+    font-size: 1em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    background: rgba(236, 236, 236, 0.37);
+    font-family: 'Dosis', sans-serif;
+    width: 100%;
+}
 .type{
     color: #ffffff;
     font-weight: bold;
@@ -34,13 +83,13 @@
     margin-bottom: 10px
 }
 
-input{
+/*input{
     background: #ffffff;
     border: 1px solid rgb(152, 153, 155);
     border-radius: 5px;
     text-align: left;
     width: 100%;
-    /*margin: 5px;*/
+    margin: 5px;
     margin-bottom: 10px;
     font-family: -apple-
     system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
@@ -49,7 +98,7 @@ input{
     "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     color:  rgb(152, 153, 155);
     height: 35px
-}
+}*/
 
 .logIn{
     background: rgb(43, 238, 131);
@@ -71,3 +120,29 @@ h3{
     margin: 50px 0px 10px 120px;
 }
 
+@media screen and (min-width:768px) and (max-width:1024px) { 
+    .responsive_form {
+        width: 61%;
+    }
+  }
+@media screen and (min-width:1024px) and (max-width:1316px){
+    .responsive_form{
+        width: 41%;
+        margin: 2em 2em;
+        float: right;
+    }
+    .title-form-size{
+        font-size:1.7em;
+    }
+}
+@media screen and (min-width:1316px) and (max-width:1440px){
+    .responsive_form{
+        width: 37%;
+        margin: 2em 8em;
+        float: right;
+    }
+    .title-form-size{
+        font-size: 2em;
+    }
+    
+}
