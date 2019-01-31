@@ -29,12 +29,8 @@ h3{
     height: 50%;
 }
 
-.margin-b{
-    margin-bottom: 0px
-}
-
 .border {
-    border-radius: 5px
+    border-radius: 15px;
 }
 
 input {
@@ -45,7 +41,8 @@ input {
   background: #ffffff;
   border: 1px solid rgb(152, 153, 155);
   color:  rgb(152, 153, 155);
-  height: 37px
+  height: 37px;
+  padding: 20px
 }
 /* para colocar el placeholder a la izquierda */
 ::-webkit-input-placeholder {
@@ -76,7 +73,7 @@ a{
     border: none;
     margin: auto;
     text-align: center;
-	padding: 10px;
+	padding: 15px;
     width: 100%;
     box-shadow: 0 3px 3px rgba(0,0,0,0.16);
 }
@@ -116,6 +113,7 @@ a{
     content: "";
     clear: both;
     display: table;
+    
 }
 /*Para los teléfonos celulares*/
 [class*="col-"] {
