@@ -6,7 +6,14 @@ const changeTmp = (hash) => {
 };
     
 const viewTmp = (routers) => {
-  const router = routers.substr(2, routers.length - 2);
+   let router;
+   console.log(routers)
+   if (routers) {
+     router = routers.substr(2, routers.length - 2);
+   } else {
+     router = 'registry';
+   }
   const container = document.getElementById('container');
-  container.innerHTML = objTemp[router];
+  container.innerHTML = '';
+  container.appendChild(objTemp[router]())
 };

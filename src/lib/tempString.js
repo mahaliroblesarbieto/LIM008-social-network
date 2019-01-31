@@ -1,10 +1,13 @@
 export { objTemp };
 const objTemp = {
-  home: 
-   `<div> <p> Bienvenido </p> 
-    </div>`,
-  registry: 
-   `<div class="row">
+  home: () => {
+    const tmpl =  `<p> Bienvenido </p>`
+    const elem = document.createElement('div');
+    elem.innerHTML = tmpl;
+    return elem;
+  },
+  registry: () => {
+    const tmpl = `<div class="row">
       <div class="col-12 col-s-12">
        <h3>Te damos la bienvenida a Petlover</h3>
       </div>
@@ -31,10 +34,22 @@ const objTemp = {
     </div>
     <div class="row">
       <div class="col-12 col-s-12">
-        <a class="type" id=signUpUser class = "border" href="#/home">
+        <a class="type" id=signUpUser class = "border">
           <div class="type logIn border">Registrar</div>
         </a>
       </div>
     </div>`
+    const elem = document.createElement('div');
+    elem.innerHTML = tmpl;
+
+    const btnOnClick = () => {
+      alert('interactivo!!!!!!')
+      window.location.hash = '#/home';
+    }
+
+    const btn = elem.querySelector('#signUpUser')
+    btn.addEventListener('click', btnOnClick)
+    return elem;
+  }
 };
 
