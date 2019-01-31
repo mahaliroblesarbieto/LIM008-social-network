@@ -27,7 +27,7 @@ const objTemp = {
 </div>
 `,
 
-  accesorios: `<div class="position">
+  nextPage: `<div class="position">
     <h2 class="text-center">Bienvenido</h2>`,
 
   different: ` <div id="message">

@@ -1,3 +1,6 @@
+
+
+
 export const authenticateGoogleAccount = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -60,7 +63,9 @@ export const createUserWithEmailAndPassword = (email, password) => {
 
 export const authenticateWithEmailAndPassword = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
-    .then
+//   window.addEventListener('load', changeTmp(window.location.hash));
+// if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+// .then
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
