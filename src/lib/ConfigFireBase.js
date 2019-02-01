@@ -1,3 +1,4 @@
+
 const config = {
   apiKey: 'AIzaSyBhw65cEJ6zfQx3yQhCnR93-1adgjTzT64',
   authDomain: 'red-social-f7001.firebaseapp.com',
@@ -6,4 +7,6 @@ const config = {
   storageBucket: 'red-social-f7001.appspot.com',
   messagingSenderId: '732661442210'
 };
+
 firebase.initializeApp(config);
+

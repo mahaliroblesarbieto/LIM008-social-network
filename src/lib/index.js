@@ -6,8 +6,6 @@ export const authenticateGoogleAccount = () => {
   firebase.auth().signInWithPopup(provider)
     .then(result => {
       const user = result.user.displayName;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -24,9 +22,7 @@ export const authenticateFacebookAccount = () => {
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
         const token = result.credential.accessToken;
-        const user = result.user;
-        // window.addEventListener('load', changeTmp(window.location.hash));
-        // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);    
+        const user = result.user;   
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -47,14 +43,10 @@ const password = document.getElementById('txtPassword');
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
     .then(function(result) {
-      const user = result.user;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);    
+      const user = result.user;    
     }).catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
     });
 };
 
@@ -75,5 +67,6 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
-window.addEventListener('load', (evt) => changeTmp() );
+window.addEventListener('load', () => changeTmp());
 if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+
