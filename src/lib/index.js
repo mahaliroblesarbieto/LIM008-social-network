@@ -17,7 +17,7 @@ export const authenticateGoogleAccount = () => {
       const uid = result.user.uid;
       const user = result.user.displayName;
       const email = result.user.email;
-      // createDocumentUID(uid, {uid, user, email});
+      createDocumentUID(uid, {uid, user, email});
       location.hash = '#/home';
       changeTmp(location.hash);
     })
