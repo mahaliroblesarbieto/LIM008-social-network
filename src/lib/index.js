@@ -1,13 +1,25 @@
 import {changeTmp} from './app.js';
 
+export const createDocumentUID = (id, data) => {
+  console.log('create');
+  firebase.firestore().collection('users').doc(id).set({
+    id: data.uid,
+    dateUser: data.user,
+    nameUser: data.email
+  });
+};
+
 export const authenticateGoogleAccount = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider)
     .then(result => {
+      const uid = result.user.uid;
       const user = result.user.displayName;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+      const email = result.user.email;
+      // createDocumentUID(uid, {uid, user, email});
+      location.hash = '#/home';
+      changeTmp(location.hash);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -24,9 +36,7 @@ export const authenticateFacebookAccount = () => {
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
         const token = result.credential.accessToken;
-        const user = result.user;
-        // window.addEventListener('load', changeTmp(window.location.hash));
-        // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);    
+        const user = result.user;   
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -41,25 +51,19 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-const email = document.getElementById('emailSignUp');
-const password = document.getElementById('passwordSignUp');
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
 
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
     .then(function(result) {
-      const user = result.user;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);    
+      const user = result.user;    
     }).catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // window.addEventListener('load', changeTmp(window.location.hash));
-      // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
     });
 };
 
-const emailLog = document.getElementById('txtEmail');
-const passwordLog = document.getElementById('txtPassword');
 export const authenticateWithEmailAndPassword = () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
@@ -77,5 +81,11 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
-window.addEventListener('load', (evt) => changeTmp() );
-if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+export const initRouter = () => {
+  window.addEventListener('load', changeTmp(window.location.hash));
+  if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+};
+
+// window.addEventListener('load', () => changeTmp());
+// if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+

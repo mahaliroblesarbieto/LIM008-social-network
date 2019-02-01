@@ -1,9 +1,17 @@
 export { objTemp };
 const objTemp = {
   home: () => {
-    const tmpl =  `<p> Bienvenido </p>`
+    const tmpl = `<h3 id ="principal"> Bienvenido
+    </h3>`;
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
+
+    const btnOnClickGoogle = () => {
+      window.location.hash = '#/home';
+    };
+
+    const btn = elem.querySelector('#principal');
+    btn.addEventListener('click', btnOnClickGoogle);
     return elem;
   },
   registry: () => {
@@ -38,18 +46,18 @@ const objTemp = {
           <div class="type logIn border">Registrar</div>
         </a>
       </div>
-    </div>`
+    </div>`;
+
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
 
     const btnOnClick = () => {
-      alert('interactivo!!!!!!')
+      alert('interactivo!!!!!!');
       window.location.hash = '#/home';
-    }
+    };
 
-    const btn = elem.querySelector('#signUpUser')
-    btn.addEventListener('click', btnOnClick)
+    const btn = elem.querySelector('#signUpUser');
+    btn.addEventListener('click', btnOnClick);
     return elem;
   }
 };
-
