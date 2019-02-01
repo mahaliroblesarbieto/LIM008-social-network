@@ -115,5 +115,13 @@ AUTENTICACIÓN CON FACEBOOK
 
 ## Conclusión de prueba con el producto HTML
 
+PRIMERA PRUEBA
+![Sin titulo](src/img/html1.jpg)
+
+- El usuario manifestó que se sentía confundido ya que veía la distribución de botones e input muy unidas.
+- No diferenciaba el botón de iniciar sesión con el de registrarse.
+- Que no apreciaba bien el logo de la aplicación y tampoco el título.
+- No diferencia los espacios en los quetenía que colocar su correo y contraseña con los de los botones. 
+
 
 
