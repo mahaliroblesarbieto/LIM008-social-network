@@ -1,39 +1,104 @@
+// 
+import {signUpOnSubmit} from './main.js';
 export { objTemp };
 const objTemp = {
-  home: ` <div>
-    <a href="index.html"><img class="img-logo" src="img/icono-principal.jpg" alt="logo worldpet"></a>
-</div>
-<div>
-  <h3 class = "margin-t">Te damos la bienvenida a WorldPet</h3>
-</div>
-<div>
-<div>
-  <input id="txtEmail" type = "email" class = "margin-b border" placeholder="Correo"/>
-</div>
-<div>
-  <input id="txtPassword" type = "password" class = "margin-b border" placeholder="Contraseña"/>
-</div>
-<div>
-  <button id = "btnLogIn" class="type logIn margin-b border">Iniciar sesión</button>
-</div>
-<div>
-  <button type="button" id="button-facebook" class="type facebook margin-b margin-t border"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</button>
-</div>
-<div>
-  <button type="button" id="button-google" class="type google margin-b border"><img class = "icon" src = "img/search.png"></img>  Continuar con Google</button>
-</div>
-<div>
-  <button id = "btnSignUp" class="type logIn margin-b">Crear cuenta</button>
-</div>
-`,
+  mainPage: () => {
+    const tmpl = `<section>
+    <div class="row">
+      <div class="col-s-12 col-12">
+          <div class="img-logo">
+            <img class="logo" src="img/icono-principal.jpg" alt="logo worldpet">
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <h3 class = "margin-t" >PETLOVER</h3>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col-12 col-s-12">
+        <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
+       </div>
+       </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <input id="txtPassword" type = "current-password" class = "border" placeholder="Contraseña"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <a id = "btnLogIn" class="type logIn border" href="#/home">Iniciar Sesión</a>
+      </div>
+    </div>
+    <div class="row margin-t">
+      <div class="col-12 col-s-12">
+        <a  id="button-facebook" href="#/home" class="type facebook border"><!--<img class = "icon" src = "img/facebook.png"></img>-->  Continuar con Facebook</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <a  id="button-google"  href="#/home">
+         <div class="type google border">
+             <!--<img class = "icon" src = "img/search.png"></img>-->  Continuar con Google 
+         </div>
+       </a>
+      </div> 
+    </div>
+    <div class="row margin-t">
+      <div class="col-12 col-s-12">
+        <a id = "btnSignUp" href="#/registry" class="type border create-count"> Crear Cuenta</a>
+      </div>
+    </div>
+  </section>`;
 
-  nextPage: `<div class="position">
-    <h2 class="text-center">Bienvenido</h2>`,
+    const elem = document.createElement('form');
+    elem.innerHTML = tmpl;
+    return elem;
+  },
 
-  different: ` <div id="message">
-<h2>404</h2>
-<h1>Página no encontrada</h1>
-<p>El archivo especificado no se encontró en este sitio web. Por favor, compruebe la URL para errores y vuelva a intentarlo.</p>
-</div>
-`
+  home: () => {
+    const tmpl = `<p> Bienvenido </p>`;
+    const elem = document.createElement('div');
+    elem.innerHTML = tmpl;
+    return elem;
+  },
+  registry: () => {
+    const tmpl = `<div class="row">
+      <div class="col-12 col-s-12">
+       <h3>Te damos la bienvenida a Petlover</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+       <input type="text" id="nombres" class = "border" placeholder = " Ingresa tus nombres"></input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+       <input type="text" id="apellidos" class = "border" placeholder = " Ingresa tus apellidos"></input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+       <input id="emailSignUp" type = "email" class = "border" placeholder=" Correo"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+       <input id="passwordSignUp" type = "password" class = "border" placeholder=" Contraseña"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <button class="type" id="signUpUser"  class="type logIn border">Registrar</button>
+      </div>
+    </div>`;
+    
+    const elem = document.createElement('form');
+    elem.innerHTML = tmpl;
+    const btnSignUp = elem.querySelector('#signUpUser');
+    btnSignUp.addEventListener('click', signUpOnSubmit);
+    return elem;
+  }
 };

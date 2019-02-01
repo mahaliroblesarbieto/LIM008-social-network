@@ -1,6 +1,3 @@
-
-
-
 export const authenticateGoogleAccount = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -47,9 +44,6 @@ export const authenticateFacebookAccount = () => {
 
 export const createUserWithEmailAndPassword = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-  // .then(function(result) {
-
-    // })
     .catch(function(error) {
       const errorCode = error.code;
       if (errorCode === 'auth/email-already-in-use') {
@@ -63,9 +57,6 @@ export const createUserWithEmailAndPassword = (email, password) => {
 
 export const authenticateWithEmailAndPassword = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
-//   window.addEventListener('load', changeTmp(window.location.hash));
-// if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
-// .then
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
