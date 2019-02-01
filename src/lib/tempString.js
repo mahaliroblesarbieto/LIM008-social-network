@@ -5,13 +5,6 @@ const objTemp = {
     </h3>`;
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
-
-    const btnOnClickGoogle = () => {
-      window.location.hash = '#/home';
-    };
-
-    const btn = elem.querySelector('#principal');
-    btn.addEventListener('click', btnOnClickGoogle);
     return elem;
   },
   registry: () => {

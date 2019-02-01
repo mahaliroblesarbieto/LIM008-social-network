@@ -28,7 +28,7 @@ export const authenticateGoogleAccount = () => {
       }
     });
 };
-export const Popup = () =>{
+export const Popup = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   provider.addScope('public_profile');
  return firebase.auth().signInWithPopup(provider);
