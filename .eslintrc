@@ -4,10 +4,6 @@
     "node": true,
     "es6": true
   },
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
   "rules": {
     "allowTernary": true,
     "linebreak-style": 0,
@@ -37,13 +33,9 @@
     "no-const-assign": "error",
     "no-var": "error"
   },
-  "extends": "eslint:recommended",
-  "globals": {
-    "example": false,
-    "google": false,
-    "describe": false,
-    "it": false,
-    "expect": false,
-    "firebase": false
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   }
 }
+  

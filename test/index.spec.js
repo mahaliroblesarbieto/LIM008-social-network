@@ -8,6 +8,10 @@ describe('authenticateGoogleAccount', () => {
   it('debería ser una función', () => {
     expect(typeof authenticateGoogleAccount).toBe('function');
   });
+
+  it('debería ser una función', () => {
+    expect(typeof authenticateGoogleAccount).toBe('function');
+  });
 });
 
 describe('authenticateFacebookAccount', () => {

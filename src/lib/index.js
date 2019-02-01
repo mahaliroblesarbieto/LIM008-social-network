@@ -1,58 +1,40 @@
-const createDocumentUID = (id , data) => {
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    dateUser: data.user,
-    nameUser: data.email
-  });
-};
+import {changeTmp} from './app.js';
+
 export const authenticateGoogleAccount = () => {
-  if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/plus.login');
-    firebase.auth().signInWithPopup(provider)
-      .then(result => {
-        const uid = result.user.uid;
-        const user = result.user.displayName;  
-        const email = result.user.email;
-        createDocumentUID(uid, {uid,user,email});
-      }).catch(error => {
-        const errorCode = error.code;
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          return 'Es el mismo usuario';
-        }
-      });
-  } else {
-    firebase.auth().signOut();
-  }
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/plus.login');
+  firebase.auth().signInWithPopup(provider)
+    .then(result => {
+      const user = result.user.displayName;
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
 };
+
 export const authenticateFacebookAccount = () => {
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
     firebase.auth().signInWithPopup(provider)
-<<<<<<< HEAD
       .then(function(result) {
         const token = result.credential.accessToken;
-        const user = result.user;    
-        
-        console.log(href.location);
-=======
-      .then(result => {
-        const uid = result.user.uid;
-        const user = result.user.displayName;  
-        const email = result.user.email;
-
-        createDocumentUID(uid, {uid, user, email});
->>>>>>> 94a3706689c18efac9dc80ab37de529945af8400
+        const user = result.user;   
       }).catch(error => {
         const errorCode = error.code;
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          return 'Es el mismo usuario';
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = error.credential;
+        if (error.code === 'auth/account-exists-with-different-credential') {
+          alert('Es el mismo usuario');
         }
       });
-  } /*else {
+  } else {
     firebase.auth().signOut();
-  }*/
+  }
 };
 
 const email = document.getElementById('txtEmail');
@@ -60,7 +42,9 @@ const password = document.getElementById('txtPassword');
 
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
-    .catch(function(error) {
+    .then(function(result) {
+      const user = result.user;    
+    }).catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
@@ -68,6 +52,9 @@ export const createUserWithEmailAndPassword = () => {
 
 export const authenticateWithEmailAndPassword = () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+    .then(result => {
+      const user = result.user.displayName;
+    })
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -79,3 +66,6 @@ export const authenticateWithEmailAndPassword = () => {
       console.log(error);
     });
 };
+
+window.addEventListener('load', () => changeTmp());
+if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
