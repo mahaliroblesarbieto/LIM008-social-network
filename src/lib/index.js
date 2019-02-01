@@ -37,8 +37,8 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-const email = document.getElementById('emailSignUp');
-const password = document.getElementById('passwordSignUp');
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
 
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
@@ -50,8 +50,6 @@ export const createUserWithEmailAndPassword = () => {
     });
 };
 
-const emailLog = document.getElementById('txtEmail');
-const passwordLog = document.getElementById('txtPassword');
 export const authenticateWithEmailAndPassword = () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
