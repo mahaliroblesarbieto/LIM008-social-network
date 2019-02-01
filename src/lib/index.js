@@ -34,13 +34,18 @@ export const Popup = () =>{
  return firebase.auth().signInWithPopup(provider);
 };
 export const authenticateFacebookAccount = () => {
+  console.log('sandra');
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
-        const token = result.credential.accessToken;
-        const user = result.user;   
+        const uid = result.user.uid;
+        const user = result.user.displayName;
+        const email = result.user.email;
+      // createDocumentUID(uid, {uid, user, email});
+        location.hash = '#/home';
+      changeTmp(location.hash);
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -85,11 +90,8 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
-<<<<<<< HEAD
-=======
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
 
->>>>>>> 5d4a3822b0ae44d688cb5be25221c0a62bf7ef03
