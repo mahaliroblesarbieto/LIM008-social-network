@@ -165,35 +165,3 @@ a{
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 }
-
-
-
-
-
-
-@media screen and (min-width:768px) and (max-width:1024px) { 
-    .responsive_form {
-        width: 61%;
-    }
-  }
-@media screen and (min-width:1024px) and (max-width:1316px){
-    .responsive_form{
-        width: 41%;
-        margin: 2em 2em;
-        float: right;
-    }
-    .title-form-size{
-        font-size:1.7em;
-    }
-}
-@media screen and (min-width:1316px) and (max-width:1440px){
-    .responsive_form{
-        width: 37%;
-        margin: 2em 8em;
-        float: right;
-    }
-    .title-form-size{
-        font-size: 2em;
-    }
-    
-}
