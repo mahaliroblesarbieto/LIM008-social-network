@@ -25,6 +25,8 @@ export const authenticateFacebookAccount = () => {
       .then(function(result) {
         const token = result.credential.accessToken;
         const user = result.user;
+        window.location.hash="#/home";
+        console.log(window.location.hash);
         // window.addEventListener('load', changeTmp(window.location.hash));
         // if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);    
       }).catch(error => {
