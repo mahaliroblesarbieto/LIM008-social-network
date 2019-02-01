@@ -1,17 +1,66 @@
+// 
+import {signUpOnSubmit} from '../main.js';
 export { objTemp };
 const objTemp = {
+  mainPage: () => {
+    const tmpl = `<section>
+    <div class="row">
+      <div class="col-s-12 col-12">
+          <div class="img-logo">
+            <img class="logo" src="img/icono-principal.jpg" alt="logo worldpet">
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <h3 class = "margin-t" >PETLOVER</h3>
+      </div>
+    </div>
+    <div class="row">
+       <div class="col-12 col-s-12">
+        <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
+       </div>
+       </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <input id="txtPassword" type = "current-password" class = "border" placeholder="Contraseña"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <a id = "btnLogIn" class="type logIn border" href="#/home">Iniciar Sesión</a>
+      </div>
+    </div>
+    <div class="row margin-t">
+      <div class="col-12 col-s-12">
+        <a  id="button-facebook" href="#/home" class="type facebook border"><!--<img class = "icon" src = "img/facebook.png"></img>-->  Continuar con Facebook</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-s-12">
+        <a  id="button-google"  href="#/home">
+         <div class="type google border">
+             <!--<img class = "icon" src = "img/search.png"></img>-->  Continuar con Google 
+         </div>
+       </a>
+      </div> 
+    </div>
+    <div class="row margin-t">
+      <div class="col-12 col-s-12">
+        <a id = "btnSignUp" href="#/registry" class="type border create-count"> Crear Cuenta</a>
+      </div>
+    </div>
+  </section>`;
+
+    const elem = document.createElement('form');
+    elem.innerHTML = tmpl;
+    return elem;
+  },
+
   home: () => {
-    const tmpl = `<h3 id ="principal"> Bienvenido
-    </h3>`;
+    const tmpl = `<p> Bienvenido </p>`;
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
-
-    const btnOnClickGoogle = () => {
-      window.location.hash = '#/home';
-    };
-
-    const btn = elem.querySelector('#principal');
-    btn.addEventListener('click', btnOnClickGoogle);
     return elem;
   },
   registry: () => {
@@ -42,22 +91,14 @@ const objTemp = {
     </div>
     <div class="row">
       <div class="col-12 col-s-12">
-        <a class="type" id=signUpUser class = "border">
-          <div class="type logIn border">Registrar</div>
-        </a>
+        <button type="button" class="type" id="signUpUser"  class="type logIn border">Registrar</button>
       </div>
     </div>`;
-
-    const elem = document.createElement('div');
+    
+    const elem = document.createElement('form');
     elem.innerHTML = tmpl;
-
-    const btnOnClick = () => {
-      alert('interactivo!!!!!!');
-      window.location.hash = '#/home';
-    };
-
-    const btn = elem.querySelector('#signUpUser');
-    btn.addEventListener('click', btnOnClick);
+    const btnSignUp = elem.querySelector('#signUpUser');
+    btnSignUp.addEventListener('click', signUpOnSubmit);
     return elem;
   }
 };
