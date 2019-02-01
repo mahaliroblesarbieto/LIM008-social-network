@@ -86,6 +86,3 @@ export const initRouter = () => {
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
 
-// window.addEventListener('load', () => changeTmp());
-// if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
-
