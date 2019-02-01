@@ -1,6 +1,6 @@
 import {changeTmp} from './app.js';
 
-export const createDocumentUID = (id , data) => {
+export const createDocumentUID = (id, data) => {
   console.log('create');
   firebase.firestore().collection('users').doc(id).set({
     id: data.uid,
@@ -14,7 +14,12 @@ export const authenticateGoogleAccount = () => {
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider)
     .then(result => {
+      const uid = result.user.uid;
       const user = result.user.displayName;
+      const email = result.user.email;
+      // createDocumentUID(uid, {uid, user, email});
+      location.hash = '#/home';
+      changeTmp(location.hash);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -30,14 +35,28 @@ export const Popup = () =>{
 };
 export const authenticateFacebookAccount = () => {
   if (!firebase.auth().currentUser) {
-    Popup();
-    } else {
+    const provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('public_profile');
+    firebase.auth().signInWithPopup(provider)
+      .then(function(result) {
+        const token = result.credential.accessToken;
+        const user = result.user;   
+      }).catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = error.credential;
+        if (error.code === 'auth/account-exists-with-different-credential') {
+          alert('Es el mismo usuario');
+        }
+      });
+  } else {
     firebase.auth().signOut();
   }
 };
 
-const email = document.getElementById('emailSignUp');
-const password = document.getElementById('passwordSignUp');
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
 
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
@@ -49,8 +68,6 @@ export const createUserWithEmailAndPassword = () => {
     });
 };
 
-const emailLog = document.getElementById('txtEmail');
-const passwordLog = document.getElementById('txtPassword');
 export const authenticateWithEmailAndPassword = () => {
   firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
@@ -68,3 +85,11 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
+<<<<<<< HEAD
+=======
+export const initRouter = () => {
+  window.addEventListener('load', changeTmp(window.location.hash));
+  if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+};
+
+>>>>>>> 5d4a3822b0ae44d688cb5be25221c0a62bf7ef03

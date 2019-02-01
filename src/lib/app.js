@@ -2,10 +2,13 @@ export {changeTmp};
 import {objTemp} from './tempString.js';
 
 const changeTmp = (hash) => {
-  if (hash === '') {
-    viewTmp('#/home');
-  } else {
-    viewTmp(hash); 
+  switch (hash) {
+  case '#/home':
+    viewTmp(hash);
+    break;
+  case '#/registry':
+    viewTmp(hash);
+    break;
   }
 };
     
