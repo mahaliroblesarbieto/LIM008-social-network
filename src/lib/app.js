@@ -3,10 +3,8 @@ import {objTemp} from './tempString.js';
 
 const changeTmp = (hash) => {
   if (hash === '') {
-    viewTmp('#/home');
-  } else {
-    viewTmp(hash); 
-  }
+  } else {viewTmp(hash);
+  } 
 };
     
 const viewTmp = (routers) => {

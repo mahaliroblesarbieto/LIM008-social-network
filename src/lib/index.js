@@ -1,11 +1,25 @@
 import {changeTmp} from './app.js';
 
+export const createDocumentUID = (id, data) => {
+  console.log('create');
+  firebase.firestore().collection('users').doc(id).set({
+    id: data.uid,
+    dateUser: data.user,
+    nameUser: data.email
+  });
+};
+
 export const authenticateGoogleAccount = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider)
     .then(result => {
+      const uid = result.user.uid;
       const user = result.user.displayName;
+      const email = result.user.email;
+      // createDocumentUID(uid, {uid, user, email});
+      location.hash = '#/home';
+      changeTmp(location.hash);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -67,6 +81,11 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
-window.addEventListener('load', () => changeTmp());
-if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+export const initRouter = () => {
+  window.addEventListener('load', changeTmp(window.location.hash));
+  if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
+};
+
+// window.addEventListener('load', () => changeTmp());
+// if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 
