@@ -2,7 +2,7 @@ import {changeTmp} from './app.js';
 
 export const createDocumentUID = (id, data) => {
   console.log('create');
-  firebase.firestore().collection('usuario').doc(id).set({
+  firebase.firestore().collection('users').doc(id).set({
     id: data.uid,
     dateUser: data.user,
     nameUser: data.email
@@ -20,8 +20,8 @@ export const authenticateGoogleAccount = () => {
       const user = result.user.displayName;
       const email = result.user.email;
       createDocumentUID(uid, {uid, user, email});
-      /* location.hash = '#/home';
-      changeTmp(location.hash);*/
+      location.hash = '#/home';
+      changeTmp(location.hash);
     })
     .catch(error => {
       const errorCode = error.code;
@@ -32,13 +32,18 @@ export const authenticateGoogleAccount = () => {
 };
 
 export const authenticateFacebookAccount = () => {
+  console.log('sandra');
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
-        const token = result.credential.accessToken;
-        const user = result.user;   
+        const uid = result.user.uid;
+        const user = result.user.displayName;
+        const email = result.user.email;
+        // createDocumentUID(uid, {uid, user, email});
+        location.hash = '#/home';
+        changeTmp(location.hash);
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
