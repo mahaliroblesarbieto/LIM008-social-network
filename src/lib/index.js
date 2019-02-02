@@ -7,6 +7,8 @@ export const createDocumentUID = (id, data) => {
     dateUser: data.user,
     nameUser: data.email
   });
+  location.hash = '#/home';
+  changeTmp(location.hash);
 };
 
 export const authenticateGoogleAccount = () => {
@@ -43,7 +45,7 @@ export const authenticateFacebookAccount = () => {
         const uid = result.user.uid;
         const user = result.user.displayName;
         const email = result.user.email;
-        createDocumentUID(uid, {uid, user, email});
+        // createDocumentUID(uid, {uid, user, email});
         location.hash = '#/home';
         changeTmp(location.hash);
       }).catch(error => {
@@ -66,8 +68,10 @@ const password = document.getElementById('txtPassword');
 export const createUserWithEmailAndPassword = () => {
   firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
     .then(function(result) {
-      const user = result.user;    
+      const user = result.user;
+      console.log(user);
     }).catch(function(error) {
+      console.log(error);
       const errorCode = error.code;
       const errorMessage = error.message;
     });

@@ -36,6 +36,7 @@
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module"
+<<<<<<< HEAD
   },
   "extends": "eslint:recommended",
   "globals": {
@@ -45,6 +46,7 @@
     "it": false,
     "expect": false,
     "firebase": false
+=======
+>>>>>>> 12fb99eea670c50c2c70385343a32d08eb1b3742
   }
 }
-  
