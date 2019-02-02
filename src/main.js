@@ -7,3 +7,5 @@ document.getElementById('button-google').addEventListener('click', authenticateG
 document.getElementById('button-facebook').addEventListener('click', authenticateFacebookAccount);
 document.getElementById('btnSignUp').addEventListener('click', createUserWithEmailAndPassword);
 document.getElementById('btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
+
+

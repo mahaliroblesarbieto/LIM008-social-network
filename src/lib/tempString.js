@@ -1,3 +1,4 @@
+import {signUpOnClick} from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   home: () => {
@@ -35,14 +36,14 @@ const objTemp = {
     </div>
     <div class="row">
       <div class="col-12 col-s-12">
-        <a class="type" id=signUpUser class = "border">
-          <div class="type logIn border">Registrar</div>
-        </a>
+        <button type="button" class="type" id="signUpUser"  class="type logIn border">Registrar</button>
       </div>
     </div>`;
-
-    const elem = document.createElement('div');
+    
+    const elem = document.createElement('form');
     elem.innerHTML = tmpl;
+    const btnSignUp = elem.querySelector('#signUpUser');
+    btnSignUp.addEventListener('click', signUpOnClick);
     return elem;
   }
 };
