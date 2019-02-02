@@ -42,38 +42,38 @@
            </div>
            <div class="row">
              <div class="col-12 col-s-12">
-               <a id = "btnLogIn" href="javascript:void(0)" class="type logIn border">  Iniciar Sesión</a>
+               <a id = "btnLogIn" class="type logIn border" href="#/home">Iniciar Sesión</a>
              </div>
            </div>
            <div class="row margin-t">
              <div class="col-12 col-s-12">
-               <a  id="button-facebook" href="#/home">
-                 <div class="type facebook border"><!--<img class = "icon" src = "img/facebook.png"></img>-->  Continuar con Facebook </div>
-              </a>
-             </div>
+               <a  id="button-facebook" href="#/home" class="type facebook border"><img class = "icon" src = "img/facebook.png"></img>  Continuar con Facebook</a>
+             </div> 
            </div>
            <div class="row">
              <div class="col-12 col-s-12">
-               <a  id="button-google" class = "col-12 col-s-12 type google border"  href="javascript:void(0)"> Continuar con Google </a>
+               <a  id="button-google"  href="#/home">
+                <div class="type google border">
+                    <img class = "icon" src = "img/search.png"></img>  Continuar con Google 
+                </div>
+              </a>
              </div> 
            </div>
            <div class="row margin-t">
              <div class="col-12 col-s-12">
-               <a id = "btnSignUp" href="#/registry">
-                <div class="type border create-count"> Crear Cuenta </div>
-              </a>
+               <button id = "btnSignUp"   href = "#/registry" class="type border create-count"> Crear Cuenta</button>
              </div>
            </div>
-         </section>
-       </div>
+         </section> 
+    </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
-  <script type="module" src="lib/ConfigFireBase.js"></script>
+  <script type="text/javascript" src="ConfigFireBase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
   <script type="module" src="lib/app.js"></script>
   <script type="module" src="lib/index.js"></script>
   <script type="module" src="lib/tempString.js"></script>
-  <script type="module" src="main.js"></script>
+  <script type="module" src="lib/main.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,3 @@
-// 
 import {signUpOnClick} from './main.js';
 export { objTemp };
 const objTemp = {
@@ -56,7 +55,6 @@ const objTemp = {
     elem.innerHTML = tmpl;
     return elem;
   },
-
   home: () => {
     const tmpl = `<p> Bienvenido </p>`;
     const elem = document.createElement('div');
@@ -91,7 +89,7 @@ const objTemp = {
     </div>
     <div class="row">
       <div class="col-12 col-s-12">
-        <button type="button" class="type" id="signUpUser"  class="type logIn border">Registrar</button>
+      <button type="button" class="type" id="signUpUser"  class="type logIn border">Registrar</button>
       </div>
     </div>`;
     
