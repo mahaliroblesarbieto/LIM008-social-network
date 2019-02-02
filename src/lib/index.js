@@ -1,5 +1,4 @@
 import {changeTmp} from './app.js';
-
 export const createDocumentUID = (id, data) => {
   console.log('create');
   firebase.firestore().collection('users').doc(id).set({
@@ -62,19 +61,23 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-const email = document.getElementById('txtEmail');
-const password = document.getElementById('txtPassword');
-
-export const createUserWithEmailAndPassword = () => {
-  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+export const createUserWithEmailAndPassword = (/* email, password*/) => {
+  console.log(aaa);
+  /*firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
       const user = result.user;
       console.log(user);
+      location.hash = '#/registry';
+      changeTmp(location.hash);
     }).catch(function(error) {
       console.log(error);
       const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+      if (errorCode === 'auth/email-already-in-use') {
+        alert('Correo electrónico ya registrado');
+      } else if (errorCode === 'auth/invalid-email') {
+        alert('Correo electrónico inválido');
+      } 
+    });*/
 };
 
 export const authenticateWithEmailAndPassword = () => {
