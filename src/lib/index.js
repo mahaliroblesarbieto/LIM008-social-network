@@ -61,9 +61,10 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-export const createUserWithEmailAndPassword = (/* email, password*/) => {
-  console.log(aaa);
-  /*firebase.auth().createUserWithEmailAndPassword(email, password)
+export const createUserWithEmailAndPassword = (email, password) => {
+  location.hash = '#/registry';
+  changeTmp(location.hash);
+  firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
       const user = result.user;
       console.log(user);
@@ -77,7 +78,7 @@ export const createUserWithEmailAndPassword = (/* email, password*/) => {
       } else if (errorCode === 'auth/invalid-email') {
         alert('Correo electrónico inválido');
       } 
-    });*/
+    });
 };
 
 export const authenticateWithEmailAndPassword = () => {
