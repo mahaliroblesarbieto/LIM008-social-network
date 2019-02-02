@@ -59,13 +59,19 @@ export const authenticateFacebookAccount = () => {
 const email = document.getElementById('txtEmail');
 const password = document.getElementById('txtPassword');
 
-export const createUserWithEmailAndPassword = () => {
-  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+export const createUserWithEmailAndPassword = (email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
-      const user = result.user;    
+      const user = result.user;
+      console.log(user)
     }).catch(function(error) {
+      console.log(error)
       const errorCode = error.code;
-      const errorMessage = error.message;
+      if (errorCode === 'auth/email-already-in-use') {
+        alert('Correo electrónico ya registrado');
+      } else if (errorCode === 'auth/invalid-email') {
+        alert('Correo electrónico inválido');
+      } 
     });
 };
 
