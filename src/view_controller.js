@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 import { Popup, createDocumentUID } from './lib/index.js';
 import { changeTmp } from './lib/app.js';
+=======
+import { Popup, createDocumentUID } from "./lib/index.js";
+import { changeTmp } from "./lib/app.js";
+>>>>>>> eea748931a19587ec04803b22943cb122ca6bece
 const changeHash = (hash) =>  {
   location.hash = hash;
   console.log(location.hash);
