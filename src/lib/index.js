@@ -2,11 +2,13 @@ import {changeTmp} from './app.js';
 
 export const createDocumentUID = (id, data) => {
   console.log('create');
-  firebase.firestore().collection('users').doc(id).set({
+  firebase.firestore().collection('usuario').doc(id).set({
     id: data.uid,
     dateUser: data.user,
     nameUser: data.email
   });
+  location.hash = '#/home';
+  changeTmp(location.hash);
 };
 
 export const authenticateGoogleAccount = () => {
@@ -17,9 +19,9 @@ export const authenticateGoogleAccount = () => {
       const uid = result.user.uid;
       const user = result.user.displayName;
       const email = result.user.email;
-      // createDocumentUID(uid, {uid, user, email});
-      location.hash = '#/home';
-      changeTmp(location.hash);
+      createDocumentUID(uid, {uid, user, email});
+      /* location.hash = '#/home';
+      changeTmp(location.hash);*/
     })
     .catch(error => {
       const errorCode = error.code;
