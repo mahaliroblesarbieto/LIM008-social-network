@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +13,6 @@
   <!-- Marcador en escritorio de Iphone-->
   <link rel="apple-touch-icon" href="img/icono-principal.jpg">
 </head>
-
 <body>
     <div id = "container">
         <section>
@@ -42,7 +40,9 @@
            </div>
            <div class="row">
              <div class="col-12 col-s-12">
-               <a id = "btnLogIn" href="javascript:void(0)" class="type logIn border">  Iniciar Sesión</a>
+               <a id = "btnLogIn" href="#/home">
+                 <div class="type logIn border">  Iniciar Sesión </div>
+               </a>
              </div>
            </div>
            <div class="row margin-t">
@@ -68,7 +68,6 @@
        </div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
   <script type="module" src="lib/ConfigFireBase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
   <script type="module" src="lib/app.js"></script>
@@ -77,5 +76,4 @@
   <script type="module" src="main.js"></script>
   <script type="module" src="view_controller.js"></script>
 </body>
-
 </html>
