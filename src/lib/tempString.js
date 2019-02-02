@@ -41,16 +41,11 @@ const objTemp = {
       </div>
     </div>`;
 
-    const elem = document.createElement('div');
+    const elem = document.createElement('form');
     elem.innerHTML = tmpl;
-
-    const btnOnClick = () => {
-      alert('interactivo!!!!!!');
-      window.location.hash = '#/home';
-    };
-
-    const btn = elem.querySelector('#signUpUser');
-    btn.addEventListener('click', btnOnClick);
+    const btnSignUp = elem.querySelector('#signUpUser');
+    btnSignUp.addEventListener('click', signUpOnClick);
     return elem;
   }
+ 
 };
