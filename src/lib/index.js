@@ -43,15 +43,9 @@ export const authenticateFacebookAccount = () => {
         const uid = result.user.uid;
         const user = result.user.displayName;
         const email = result.user.email;
-<<<<<<< HEAD
-        createDocumentUID(uid, {uid, user, email});
-        location.hash = '#/home';
-        changeTmp(location.hash);
-=======
       // createDocumentUID(uid, {uid, user, email});
         location.hash = '#/home';
       changeTmp(location.hash);
->>>>>>> eea748931a19587ec04803b22943cb122ca6bece
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
