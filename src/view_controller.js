@@ -9,6 +9,7 @@ export const signUpOnClick = () => {
   // changeTmp(location.hash);
 };
 
+// Función que dirija el boton crear cuenta al template de registro
 export const goToRegister = () => {
   location.hash = '#/registry';
   changeTmp(location.hash);

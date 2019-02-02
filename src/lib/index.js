@@ -63,9 +63,9 @@ export const authenticateFacebookAccount = () => {
 
 export const createUserWithEmailAndPassword=(email, password) =>{
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(result) {
-      const user = result.user;
-      console.log(user);
+    .then(() => {
+      location.hash = '#/home';
+      changeTmp(location.hash);
     }).catch(function(error) {
       console.log(error);
       const errorCode = error.code;
