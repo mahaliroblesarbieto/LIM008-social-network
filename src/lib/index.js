@@ -29,7 +29,11 @@ export const authenticateGoogleAccount = () => {
       }
     });
 };
-
+export const Popup = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('public_profile');
+ return firebase.auth().signInWithPopup(provider);
+};
 export const authenticateFacebookAccount = () => {
   console.log('sandra');
   if (!firebase.auth().currentUser) {
@@ -57,9 +61,10 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-export const createUserWithEmailAndPassword = (/* email, password*/) => {
-  console.log(aaa);
-  /*firebase.auth().createUserWithEmailAndPassword(email, password)
+export const createUserWithEmailAndPassword = (email, password) => {
+  location.hash = '#/registry';
+  changeTmp(location.hash);
+  firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
       const user = result.user;
       console.log(user);
@@ -73,15 +78,13 @@ export const createUserWithEmailAndPassword = (/* email, password*/) => {
       } else if (errorCode === 'auth/invalid-email') {
         alert('Correo electrónico inválido');
       } 
-    });*/
+    });
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
       const user = result.user.displayName;
-      location.hash = '#/home';
-      changeTmp(location.hash);
     })
     .catch(function(error) {
       const errorCode = error.code;
@@ -91,6 +94,7 @@ export const authenticateWithEmailAndPassword = () => {
       } else {
         alert(errorMessage);
       }
+      console.log(error);
     });
 };
 
@@ -98,4 +102,3 @@ export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
-
