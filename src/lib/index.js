@@ -17,7 +17,7 @@ export const authenticateGoogleAccount = () => {
       const uid = result.user.uid;
       const user = result.user.displayName;
       const email = result.user.email;
-      createDocumentUID(uid, {uid, user, email});
+      // createDocumentUID(uid, {uid, user, email});
       location.hash = '#/home';
       changeTmp(location.hash);
     })
@@ -60,28 +60,23 @@ export const authenticateFacebookAccount = () => {
   }
 };
 
-export const createUserWithEmailAndPassword = (email, password) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
+
+export const createUserWithEmailAndPassword = () => {
+  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
     .then(function(result) {
-      const user = result.user;
-      console.log(user)
+      const user = result.user;    
     }).catch(function(error) {
-      console.log(error)
       const errorCode = error.code;
-      if (errorCode === 'auth/email-already-in-use') {
-        alert('Correo electrónico ya registrado');
-      } else if (errorCode === 'auth/invalid-email') {
-        alert('Correo electrónico inválido');
-      } 
+      const errorMessage = error.message;
     });
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
       const user = result.user.displayName;
-      location.hash = '#/home';
-      changeTmp(location.hash);
     })
     .catch(function(error) {
       const errorCode = error.code;
@@ -91,6 +86,7 @@ export const authenticateWithEmailAndPassword = () => {
       } else {
         alert(errorMessage);
       }
+      console.log(error);
     });
 };
 
