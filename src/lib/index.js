@@ -1,5 +1,4 @@
 import {changeTmp} from './app.js';
-
 export const createDocumentUID = (id, data) => {
   console.log('create');
   firebase.firestore().collection('users').doc(id).set({
@@ -7,6 +6,8 @@ export const createDocumentUID = (id, data) => {
     dateUser: data.user,
     nameUser: data.email
   });
+  location.hash = '#/home';
+  changeTmp(location.hash);
 };
 
 export const authenticateGoogleAccount = () => {
@@ -17,7 +18,7 @@ export const authenticateGoogleAccount = () => {
       const uid = result.user.uid;
       const user = result.user.displayName;
       const email = result.user.email;
-      // createDocumentUID(uid, {uid, user, email});
+      createDocumentUID(uid, {uid, user, email});
       location.hash = '#/home';
       changeTmp(location.hash);
     })
@@ -28,15 +29,24 @@ export const authenticateGoogleAccount = () => {
       }
     });
 };
-
+export const Popup = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  provider.addScope('public_profile');
+ return firebase.auth().signInWithPopup(provider);
+};
 export const authenticateFacebookAccount = () => {
+  console.log('sandra');
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
-        const token = result.credential.accessToken;
-        const user = result.user;   
+        const uid = result.user.uid;
+        const user = result.user.displayName;
+        const email = result.user.email;
+        // createDocumentUID(uid, {uid, user, email});
+        location.hash = '#/home';
+        changeTmp(location.hash);
       }).catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -52,12 +62,16 @@ export const authenticateFacebookAccount = () => {
 };
 
 export const createUserWithEmailAndPassword = (email, password) => {
+  location.hash = '#/registry';
+  changeTmp(location.hash);
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(result) {
       const user = result.user;
-      console.log(user)
+      console.log(user);
+      location.hash = '#/registry';
+      changeTmp(location.hash);
     }).catch(function(error) {
-      console.log(error)
+      console.log(error);
       const errorCode = error.code;
       if (errorCode === 'auth/email-already-in-use') {
         alert('Correo electrónico ya registrado');
@@ -68,11 +82,9 @@ export const createUserWithEmailAndPassword = (email, password) => {
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  firebase.auth().signInWithEmailAndPassword(email, password)
+  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
     .then(result => {
       const user = result.user.displayName;
-      location.hash = '#/home';
-      changeTmp(location.hash);
     })
     .catch(function(error) {
       const errorCode = error.code;
@@ -82,6 +94,7 @@ export const authenticateWithEmailAndPassword = () => {
       } else {
         alert(errorMessage);
       }
+      console.log(error);
     });
 };
 
