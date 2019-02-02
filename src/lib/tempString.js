@@ -1,5 +1,5 @@
 // 
-import {signUpOnSubmit} from '../main.js';
+import {signUpOnClick} from './main.js';
 export { objTemp };
 const objTemp = {
   mainPage: () => {
@@ -98,7 +98,7 @@ const objTemp = {
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
-    btnSignUp.addEventListener('click', signUpOnSubmit);
+    btnSignUp.addEventListener('click', signUpOnClick);
     return elem;
   }
 };

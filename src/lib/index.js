@@ -68,9 +68,11 @@ export const createUserWithEmailAndPassword = (email, password) => {
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  firebase.auth().signInWithEmailAndPassword(email.value, password.value)
+  firebase.auth().signInWithEmailAndPassword(email, password)
     .then(result => {
       const user = result.user.displayName;
+      location.hash = '#/home';
+      changeTmp(location.hash);
     })
     .catch(function(error) {
       const errorCode = error.code;
