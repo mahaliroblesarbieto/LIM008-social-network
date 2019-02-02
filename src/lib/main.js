@@ -20,4 +20,3 @@ import {
     const password = document.querySelector('#passwordSignUp').value;
     createUserWithEmailAndPassword(email,password);
   }; 
-  D
