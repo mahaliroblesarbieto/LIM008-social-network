@@ -45,9 +45,7 @@ export const signUpOnClick = () => {
     alert('Complete los datos');
   } else if (email !== '' && password !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        changeHash('#/home');
-      })
+      .then((data) => saveData(data))
       .catch((error) => {
         const errorCode = error.code;
         switch (errorCode) {
