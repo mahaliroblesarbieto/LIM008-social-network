@@ -1,7 +1,6 @@
-export {changeTmp};
 import {objTemp} from './tempString.js';
 
-const changeTmp = (hash) => {
+export const changeTmp = (hash) => {
   switch (hash) {
   case '#/home':
     viewTmp(hash);
@@ -19,7 +18,3 @@ const viewTmp = (routers) => {
   container.appendChild(objTemp[router]());
 };
 
-export const initRouter = () => {
-  window.addEventListener('load', changeTmp(window.location.hash));
-  if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
-};

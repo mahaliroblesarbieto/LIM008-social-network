@@ -1,4 +1,4 @@
-import { initRouter } from './app.js';
+import { initRouter } from './index.js';
 
 const init = () => {
   const config = {

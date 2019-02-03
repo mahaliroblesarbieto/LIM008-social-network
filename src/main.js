@@ -1,11 +1,7 @@
-import { authenticateGoogleAccount,
-  authenticateFacebookAccount, authenticateWithEmailAndPassword } from './lib/index.js';
-
-import { goToRegister } from './view_controller.js';
-import { changeTmp } from './lib/app.js';
-
-document.getElementById('button-google').addEventListener('click', authenticateGoogleAccount);
-document.getElementById('button-facebook').addEventListener('click', authenticateFacebookAccount);
+import {authenticateWithGoogle,
+  goToRegister} from './view_controller.js';
+import {authenticateWithEmailAndPassword} from './lib/index.js';
+document.getElementById('button-google').addEventListener('click', authenticateWithGoogle);
 
 // DOM de boton para realizar boton gotoRegister
 document.getElementById('btnSignUp').addEventListener('click', goToRegister);

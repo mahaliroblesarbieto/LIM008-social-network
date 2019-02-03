@@ -1,3 +1,15 @@
+const firebasemock = require('firebase-mock');
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockauth.autoFlush();
+mockfirestore.autoFlush();
+
+global.firebase = firebasemock.MockFirebaseSdk(
+  path => (path ? mockdatabase.child(path) : null),
+  () => mockauth,
+  () => mockfirestore
+);
+
 // importamos la funcion que vamos a testear
 
 import { authenticateGoogleAccount,
