@@ -1,10 +1,10 @@
-import {createUserWithEmailAndPassword} from './lib/index.js';
-import { changeTmp } from './lib/app.js';
+import {authenticateGoogleAccount} from './lib/index.js';
+import {changeTmp} from './lib/app.js';
 
-const changeHash = (hash) => {
+export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
-};
+};  
 
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({
@@ -14,14 +14,7 @@ const createDocumentUID = (id, data) => {
   });
 };
 
-export const signUpOnClick = () => {
-  const email = document.querySelector('#emailSignUp').value;
-  const password = document.querySelector('#passwordSignUp').value;
-  createUserWithEmailAndPassword(email, password);
-  changeHash('#/home');
-};
-
-export const saveData = (data) => {
+const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
@@ -29,3 +22,13 @@ export const saveData = (data) => {
   changeHash('#/home');
 }; 
 
+export const authenticateWithGoogle = () => {
+  authenticateGoogleAccount()
+    .then((data) => saveData(data))
+    .catch(error => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
+};

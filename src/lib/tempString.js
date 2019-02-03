@@ -1,4 +1,3 @@
-import {signUpOnClick} from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   home: () => {
