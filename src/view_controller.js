@@ -1,6 +1,10 @@
 import {authenticateGoogleAccount,
-  createUserWithEmailAndPassword} from './lib/index.js';
+  createUserWithEmailAndPassword,
+  authenticateEmailAndPassword} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
+
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
 
 export const changeHash = (hash) => {
   location.hash = hash;
@@ -64,4 +68,18 @@ export const signUpOnClick = () => {
         }
       });
   }
+};
+
+export const authenticateWithEmailAndPassword = () => {
+  authenticateEmailAndPassword(email.value, password.value)
+    .then((data) => saveData(data))
+    .catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+    });
 };

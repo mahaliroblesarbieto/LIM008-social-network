@@ -11,7 +11,10 @@ export const authenticateGoogleAccount = () =>
 
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
-  
+
+export const authenticateEmailAndPassword = (email, password) => 
+  firebase.auth().signInWithEmailAndPassword(email, password);
+
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
