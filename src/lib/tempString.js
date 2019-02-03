@@ -40,24 +40,8 @@ const objTemp = {
     <div class="col-12 col-s-12">
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-<<<<<<< HEAD
   </div>`;
     
-=======
-<<<<<<< HEAD
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <a class="type" id=signUpUser class = "border">
-          <div class="type logIn border">Registrar</div>
-        </a>
-      </div>
-    </div>`;
-
-=======
-  </div>`;
-    
->>>>>>> cc2818073b736475a9399200f682c250c2618b4b
->>>>>>> 20d0dcc61d773a92c70982f6cd9d1201ca4dc3be
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
