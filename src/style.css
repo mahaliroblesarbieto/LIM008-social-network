@@ -2,10 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.backgroundLogin {
     /* Aquí el origen de la imagen */
     background-image: url(img/fondomascota3.jpg);
    
