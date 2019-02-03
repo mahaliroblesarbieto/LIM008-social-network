@@ -1,4 +1,5 @@
-import { initRouter } from './index.js';
+import { initRouter } from './app.js';
+
 const init = () => {
   const config = {
     apiKey: 'AIzaSyBhw65cEJ6zfQx3yQhCnR93-1adgjTzT64',

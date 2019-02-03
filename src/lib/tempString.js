@@ -31,7 +31,7 @@ const objTemp = {
       </div>
     </div>
     <div class="row">
-      <div class="pass col-12 col-s-12 regist ">
+      <div class="pass col-12 col-s-12 regist">
        <input id="passwordSignUp" type = "password" class = "border" placeholder=" Contraseña"/>
        <div id = "passwordError" class = "errors"></div>
        </div>

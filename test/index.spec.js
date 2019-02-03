@@ -1,8 +1,9 @@
 // importamos la funcion que vamos a testear
+
 import { authenticateGoogleAccount,
   authenticateFacebookAccount,
   authenticateWithEmailAndPassword,
-  createUserWithEmailAndPassword} from '../src/lib/index';
+  createUserWithEmailAndPassword} from '../src/lib/index.js';
 
 describe('authenticateGoogleAccount', () => {
   it('debería ser una función', () => {
@@ -32,4 +33,17 @@ describe('createUserWithEmailAndPassword', () => {
   });
 });
 
+// Intentando test para createUser
 
+// const firebasemock = require('firebase-mock');
+// const mockauth = new firebasemock.MockFirebase();
+// const mockfirestore = new firebasemock.MockFirestore();
+// mockfirestore.autoFlush();
+// mockauth.autoFlush();
+
+// global.firebase = firebasemock.MockFirebaseSdk(
+//   // use null if your code does not use RTDB
+//   path => (path ? mockdatabase.child(path) : null),
+//   () => mockauth,
+//   () => mockfirestore
+// );
