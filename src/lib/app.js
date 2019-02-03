@@ -1,7 +1,6 @@
-export {changeTmp};
 import {objTemp} from './tempString.js';
 
-const changeTmp = (hash) => {
+export const changeTmp = (hash) => {
   switch (hash) {
   case '#/home':
     viewTmp(hash);
@@ -18,3 +17,4 @@ const viewTmp = (routers) => {
   container.innerHTML = '';
   container.appendChild(objTemp[router]());
 };
+

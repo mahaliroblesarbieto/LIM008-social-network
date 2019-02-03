@@ -1,11 +1,11 @@
-import { authenticateGoogleAccount,
-  authenticateFacebookAccount,
+import {authenticateWithGoogle,
+  goToRegister,
   authenticateWithEmailAndPassword,
-  createUserWithEmailAndPassword} from './lib/index.js';
+  authenticateFacebook} from './view_controller.js';
 
-document.getElementById('button-google').addEventListener('click', authenticateGoogleAccount);
-document.getElementById('button-facebook').addEventListener('click', authenticateFacebookAccount);
-document.getElementById('btnSignUp').addEventListener('click', createUserWithEmailAndPassword);
+document.getElementById('button-google').addEventListener('click', authenticateWithGoogle);
+document.getElementById('btnSignUp').addEventListener('click', goToRegister);
 document.getElementById('btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
+document.getElementById('button-facebook').addEventListener('click', authenticateFacebook);
 
 

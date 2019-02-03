@@ -1,15 +1,12 @@
-import {changeTmp} from './app.js';
-export const createDocumentUID = (id, data) => {
-  console.log('create');
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    dateUser: data.user,
-    nameUser: data.email
-  });
-  location.hash = '#/home';
+import { changeTmp } from './app.js';
+
+
+export const changeHash = (hash) => {
+  location.hash = hash;
   changeTmp(location.hash);
 };
 
+<<<<<<< HEAD
 export const authenticateGoogleAccount = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
@@ -34,33 +31,28 @@ export const Popup = () => {
   provider.addScope('public_profile');
  return firebase.auth().signInWithPopup(provider);
 };
+=======
+export const authenticateGoogleAccount = () => 
+  firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider().addScope('https://www.googleapis.com/auth/plus.login'));
+
+export const createUserWithEmailAndPassword = (email, password) =>
+  firebase.auth().createUserWithEmailAndPassword(email, password);
+
+export const authenticateEmailAndPassword = (email, password) => 
+  firebase.auth().signInWithEmailAndPassword(email, password);
+
+>>>>>>> cc2818073b736475a9399200f682c250c2618b4b
 export const authenticateFacebookAccount = () => {
-  console.log('sandra');
   if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('public_profile');
-    firebase.auth().signInWithPopup(provider)
-      .then(function(result) {
-        const uid = result.user.uid;
-        const user = result.user.displayName;
-        const email = result.user.email;
-        // createDocumentUID(uid, {uid, user, email});
-        location.hash = '#/home';
-        changeTmp(location.hash);
-      }).catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-        if (error.code === 'auth/account-exists-with-different-credential') {
-          alert('Es el mismo usuario');
-        }
-      });
+    return firebase.auth().signInWithPopup(provider);    
   } else {
     firebase.auth().signOut();
   }
 };
 
+<<<<<<< HEAD
 export const createUserWithEmailAndPassword = (email, password) => {
   location.hash = '#/registry';
   changeTmp(location.hash);
@@ -98,8 +90,9 @@ export const authenticateWithEmailAndPassword = () => {
     });
 };
 
+=======
+>>>>>>> cc2818073b736475a9399200f682c250c2618b4b
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
-
