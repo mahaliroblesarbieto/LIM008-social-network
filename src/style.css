@@ -119,14 +119,15 @@ a{
 .errors{
     height: 33px;
     color: red;
-    border-color: black;
+    /* border-color: black; */
     width: 100%;
     text-align: left;
     font-size: 10.5pt;
     background: #ffffff;
-    border: 1px solid rgb(152, 153, 155);
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    /* border: 1px solid rgb(152, 153, 155); */
+    /* margin-bottom: 0px; */
+    padding:1px;
+
 }
 .regist{
     padding-bottom: 0px;

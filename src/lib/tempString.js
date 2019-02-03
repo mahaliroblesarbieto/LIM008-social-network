@@ -27,13 +27,13 @@ const objTemp = {
     <div class="row">
       <div class="col-12 col-s-12 regist">
        <input id="emailSignUp" type = "email" class = "border" placeholder=" Correo"/>
-       <div id = "emailError" class = "errors">Hola</div>
+       <div id = "emailError" class = "errors"></div>
       </div>
     </div>
     <div class="row">
       <div class="pass col-12 col-s-12 regist ">
        <input id="passwordSignUp" type = "password" class = "border" placeholder=" Contraseña"/>
-       <div id = "emailError" class = "errors">Hola</div>
+       <div id = "passwordError" class = "errors"></div>
        </div>
     </div>
     <div class="row">
