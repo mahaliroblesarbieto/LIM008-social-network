@@ -1,6 +1,7 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
-  authenticateEmailAndPassword} from './lib/index.js';
+  authenticateEmailAndPassword,
+  authenticateFacebookAccount} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 const email = document.getElementById('txtEmail');
@@ -80,6 +81,17 @@ export const authenticateWithEmailAndPassword = () => {
         alert('Wrong password.');
       } else {
         alert(errorMessage);
+      }
+    });
+};
+
+export const authenticateFacebook = () => {
+  authenticateFacebookAccount()
+    .then((data) => saveData(data))
+    .catch(error => {
+      const errorCode = error.code;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        return 'Es el mismo usuario';
       }
     });
 };
