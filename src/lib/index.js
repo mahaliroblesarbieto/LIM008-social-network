@@ -1,27 +1,10 @@
-import {changeTmp} from './app.js';
-export const createDocumentUID = (id, data) => {
-  console.log('create');
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    dateUser: data.user,
-    nameUser: data.email
-  });
-  location.hash = '#/home';
-  changeTmp(location.hash);
-};
+import {saveData} from '../view_controller.js';
 
 export const authenticateGoogleAccount = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/plus.login');
   firebase.auth().signInWithPopup(provider)
-    .then(result => {
-      const uid = result.user.uid;
-      const user = result.user.displayName;
-      const email = result.user.email;
-      createDocumentUID(uid, {uid, user, email});
-      location.hash = '#/home';
-      changeTmp(location.hash);
-    })
+    .then((data) => saveData(data))
     .catch(error => {
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
@@ -32,7 +15,7 @@ export const authenticateGoogleAccount = () => {
 export const Popup = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   provider.addScope('public_profile');
- return firebase.auth().signInWithPopup(provider);
+  return firebase.auth().signInWithPopup(provider);
 };
 export const authenticateFacebookAccount = () => {
   console.log('sandra');

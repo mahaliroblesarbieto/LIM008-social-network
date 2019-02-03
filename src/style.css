@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+.container{
     font-family: -apple-
     system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
     "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
@@ -30,7 +30,7 @@ h3{
 }
 
 .border {
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 input {
@@ -61,18 +61,35 @@ input {
     text-align: left; 
  }
 /*******************/
-a{
+button{
     width: 100%;
     text-decoration:none;
-    align-content: center; 
-    text-align: center;
-    color: white
+    /*align-content: center;*/ 
+    /*text-align:center;*/
+    color: white;
+    font-family: -apple-
+    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
+    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
+    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: bold;
+    font-size: 100%;
+    padding-right: 50%
+}
+
+img{
+    float:left;
+}
+
+.icon{
+    background: #ffffff;
+    border-radius: 2px;
 }
 
 .type{
     border: none;
     margin: auto;
-    text-align: center;
+    /*text-align: center;*/
 	padding: 15px;
     width: 100%;
     box-shadow: 0 3px 3px rgba(0,0,0,0.16);
@@ -96,7 +113,7 @@ a{
 }
 
 .google{
-    background: rgb(0, 162, 255);
+    background: rgb(0, 102, 255);
 }
 
 .create-count{
