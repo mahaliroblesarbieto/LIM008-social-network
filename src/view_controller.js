@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import {createUserWithEmailAndPassword} from './lib/index.js';
+import { changeTmp } from './lib/app.js';
+export const signUpOnClick = () => {
+  const email = document.querySelector('#emailSignUp').value;
+  const password = document.querySelector('#passwordSignUp').value;
+  createUserWithEmailAndPassword(email, password);
+  location.hash='#/home';
+  changeTmp(location.hash);
+};
+=======
+>>>>>>> 20d0dcc61d773a92c70982f6cd9d1201ca4dc3be
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
@@ -95,3 +109,7 @@ export const authenticateFacebook = () => {
       }
     });
 };
+<<<<<<< HEAD
+=======
+>>>>>>> cc2818073b736475a9399200f682c250c2618b4b
+>>>>>>> 20d0dcc61d773a92c70982f6cd9d1201ca4dc3be
