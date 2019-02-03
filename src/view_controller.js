@@ -1,4 +1,5 @@
-import {authenticateGoogleAccount} from './lib/index.js';
+import {authenticateGoogleAccount,
+  createUserWithEmailAndPassword} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
@@ -31,4 +32,38 @@ export const authenticateWithGoogle = () => {
         alert('Es el mismo usuario');
       }
     });
+};
+
+export const goToRegister = () => {
+  changeHash('#/registry');
+};
+
+export const signUpOnClick = () => {
+  const email = document.querySelector('#emailSignUp').value;
+  const password = document.querySelector('#passwordSignUp').value;
+  if (email === '' || password === '') {
+    alert('Complete los datos');
+  } else if (email !== '' && password !== '') {
+    createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        changeHash('#/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+        case 'auth/email-already-in-use':
+          document.querySelector('#emailError').innerHTML = 'Correo electrónico ya registrado';
+          break;
+        case 'auth/invalid-email':
+          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
+          break;
+        case 'auth/weak-password':
+          document.querySelector('#passwordError').innerHTML = 'Contraseña debe tener mínimo 6 dígitos';
+          break;
+        case 'error':
+          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
+          break;
+        }
+      });
+  }
 };
