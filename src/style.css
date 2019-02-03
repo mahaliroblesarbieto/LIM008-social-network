@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kaushan+Script');
 /*Nos aseguramos que el relleno y el borde se incluyan en el ancho y la altura totales de los elementos en todos los div de la pagina */
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
 * {
     box-sizing: border-box;
 }
 
-body{
+.container{
     font-family: -apple-
     system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
     "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
@@ -14,23 +15,23 @@ body{
     font-weight: bold;
 }
 
-h3{
-    font-family: 'Kaushan Script', cursive;
-    text-align: center
-}
-
-.img-logo{
-    align-content: center;
+h1{
+    font-family:'Fredoka One', cursive;
     text-align: center;
+    font-size:2em;
+    margin: 0;
+    padding:0;
 }
 
 .logo{
-    width: 50%;
-    height: 50%;
+    width: 15%;
+    height: 15%;
+    margin-left: 43%;
+    margin-right: 50%
 }
 
 .border {
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 input {
@@ -61,18 +62,35 @@ input {
     text-align: left; 
  }
 /*******************/
-a{
+button{
     width: 100%;
     text-decoration:none;
-    align-content: center; 
-    text-align: center;
-    color: white
+    /*align-content: center;*/ 
+    /*text-align:center;*/
+    color: white;
+    font-family: -apple-
+    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
+    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
+    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
+    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: bold;
+    font-size: 100%;
+    padding-right: 50%
+}
+
+img{
+    float:left;
+}
+
+.icon{
+    background: #ffffff;
+    border-radius: 2px;
 }
 
 .type{
     border: none;
     margin: auto;
-    text-align: center;
+    /*text-align: center;*/
 	padding: 15px;
     width: 100%;
     box-shadow: 0 3px 3px rgba(0,0,0,0.16);
@@ -83,7 +101,7 @@ a{
 }
 
 .logIn{
-    background:  rgb(173, 6, 6); 
+    background:  rgb(20, 173, 6); 
     width: 100%;
 }
 
@@ -96,7 +114,7 @@ a{
 }
 
 .google{
-    background: rgb(0, 162, 255);
+    background: rgb(0, 102, 255);
 }
 
 .create-count{
