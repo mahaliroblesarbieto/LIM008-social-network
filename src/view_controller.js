@@ -20,17 +20,17 @@ const createDocumentUID = (id, data) => {
   });
 };
 
-const saveData = (data) => {
+const saveData = (data, hash) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
   createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+  changeHash(hash);
 }; 
 
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
-    .then((data) => saveData(data))
+    .then((data) => saveData(data, '#/home'))
     .catch(error => {
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
@@ -50,7 +50,7 @@ export const signUpOnClick = () => {
     alert('Complete los datos');
   } else if (email !== '' && password !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then((data) => saveData(data))
+      .then((data) => saveData(data, '#/home'))
       .catch((error) => {
         const errorCode = error.code;
         switch (errorCode) {
@@ -73,7 +73,7 @@ export const signUpOnClick = () => {
 
 export const authenticateWithEmailAndPassword = () => {
   authenticateEmailAndPassword(email.value, password.value)
-    .then((data) => saveData(data))
+    .then((data) => saveData(data, '#/home'))
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -87,7 +87,7 @@ export const authenticateWithEmailAndPassword = () => {
 
 export const authenticateFacebook = () => {
   authenticateFacebookAccount()
-    .then((data) => saveData(data))
+    .then((data) => saveData(data, '#/home'))
     .catch(error => {
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {

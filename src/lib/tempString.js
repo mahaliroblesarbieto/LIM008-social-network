@@ -9,7 +9,7 @@ const objTemp = {
     return elem;
   },
   registry: () => {
-    const tmpl = `<div class="row">
+    const tmpl = `<form class="border background-principal">
     <div class="col-12 col-s-12">
      <h1>Te damos la bienvenida a WorldPet</h1>
     </div>
@@ -40,7 +40,7 @@ const objTemp = {
     <div class="col-12 col-s-12">
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-  </div>`;
+  </form>`;
 
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;

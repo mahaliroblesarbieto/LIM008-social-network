@@ -8,7 +8,7 @@ export const changeTmp = (hash) => {
   case '#/registry':
     viewTmp(hash);
     break;
-  }
+  };
 };
     
 const viewTmp = (routers) => {
