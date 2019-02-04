@@ -4,6 +4,7 @@ const objTemp = {
   home: () => {
     const tmpl = `<h3 id ="principal"> Bienvenido
     </h3>`;
+    console.log(document.getElementById('sectionMain'));
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     return elem;
