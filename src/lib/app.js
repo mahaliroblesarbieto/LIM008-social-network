@@ -27,7 +27,6 @@ const viewTmp = (routers) => {
     console.log(containerLogin);
     break;
   case 'home' :
-    console.log('loginaca');
     const container = document.getElementById('container');
     container.innerHTML = '';
     container.appendChild(objTemp[router]());
