@@ -9,7 +9,7 @@ const objTemp = {
     return elem;
   },
   registry: () => {
-    const tmpl = `<div class="row">
+    const tmpl = `<div class="row backgroundLogin">
     <div class="col-12 col-s-12">
      <h3>Te damos la bienvenida a Petlover</h3>
     </div>
@@ -38,7 +38,10 @@ const objTemp = {
   </div>
   <div class="row">
     <div class="col-12 col-s-12">
-      <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
+      <button class="type logIn border" id="signUpUser" class = "border"> Registrar </button>
+    </div>
+    <div class="col-12 col-s-12">
+      <button class="type logIn border" id="closeSign" class = "border"> Salir </button>
     </div>
   </div>`;
     
