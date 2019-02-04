@@ -24,6 +24,6 @@ const viewTmp = (routers) => {
     home.innerHTML = '';
     home.appendChild(objTemp[router]());
     break;
-  }
+  };
 };
 

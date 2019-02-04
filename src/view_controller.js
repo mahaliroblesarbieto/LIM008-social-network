@@ -4,13 +4,21 @@ import {authenticateGoogleAccount,
   authenticateFacebookAccount} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
-const email = document.getElementById('txtEmail');
-const password = document.getElementById('txtPassword');
+/* const btnSignUp = elem.querySelector('#home');
+btnSignUp.addEventListener('load', objTemp[login]());*/
+
 
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
-};  
+};
+
+import { getlogin } from './lib/tempString.js';
+getlogin();
+
+const email = document.getElementById('txtEmail');
+const password = document.getElementById('txtPassword');
+
 
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({

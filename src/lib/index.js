@@ -1,6 +1,5 @@
 import { changeTmp } from './app.js';
 
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
