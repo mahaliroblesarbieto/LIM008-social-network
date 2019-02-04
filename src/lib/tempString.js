@@ -12,7 +12,7 @@ const objTemp = {
   registry: () => {
     const tmpl = `<form>
     <div class="col-12 col-s-12">
-     <h3>Te damos la bienvenida a Petlover</h3>
+     <h1>Te damos la bienvenida a WorldPet</h1>
     </div>
   </div>
   <div class="row">
@@ -41,20 +41,12 @@ const objTemp = {
     <div class="col-12 col-s-12">
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-  </div>
-  </form>`;
-   
-    const containerLogin = document.getElementById('login');
-    console.log(containerLogin);
-    //containerLogin.innerHTML = '';
-    //const elem = document.createElement('div');
-    //containerLogin.appendChild(elem);
-   // const elem = document.createElement('div');
-   // elem.className = 'row backgroundLogin';
-   // elem.innerHTML = tmpl;
-   // const btnSignUp = elem.querySelector('#signUpUser');
-   // btnSignUp.addEventListener('click', signUpOnClick);
-   // return elem;
+  </div>`;
+
+    const elem = document.createElement('form');
+    elem.innerHTML = tmpl;
+    const btnSignUp = elem.querySelector('#signUpUser');
+    btnSignUp.addEventListener('click', signUpOnClick);
+    return elem; 
   }
- 
 };
