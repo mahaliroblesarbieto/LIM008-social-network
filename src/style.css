@@ -11,6 +11,7 @@
 }
 
 .backgroundLogin {
+    height: 100%;
     /* Aquí el origen de la imagen */
     background-image: url(img/fondomascota3.jpg);
    
@@ -29,6 +30,8 @@
    
     /* Damos un color de fondo mientras la imagen está cargando  */
     background-color: #464646;
+    
+    
   }
 .container{
     font-family: -apple-
