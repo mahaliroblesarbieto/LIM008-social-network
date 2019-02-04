@@ -15,81 +15,14 @@
 </head>
 <body>
   <div id = "container" class = "container">
-    <section>
-      <div class="row backgroundLogin">
-        <div class="col-4"></div>
-          <div id ="home" class="col-6 col-s-4 border ">
-            <div class="background-principal">
-            <div class="row">
-              <div class="col-s-12 col-12">
-                <img class="logo" src="img/logoworldpet.jpg" alt="logo worldpet"> 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <h1 class = "margin-t">WORLDPET</h1> <h4>Mundo Mascota, todo lo que tu mascota necesita en un solo app.</h4>
-              </div> 
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12 regist">
-                <div id = "unErrorLog" class = "errors uncomp"></div>
-                <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
-                <div id = "emailErrorLog" class = "errors"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12 regist">
-                <input id="txtPassword" type = "password" class = "border" placeholder="Contraseña"/>
-                <div id = "passwordErrorLog" class = "errors"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <button type = "button" id = "btnLogIn"  class="type logIn border">  Iniciar Sesión</button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <h4 style="text-align: center;">------------------ ó ------------------</h4>
-              </div>
-            </div>
-            <div class="row ">
-              <div class="col-12 col-s-12">
-                <button  id="button-facebook" class="type facebook border"><img class = "icon" src = "img/iconofacebook.png"></img>Continuar con Facebook </button>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <button type = "button" id="button-google" class = "type google border"><img class = "icon" src = "img/iconogoogle.png"></img>Continuar con Google </button>
-              </div> 
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <h4 style="text-align: center;">Si no tienes una cuenta, puedes crearla dando clic al siguiente botón:</h4>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-s-12">
-                <button type = "button" id = "btnSignUp" class = "type create-count border" > Crear Cuenta </button>
-              </div>
-            </div>
-          </div>
-          </div>
-        <div class="col-4"></div>
-      </div>
-    </section>
+  
   </div>
 </body>
 
   
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
-  <script type="module" src="lib/ConfigFireBase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
-  <script type="module" src="lib/app.js"></script>
-  <script type="module" src="lib/index.js"></script>
-  <script type="module" src="lib/tempString.js"></script>
   <script type="module" src="main.js"></script>
-  <script type="module" src="view_controller.js"></script>
 </body>
 </html>

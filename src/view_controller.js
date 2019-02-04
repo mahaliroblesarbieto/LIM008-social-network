@@ -1,7 +1,8 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
-  authenticateFacebookAccount} from './lib/index.js';
+  authenticateFacebookAccount,
+  closeSesion} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 import { showLogErrors, showSignErrors, showUncompletedErrors } from './catchErrors.js';
 
@@ -25,6 +26,14 @@ const saveData = (data) => {
   createDocumentUID(uid, {uid, user, email});
   changeHash('#/home');
 }; 
+
+export const closedSesion = () => {
+  closeSesion()
+    .then(() => {
+      changeHash('');
+    })
+    .catch();
+};
 
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
@@ -64,7 +73,24 @@ export const authenticateWithEmailAndPassword = () => {
   } else if (email !== '' && password !== '') {
     authenticateEmailAndPassword(email, password)
       .then((data) => saveData(data))
-      .catch((error) => showLogErrors(error));
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        switch (errorCode) {
+        case 'auth/invalid-email':
+          document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico ya registrado';
+          break;
+        case 'auth/user-not-found':
+          document.querySelector('#emailErrorLog').innerHTML = 'Usuario no registrado';
+          break;
+        case 'auth/user-disabled':
+          document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico deshabilitado';
+          break;
+        case 'auth/wrong-password':
+          document.querySelector('#passwordErrorLog').innerHTML = 'Contraseña incorrecta';
+          break;
+        }
+      });
   };
 };
 
