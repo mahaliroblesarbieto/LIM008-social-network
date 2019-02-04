@@ -11,7 +11,7 @@ const objTemp = {
   registry: () => {
     const tmpl = `<div class="row">
     <div class="col-12 col-s-12">
-     <h3>Te damos la bienvenida a Petlover</h3>
+     <h1>Te damos la bienvenida a WorldPet</h1>
     </div>
   </div>
   <div class="row">
