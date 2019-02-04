@@ -30,7 +30,7 @@ const objTemp = {
       </div>
   <div class="row">
     <div class="col-12 col-s-12">
-     <div id = "uncompletedError" class = "errors uncomp"></div>
+     <p id= "uncompletedError" class = "errors uncomp"></p>
      <input type="text" id="nombres" class = "border" placeholder = " Ingresa tus nombres"></input>
     </div>
   </div>
