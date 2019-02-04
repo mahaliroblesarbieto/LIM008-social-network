@@ -1,11 +1,11 @@
-import {signUpOnClick, closedSesion, authenticateFacebook, authenticateWithGoogle,goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
+import {signUpOnClick, closedSesion, authenticateFacebook, authenticateWithGoogle, goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {
     const tmpl = `<section>
     <div class="row backgroundLogin">
       <div class="col-4"></div>
-        <div id ="home" class="col-4 border ">
+        <div id ="home" class="col-6col-s-4 border">
           <div class="background-principal">
           <div class="row">
             <div class="col-s-12 col-12">
@@ -19,12 +19,15 @@ const objTemp = {
           </div>
           <div class="row">
             <div class="col-12 col-s-12">
+            <p id= "uncompletedError" class = "errors uncomp"></p>
               <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
+              <div id = "emailErrorLog" class = "errors"></div>
             </div>
           </div>
           <div class="row">
             <div class="col-12 col-s-12">
               <input id="txtPassword" type = "password" class = "border" placeholder="Contraseña"/>
+              <div id = "passwordErrorLog" class = "errors"></div>
             </div>
           </div>
           <div class="row">
@@ -65,7 +68,7 @@ const objTemp = {
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
-    elem.querySelector('#button-google').addEventListener('click',authenticateWithGoogle);
+    elem.querySelector('#button-google').addEventListener('click', authenticateWithGoogle);
     elem.querySelector('#btnSignUp').addEventListener('click', goToRegister);
     elem.querySelector('#btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
     return elem; 
