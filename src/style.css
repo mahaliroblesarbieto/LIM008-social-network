@@ -11,6 +11,7 @@
 }
 
 .backgroundLogin {
+    height: 100%;
     /* Aquí el origen de la imagen */
     background-image: url(img/fondomascota3.jpg);
    

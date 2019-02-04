@@ -20,17 +20,17 @@ const createDocumentUID = (id, data) => {
   });
 };
 
-const saveData = (data, hash) => {
+const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
   createDocumentUID(uid, {uid, user, email});
-  changeHash(hash);
+  changeHash('#/home');
 }; 
 
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
-    .then((data) => saveData(data, '#/home'))
+    .then((data) => saveData(data))
     .catch(error => {
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
@@ -44,13 +44,15 @@ export const goToRegister = () => {
 };
 
 export const signUpOnClick = () => {
+  console.log('paso');
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
   if (email === '' || password === '') {
     alert('Complete los datos');
   } else if (email !== '' && password !== '') {
+    console.log('paso2');
     createUserWithEmailAndPassword(email, password)
-      .then((data) => saveData(data, '#/home'))
+      .then((data) => saveData(data))
       .catch((error) => {
         const errorCode = error.code;
         switch (errorCode) {
@@ -68,12 +70,14 @@ export const signUpOnClick = () => {
           break;
         }
       });
+  } else {
+    console.log('este es el problema');
   }
 };
 
 export const authenticateWithEmailAndPassword = () => {
   authenticateEmailAndPassword(email.value, password.value)
-    .then((data) => saveData(data, '#/home'))
+    .then((data) => saveData(data))
     .catch(function(error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -87,7 +91,7 @@ export const authenticateWithEmailAndPassword = () => {
 
 export const authenticateFacebook = () => {
   authenticateFacebookAccount()
-    .then((data) => saveData(data, '#/home'))
+    .then((data) => saveData(data))
     .catch(error => {
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
