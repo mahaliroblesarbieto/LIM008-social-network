@@ -41,12 +41,11 @@ const objTemp = {
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
   </div>`;
-    
+
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
     btnSignUp.addEventListener('click', signUpOnClick);
-    return elem;
+    return elem; 
   }
- 
 };

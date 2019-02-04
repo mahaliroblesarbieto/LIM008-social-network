@@ -13,8 +13,17 @@ export const changeTmp = (hash) => {
     
 const viewTmp = (routers) => {
   let router = routers.substr(2, routers.length - 2);
-  const container = document.getElementById('container');
-  container.innerHTML = '';
-  container.appendChild(objTemp[router]());
+  switch (router) {
+  case 'home':
+    const container = document.getElementById('container');
+    container.innerHTML = '';
+    container.appendChild(objTemp[router]());
+    break;
+  case 'registry':
+    const home = document.getElementById('home');
+    home.innerHTML = '';
+    home.appendChild(objTemp[router]());
+    break;
+  }
 };
 
