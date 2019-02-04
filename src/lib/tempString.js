@@ -41,7 +41,7 @@ const objTemp = {
     <div class="col-12 col-s-12">
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-  </div>`;
+  </form>`;
 
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
