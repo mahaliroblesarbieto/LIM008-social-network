@@ -41,13 +41,11 @@ export const goToRegister = () => {
 };
 
 export const signUpOnClick = () => {
-  console.log('paso');
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
   if (email === '' || password === '') {
     document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
   } else if (email !== '' && password !== '') {
-    console.log('paso2');
     createUserWithEmailAndPassword(email, password)
       .then((data) => saveData(data))
       .catch((error) => {
