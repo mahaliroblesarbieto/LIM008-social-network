@@ -4,9 +4,6 @@ import {authenticateGoogleAccount,
   authenticateFacebookAccount} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
-const email = document.getElementById('txtEmail');
-const password = document.getElementById('txtPassword');
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
@@ -47,7 +44,7 @@ export const signUpOnClick = () => {
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
   if (email === '' || password === '') {
-    alert('Complete los datos');
+    document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
   } else if (email !== '' && password !== '') {
     createUserWithEmailAndPassword(email, password)
       .then((data) => saveData(data))
@@ -72,17 +69,31 @@ export const signUpOnClick = () => {
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  authenticateEmailAndPassword(email.value, password.value)
-    .then((data) => saveData(data))
-    .catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-    });
+  const email = document.getElementById('txtEmail').value;
+  const password = document.getElementById('txtPassword').value;
+  if (email === '' || password === '') {
+    document.querySelector('#unErrorLog').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
+  } else if (email !== '' && password !== '') {
+    authenticateEmailAndPassword(email, password)
+      .then((data) => saveData(data))
+      .catch((error) => {
+        const errorCode = error.code;
+        switch (errorCode) {
+        case 'auth/invalid-email':
+          document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico ya registrado';
+          break;
+        case 'auth/user-not-found':
+          document.querySelector('#emailErrorLog').innerHTML = 'Usuario no registrado';
+          break;
+        case 'auth/user-disabled':
+          document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico deshabilitado';
+          break;
+        case 'auth/wrong-password':
+          document.querySelector('#passwordErrorLog').innerHTML = 'Contraseña incorrecta';
+          break;
+        }
+      });
+  };
 };
 
 export const authenticateFacebook = () => {
