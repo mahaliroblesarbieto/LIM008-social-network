@@ -80,6 +80,7 @@ export const authenticateWithEmailAndPassword = () => {
       .then((data) => saveData(data))
       .catch((error) => {
         const errorCode = error.code;
+        console.log(errorCode);
         switch (errorCode) {
         case 'auth/invalid-email':
           document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico ya registrado';

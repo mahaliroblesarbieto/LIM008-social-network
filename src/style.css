@@ -192,12 +192,9 @@ img{
 /* Se tiene que cambiar medidas para sea responsive */
 .alert{
     margin-right: 5px;
-    padding-left: 37%;
-}
+   }
 
 .uncomp{
-    text-align: center;
-    padding-right: 30%; 
     font-size: 11pt;
 }
 /* hasta aqui los cambios, tambien se agrego dos divs en templatestring y se agrego clases, y se cambio el a de registrar por button */
