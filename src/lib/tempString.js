@@ -4,12 +4,13 @@ const objTemp = {
   home: () => {
     const tmpl = `<h3 id ="principal"> Bienvenido
     </h3>`;
+    console.log(document.getElementById('sectionMain'));
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     return elem;
   },
   registry: () => {
-    const tmpl = `<div class="row">
+    const tmpl = `<form>
     <div class="col-12 col-s-12">
      <h3>Te damos la bienvenida a Petlover</h3>
     </div>
@@ -40,13 +41,20 @@ const objTemp = {
     <div class="col-12 col-s-12">
       <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-  </div>`;
-    
-    const elem = document.createElement('form');
-    elem.innerHTML = tmpl;
-    const btnSignUp = elem.querySelector('#signUpUser');
-    btnSignUp.addEventListener('click', signUpOnClick);
-    return elem;
+  </div>
+  </form>`;
+   
+    const containerLogin = document.getElementById('login');
+    console.log(containerLogin);
+    //containerLogin.innerHTML = '';
+    //const elem = document.createElement('div');
+    //containerLogin.appendChild(elem);
+   // const elem = document.createElement('div');
+   // elem.className = 'row backgroundLogin';
+   // elem.innerHTML = tmpl;
+   // const btnSignUp = elem.querySelector('#signUpUser');
+   // btnSignUp.addEventListener('click', signUpOnClick);
+   // return elem;
   }
  
 };
