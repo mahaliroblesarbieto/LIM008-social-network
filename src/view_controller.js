@@ -1,7 +1,8 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
-  authenticateFacebookAccount} from './lib/index.js';
+  authenticateFacebookAccount,
+  closeSesion} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 const email = document.getElementById('txtEmail');
@@ -27,6 +28,14 @@ const saveData = (data) => {
   createDocumentUID(uid, {uid, user, email});
   changeHash('#/home');
 }; 
+
+export const closedSesion = () => {
+  closeSesion()
+    .then(() => {
+      changeHash('');
+    })
+    .catch();
+};
 
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()

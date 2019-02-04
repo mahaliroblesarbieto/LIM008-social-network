@@ -15,15 +15,10 @@ export const createUserWithEmailAndPassword = (email, password) =>
 export const authenticateEmailAndPassword = (email, password) => 
   firebase.auth().signInWithEmailAndPassword(email, password);
 
-export const authenticateFacebookAccount = () => {
-  if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    provider.addScope('public_profile');
-    return firebase.auth().signInWithPopup(provider);    
-  } else {
-    firebase.auth().signOut();
-  }
-};
+export const authenticateFacebookAccount = () => 
+  firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider().addScope('public_profile')); 
+
+export const closeSesion = () => firebase.auth().signOut();
 
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
