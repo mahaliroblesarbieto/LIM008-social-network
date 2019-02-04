@@ -1,4 +1,4 @@
-import {signUpOnClick, closedSesion} from '../view_controller.js';
+import {signUpOnClick, closedSesion, authenticateFacebook, authenticateWithGoogle,goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -64,6 +64,10 @@ const objTemp = {
   </section> `;
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
+    elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
+    elem.querySelector('#button-google').addEventListener('click',authenticateWithGoogle);
+    elem.querySelector('#btnSignUp').addEventListener('click', goToRegister);
+    elem.querySelector('#btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
     return elem; 
   },
   home: () => {

@@ -1,5 +1,4 @@
-import { initRouter } from './index.js';
-const init = () => {
+export const initFirebase = () => {
   const config = {
     apiKey: 'AIzaSyBhw65cEJ6zfQx3yQhCnR93-1adgjTzT64',
     authDomain: 'red-social-f7001.firebaseapp.com',
@@ -9,7 +8,4 @@ const init = () => {
     messagingSenderId: '732661442210'
   };
   firebase.initializeApp(config);
-  initRouter();
 };
-  
-window.onload = init();
