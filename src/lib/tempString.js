@@ -39,7 +39,7 @@ const objTemp = {
   </div>
   <div class="row">
     <div class="col-12 col-s-12">
-      <button class="type logIn border" id=signUpUser class = "border"> Registrar </button>
+      <button type="button" class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
   </form>`;
 
