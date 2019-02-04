@@ -4,14 +4,15 @@ const objTemp = {
   home: () => {
     const tmpl = `<h3 id ="principal"> Bienvenido
     </h3>`;
+    console.log(document.getElementById('sectionMain'));
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     return elem;
   },
   registry: () => {
-    const tmpl = `<div class="row backgroundLogin">
+    const tmpl = `<form>
     <div class="col-12 col-s-12">
-     <h3>Te damos la bienvenida a Petlover</h3>
+     <h1>Te damos la bienvenida a WorldPet</h1>
     </div>
   </div>
   <div class="row">
@@ -38,18 +39,14 @@ const objTemp = {
   </div>
   <div class="row">
     <div class="col-12 col-s-12">
-      <button class="type logIn border" id="signUpUser" class = "border"> Registrar </button>
+      <button type="button" class="type logIn border" id=signUpUser class = "border"> Registrar </button>
     </div>
-    <div class="col-12 col-s-12">
-      <button class="type logIn border" id="closeSign" class = "border"> Salir </button>
-    </div>
-  </div>`;
-    
+  </form>`;
+
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
     btnSignUp.addEventListener('click', signUpOnClick);
-    return elem;
+    return elem; 
   }
- 
 };
