@@ -1,9 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kaushan+Script');
 /*Nos aseguramos que el relleno y el borde se incluyan en el ancho y la altura totales de los elementos en todos los div de la pagina */
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+.background-principal{
+    background-color: #fff
+}
 
+.backgroundLogin {
+    /* Aquí el origen de la imagen */
+    background-image: url(img/fondomascota3.jpg);
+   
+    /* Fijar la imagen de fondo este vertical y
+      horizontalmente y centrado */
+    background-position: center center;
+   
+    /* Esta imagen no debe de repetirse */
+    background-repeat: no-repeat;
+   
+    /* COn esta regla fijamos la imagen en la pantalla. */
+    background-attachment: fixed;
+   
+    /* La imagen ocupa el 100% y se reescala */
+    background-size: cover;
+   
+    /* Damos un color de fondo mientras la imagen está cargando  */
+    background-color: #464646;
+  }
 .container{
     font-family: -apple-
     system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
@@ -14,19 +40,18 @@
     font-weight: bold;
 }
 
-h3{
-    font-family: 'Kaushan Script', cursive;
-    text-align: center
-}
-
-.img-logo{
-    align-content: center;
+h1{
+    font-family:'Fredoka One', cursive;
     text-align: center;
+    font-size:2em;
+    margin: 0;
+    padding:0;
 }
 
 .logo{
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
+    margin-left: 37%;
 }
 
 .border {
@@ -100,7 +125,7 @@ img{
 }
 
 .logIn{
-    background:  rgb(173, 6, 6); 
+    background:  rgb(20, 173, 6); 
     width: 100%;
 }
 

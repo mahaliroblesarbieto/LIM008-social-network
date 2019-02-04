@@ -11,7 +11,7 @@ const objTemp = {
   registry: () => {
     const tmpl = `<div class="row">
     <div class="col-12 col-s-12">
-     <h3>Te damos la bienvenida a Petlover</h3>
+     <h1>Te damos la bienvenida a WorldPet</h1>
     </div>
   </div>
   <div class="row">
@@ -41,12 +41,10 @@ const objTemp = {
       <button class="type logIn border" id="signUpUser" class = "border"> Registrar </button>
     </div>
   </div>`;
-    
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
     btnSignUp.addEventListener('click', signUpOnClick);
-    return elem;
+    return elem; 
   }
- 
 };
