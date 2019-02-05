@@ -25,3 +25,11 @@ export const initRouter = () => {
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
 
+export const savePublication = (name, text, type) => {
+  firebase.firestore().collection('Posts').add({
+    uid: name, 
+    text: text,
+    public: type, 
+    date: firebase.firestore.FieldValue.serverTimestamp()
+  });
+};
