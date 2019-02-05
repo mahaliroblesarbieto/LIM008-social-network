@@ -75,6 +75,12 @@ const objTemp = {
     <div class="row">
     <div class="col-12 col-s-12">
       <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+    </div>
+    <div class="col-12 col-s-12">
+      <form id="postform">
+      <textarea name="comment" form="usrform">Enter text here...</textarea>
+      <button type="button">
+      </form>
     </div>`;
 
     const elem = document.createElement('div');
