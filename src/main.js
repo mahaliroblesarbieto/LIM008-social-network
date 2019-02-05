@@ -3,6 +3,6 @@ import { initFirebase } from './lib/ConfigFireBase.js';
 const init = () => {
   initFirebase();
   initRouter();
-}
-window.addEventListener('load', init)
+};
+window.addEventListener('load', init);
 

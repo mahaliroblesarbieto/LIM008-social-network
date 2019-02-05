@@ -5,7 +5,7 @@ const objTemp = {
     const tmpl = `<section>
     <div class="row backgroundLogin">
       <div class="col-4"></div>
-        <div id ="home" class="col-6col-s-4 border">
+        <div id ="home" class="col-6 col-s-4 border">
           <div class="background-principal">
           <div class="row">
             <div class="col-s-12 col-12">
