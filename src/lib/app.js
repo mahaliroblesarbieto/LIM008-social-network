@@ -24,7 +24,6 @@ const viewTmp = (routers) => {
     const containerLogin = document.getElementById('container');
     containerLogin.innerHTML = '';
     containerLogin.appendChild(objTemp['login']());
-    console.log(containerLogin);
     break;
   case 'home' :
     const container = document.getElementById('container');
