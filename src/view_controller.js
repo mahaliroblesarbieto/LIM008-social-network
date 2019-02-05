@@ -1,13 +1,17 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
-  authenticateFacebookAccount} from './lib/index.js';
+  authenticateFacebookAccount,
+  closeSesion} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
+<<<<<<< HEAD
 /* const btnSignUp = elem.querySelector('#home');
 btnSignUp.addEventListener('load', objTemp[login]());*/
 
 
+=======
+>>>>>>> d702b1be991f0a26d0de988fbdb5709b940ff4aa
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
@@ -36,6 +40,14 @@ const saveData = (data) => {
   changeHash('#/home');
 }; 
 
+export const closedSesion = () => {
+  closeSesion()
+    .then(() => {
+      changeHash('');
+    })
+    .catch();
+};
+
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
     .then((data) => saveData(data))
@@ -52,49 +64,29 @@ export const goToRegister = () => {
 };
 
 export const signUpOnClick = () => {
-  console.log('paso');
+  const name = document.querySelector('#nombres').value;
+  const lastName = document.querySelector('#apellidos').value;
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
-  if (email === '' || password === '') {
-    alert('Complete los datos');
-  } else if (email !== '' && password !== '') {
-    console.log('paso2');
+  if (email === '' || password === '' || name === '' || lastName === '') {
+    showUncompletedErrors();
+  } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
       .then((data) => saveData(data))
-      .catch((error) => {
-        const errorCode = error.code;
-        switch (errorCode) {
-        case 'auth/email-already-in-use':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico ya registrado';
-          break;
-        case 'auth/invalid-email':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
-          break;
-        case 'auth/weak-password':
-          document.querySelector('#passwordError').innerHTML = 'Contraseña debe tener mínimo 6 dígitos';
-          break;
-        case 'error':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
-          break;
-        }
-      });
-  } else {
-    console.log('este es el problema');
-  }
+      .catch((error) => showSignErrors(error));
+  };
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  authenticateEmailAndPassword(email.value, password.value)
-    .then((data) => saveData(data))
-    .catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-    });
+  const email = document.querySelector('#txtEmail').value;
+  const password = document.querySelector('#txtPassword').value;
+  if (email === '' || password === '') {
+    showUncompletedErrors();
+  } else if (email !== '' && password !== '') {
+    authenticateEmailAndPassword(email, password)
+      .then((data) => saveData(data))
+      .catch((error) => showLogErrors(error));
+  };
 };
 
 export const authenticateFacebook = () => {
@@ -108,3 +100,41 @@ export const authenticateFacebook = () => {
     });
 };
 
+const showSignErrors = (error) => {
+  const errorCode = error.code;
+  switch (errorCode) {
+  case 'auth/email-already-in-use':
+    document.querySelector('#emailError').innerHTML = 'Correo electrónico ya registrado';
+    break;
+  case 'auth/invalid-email':
+    document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
+    break;
+  case 'auth/weak-password':
+    document.querySelector('#passwordError').innerHTML = 'Contraseña debe tener mínimo 6 dígitos';
+    break;
+  case 'error':
+    document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
+    break;
+  default: document.querySelector('#emailError').innerHTML = '';
+  }  
+};
+
+const showLogErrors = (error) => {
+  const errorCode = error.code;
+  switch (errorCode) {
+  case 'auth/invalid-email':
+    document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico inválido';
+    break;
+  case 'auth/user-not-found':
+    document.querySelector('#emailErrorLog').innerHTML = 'Usuario no registrado';
+    break;
+  case 'auth/user-disabled':
+    document.querySelector('#emailErrorLog').innerHTML = 'Correo electrónico deshabilitado';
+    break;
+  case 'auth/wrong-password':
+    document.querySelector('#passwordErrorLog').innerHTML = 'Contraseña incorrecta';
+    break;
+  }
+};
+
+const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';

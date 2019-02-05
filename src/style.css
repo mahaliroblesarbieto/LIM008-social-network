@@ -6,6 +6,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.height100{
+    height: 100%;
+}
+
 .background-principal{
     background-color: #fff
 }
@@ -160,6 +168,36 @@ img{
     display: table;
     
 }
+/* css implemtado por kimberly para divs de errores */
+.errors{
+    height: 33px;
+    color: red;
+    /* border-color: black; */
+    width: 100%;
+    text-align: left;
+    font-size: 10.5pt;
+    background: #ffffff;
+    /* border: 1px solid rgb(152, 153, 155); */
+    /* margin-bottom: 0px; */
+    padding:1px;
+
+}
+.regist{
+    padding-bottom: 0px;
+}
+
+.pass {
+    padding-top: 0px;
+}
+/* Se tiene que cambiar medidas para sea responsive */
+.alert{
+    margin-right: 5px;
+}
+
+.uncomp{
+    font-size: 10pt;
+}
+/* hasta aqui los cambios, tambien se agrego dos divs en templatestring y se agrego clases, y se cambio el a de registrar por button */
 /*Para los teléfonos celulares*/
 [class*="col-"] {
     width: 100%;
