@@ -1,13 +1,17 @@
-// const jest = require('jest');
+// configurando firebase mock
+const firebasemock = require('firebase-mock');
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
+mockauth.autoFlush();
 
-// jest.mock('../path-to-firebase-init', () => {
-//   return mocksdk;
-// });
+global.firebase = firebasemock.MockFirebaseSdk(
+  // use null if your code does not use RTDB
+  path => (path ? mockdatabase.child(path) : null),
+  () => mockauth,
+  () => mockfirestore
+);
 
-// mocksdk.database().flush();
-// data is logged
-
-// importamos la funcion que vamos a testear
 
 import { authenticateGoogleAccount,
   authenticateFacebookAccount,
@@ -42,17 +46,20 @@ describe('createUserWithEmailAndPassword', () => {
   });
 });
 
-// Intentando test para createUser
+describe('authenticateWithEmailAndPassword', () => {
+  it('Debería poder iniciar sesion', () => {
+    return authenticateWithEmailAndPassword('front@end.la', '123456')
+      .then((user) => {
+        expect(user.email).toBe('front@end.la');
+      });
+  });
+});
 
-// const firebasemock = require('firebase-mock');
-// const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
-
-// global.firebase = firebasemock.MockFirebaseSdk(
-//   // use null if your code does not use RTDB
-//   path => (path ? mockdatabase.child(path) : null),
-//   () => mockauth,
-//   () => mockfirestore
-// );
+describe('createUserWithEmailAndPassword', () => {
+  it('Debería poder crear un usuario', () => {
+    return createUserWithEmailAndPassword('front@end.la', '123456')
+      .then((user) => {
+        expect(user.email).toBe('front@end.la');
+      });
+  });
+});

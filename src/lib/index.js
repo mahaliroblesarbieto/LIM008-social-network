@@ -1,6 +1,5 @@
 import { changeTmp } from './app.js';
 
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
@@ -12,7 +11,7 @@ export const authenticateGoogleAccount = () =>
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
 
-export const authenticateEmailAndPassword = (email, password) => 
+export const authenticateWithEmailAndPassword = (email, password) => 
   firebase.auth().signInWithEmailAndPassword(email, password);
 
 export const authenticateFacebookAccount = () => 
