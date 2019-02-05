@@ -5,13 +5,6 @@ import {authenticateGoogleAccount,
   closeSesion} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
-<<<<<<< HEAD
-/* const btnSignUp = elem.querySelector('#home');
-btnSignUp.addEventListener('load', objTemp[login]());*/
-
-
-=======
->>>>>>> d702b1be991f0a26d0de988fbdb5709b940ff4aa
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
@@ -138,3 +131,19 @@ const showLogErrors = (error) => {
 };
 
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
+
+export const savePublication = (mdfgh, perro, publico) => {
+  firebase.firestore().collection('Post').add({
+    uid: mdfgh, 
+    text: perro,
+    public: publico, 
+    date: firebase.firestore.FieldValue.serverTimestamp()
+  })
+    .then(refDoc => {
+      console.log(`Id del post => ${refDoc.id}`);
+    })
+    .catch(error => {
+      console.error(`Error creando el post => ${error}`);
+    });
+};
+
