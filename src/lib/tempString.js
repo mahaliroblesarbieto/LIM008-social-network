@@ -83,8 +83,14 @@ const objTemp = {
     const tmpl = 
     `<header class="text type logIn">
       <div class="row" id="title">
-        <h1>WORLDPET</h1>
-        <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+        <div class="col-12 col-s-12">
+          <div class="col-10 col-s-10">
+            <h1>WORLDPET</h1>
+          </div>
+          <div class="col-2 col-s-2">
+          <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+          </div>
+        </div>
       </div>
     </header>
     <section class="text">
