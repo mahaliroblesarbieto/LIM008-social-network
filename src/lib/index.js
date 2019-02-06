@@ -43,9 +43,21 @@ export const UpdatedPost = (id, textNew) => {
 const upd = (element) => {
   console.log(element);
 };
+const deletePost = (postId) => {
+  console.log(postId);
+  //firebase.firestore().collection('Posts').doc(postId).delete();
+
+};
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
+  console.log(objNote.date.toDate());
   liElement.innerHTML = `
+    <div class="row">
+      <div class="col-12 col-s-12"><div>
+        <span>${objNote.uid}</span>
+        <span>${objNote.date.toDate()}</span>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12 col-s-12"><div>
         <span>${objNote.text}</span>
@@ -57,7 +69,7 @@ const itemNote = (objNote) => {
           <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
         </div>
         <div class="col-2 col-s-2">
-          <button type = "button" id = "btnLogIn"  class="type logIn border">Eliminar</button>
+          <button type = "button" id = "#btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
         </div>
         <div class="col-2 col-s-2">
         </div>
@@ -99,6 +111,11 @@ const itemNote = (objNote) => {
     console.log(objNote.id);
     UpdatedPost(objNote.id, textNew);
   });
+  /*const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
+  btnDelete.addEventListener('click', () => {
+    //deletePost(objNote.id);
+  });*/
+
   return liElement;
 };
 export const consultPost = () => {
@@ -106,13 +123,16 @@ export const consultPost = () => {
     .collection('Posts')
     .orderBy('date', 'desc')
     .onSnapshot(querySnapshot => {
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
+        console.log(data);
       });
-      data.forEach((element) => {
-        const ul = document.querySelector('#notes-list');
-        ul.appendChild(itemNote(element));
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
       });
     });
 };
+

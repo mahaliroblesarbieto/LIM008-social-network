@@ -71,6 +71,7 @@ const objTemp = {
       <div class="col-4"></div>
     </div>
   </section> `;
+
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
@@ -120,7 +121,7 @@ const objTemp = {
             </select>
           </div>
           <div class="col-2">
-            <button type = "button" class="type logIn border width" id="button-post" class = "border"> Publicar </button>
+            <button type = "button" class="type logIn border width" id="button-post"  class = "border"> Publicar </button>
           </div>
         </div>
       </div>
@@ -131,8 +132,6 @@ const objTemp = {
         </div>
       </div>
     </section>`;
-    
-
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
@@ -198,3 +197,4 @@ const objTemp = {
     return elem; 
   }
 };
+
