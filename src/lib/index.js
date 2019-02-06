@@ -33,6 +33,13 @@ export const savePublication = (name, text, type) =>
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
+
+export const UpdatedPost = (id,textNew) => {
+  let refUser = firebase.firestore().collection('posts').doc(id);
+  refUser.update({
+    text: textNew
+  });
+};
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   liElement.innerHTML = `
@@ -44,7 +51,7 @@ const itemNote = (objNote) => {
     <div class="row">
       <div class="col-12 col-s-12">
         <div class="col-2 col-s-2">
-          <button type = "button" id = "btnLogIn"  class="type logIn border">Editar</button>
+          <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
         </div>
         <div class="col-2 col-s-2">
           <button type = "button" id = "btnLogIn"  class="type logIn border">Eliminar</button>
@@ -59,11 +66,35 @@ const itemNote = (objNote) => {
         </div>
       </div>
     </div>
-    `;
+    <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <textarea rows="4" cols="50" id="post-content">
+    ${objNote.text}
+    </textarea>
+    <div class="row">
+    <div class="col-12 col-s-12">
+      <div class="col-2 col-s-2">
+        <button type = "button" id = "btn-update-content"  class="type logIn border">Editar</button>
+      </div>
+      <div class="col-2 col-s-2">
+        <button type = "button" id = "btn-close-modal"  class="type logIn border">Cerrar</button>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>`;
+  
+  const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
+  const modalUpdatePost = liElement.querySelector('#myModal');
+  btnUpdatePost.addEventListener('click', (objNote) => {
+    modalUpdatePost.style.display = 'block';
+    const textNew = liElement.querySelector('#post-content').value;
+    const btnUpdateContent = document.querySelector('#btn-update-content');
+    btnUpdateContent.addEventListener('click', UpdatedPost(objNote.id, textNew));
+  });
   return liElement;
 };
-
-
 export const consultPost = () => {
   firebase.firestore()
     .collection('Posts')
@@ -73,7 +104,6 @@ export const consultPost = () => {
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
       });
-      console.log(data);
       data.forEach((element) => {
         const ul = document.querySelector('#notes-list');
         ul.appendChild(itemNote(element));
