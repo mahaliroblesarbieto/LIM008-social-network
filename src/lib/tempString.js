@@ -80,30 +80,47 @@ const objTemp = {
     return elem; 
   },
   home: () => {
-    const tmpl = `<h3 id ="principal"> Bienvenido</h3>
-    <div class="row">
-    <div class="col-12 col-s-12">
-      <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
-<<<<<<< HEAD
-      <select class="type logIn border" id="post-type">
-        <option value="false">Amigos</option>
-        <option value="true">Público</option>
-      </select>
-      <textarea rows="10" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
-      <button type = "button" class="type logIn border" id="button-post" class = "border"> Publicar </button>
-      <div id="container-publication">
-      <ul class="w-100 demo-list-control mdl-list" id="notes-list">
-      </ul>
+    const tmpl = 
+    `<header class="text type logIn">
+      <div class="row" id="title">
+        <h1>WORLDPET</h1>
+        <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
       </div>
-=======
-    </div>
-    <div class="col-12 col-s-12">
-      <form id="postform">
-      <textarea name="comment" form="usrform">Enter text here...</textarea>
-      <button type="button">
-      </form>
->>>>>>> d8963066ccc92024fde822564162b82f61496dc0
-    </div>`;
+    </header>
+    <section class="text">
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <textarea rows="2" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-2 col-s-2">
+            <select class="type logIn border width" id="post-type">
+              <option value="false">Amigos</option>
+              <option value="true">Público</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="button-post" class = "border"> Publicar </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="container-publication" class="col-12 col-s-12">
+          <ul class="w-100 demo-list-control mdl-list" id="notes-list">
+          </ul>
+        </div>
+      </div>
+    </section>`;
     
 
     const elem = document.createElement('div');
@@ -169,65 +186,5 @@ const objTemp = {
     const btnSignUp = elem.querySelector('#signUpUser');
     btnSignUp.addEventListener('click', signUpOnClick);
     return elem; 
-  },
-
-  login: () => {
-    const tmpl = `
-    <div class="background-principal">
-    <div class="row">
-      <div class="col-s-12 col-12">
-        <img class="logo" src="img/logoworldpet.jpg" alt="logo worldpet"> 
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <h1 class = "margin-t">WORLDPET</h1> <h4>Mundo Mascota, todo lo que tu mascota necesita en un solo app.</h4>
-      </div> 
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <input id="txtPassword" type = "password" class = "border" placeholder="Contraseña"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <button type = "button" id = "btnLogIn"  class="type logIn border">  Iniciar Sesión</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <h4 style="text-align: center;">------------------ ó ------------------</h4>
-      </div>
-    </div>
-    <div class="row ">
-      <div class="col-12 col-s-12">
-        <button  id="button-facebook" class="type facebook border"><img class = "icon" src = "img/iconofacebook.png"></img>Continuar con Facebook </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <button type = "button" id="button-google" class = "type google border"><img class = "icon" src = "img/iconogoogle.png"></img>Continuar con Google </button>
-      </div> 
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <h4 style="text-align: center;">Si no tienes una cuenta, puedes crearla dando clic al siguiente botón:</h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <button type = "button" id = "btnSignUp" class = "type create-count border" > Crear Cuenta </button>
-      </div>
-    </div>
-  </div>`;
-    const elem = document.createElement('div');
-    elem.innerHTML = tmpl;
-    return elem;
   }
 };
-
