@@ -34,11 +34,14 @@ export const savePublication = (name, text, type) =>
   });
 
 
-export const UpdatedPost = (id,textNew) => {
-  let refUser = firebase.firestore().collection('posts').doc(id);
+export const UpdatedPost = (id, textNew) => {
+  let refUser = firebase.firestore().collection('Posts').doc(id);
   refUser.update({
     text: textNew
   });
+};
+const upd = (element) => {
+  console.log(element);
 };
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
@@ -87,11 +90,14 @@ const itemNote = (objNote) => {
   
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
   const modalUpdatePost = liElement.querySelector('#myModal');
-  btnUpdatePost.addEventListener('click', (objNote) => {
+  btnUpdatePost.addEventListener('click', () => {
     modalUpdatePost.style.display = 'block';
+  });
+  const btnUpdateContent = liElement.querySelector('#btn-update-content');
+  btnUpdateContent.addEventListener('click', () => {
     const textNew = liElement.querySelector('#post-content').value;
-    const btnUpdateContent = document.querySelector('#btn-update-content');
-    btnUpdateContent.addEventListener('click', UpdatedPost(objNote.id, textNew));
+    console.log(objNote.id);
+    UpdatedPost(objNote.id, textNew);
   });
   return liElement;
 };
