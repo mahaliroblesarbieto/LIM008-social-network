@@ -131,9 +131,6 @@ export const publish = () => {
   const user = firebase.auth().currentUser.displayName;
   const enteredText = document.querySelector('#entered-text').value;
   const postType = document.querySelector('#post-type').value;
-  console.log(enteredText);
-  console.log(user);
-  console.log(postType);
   savePublication(user, enteredText, postType)
     .then((data) => consultPost(data))
     .catch(error => {

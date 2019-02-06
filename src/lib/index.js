@@ -69,14 +69,15 @@ export const consultPost = () => {
     .collection('Posts')
     .orderBy('date', 'desc')
     .onSnapshot(querySnapshot => {
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
+        console.log(data);
       });
-        
-      data.forEach((element) => {
-        const ul = document.querySelector('#notes-list');
-        ul.appendChild(itemNote(element));
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
       });
     });
 };
