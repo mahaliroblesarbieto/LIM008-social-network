@@ -15,23 +15,23 @@ const fixtureData = {
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 
-import { consultPost, deletePosts } from '../src/lib/index.js';
+import { deletePost } from '../src/lib/index.js';
 
-describe('deletePosts', () => {
+describe('deletePost', () => {
   it('debería ser una función', () => {
-    expect(typeof deletePosts).toBe('function');
+    expect(typeof deletePost).toBe('function');
   });
 });
 
-// describe('lista de posts', () => {
-//   it('Debería poder eliminar un post', (done) => {
-//     return deletePosts('abc1d')
-//       .then(() => consultPost(
-//         (data) => {
-//           const result = data.find((post) => post.id === 'abc1d');
-//           expect(result).toBe(undefined);
-//           done();
-//         }
-//       ));
-//   });
-// });
+describe('lista de posts', () => {
+  it('Debería poder eliminar un post', (done) => {
+    return deletePost('abc1d')
+      .then(() => consultPost(
+        (data) => {
+          const result = data.find((post) => post.id === 'abc1d');
+          expect(result).toBe(undefined);
+          done();
+        }
+      ));
+  });
+});
