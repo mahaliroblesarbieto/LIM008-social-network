@@ -1,4 +1,4 @@
-import {initRouter} from './lib/index.js';
+import {initRouter} from './lib/app.js';
 import { initFirebase } from './lib/ConfigFireBase.js';
 const init = () => {
   initFirebase();

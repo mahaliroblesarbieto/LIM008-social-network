@@ -1,4 +1,4 @@
-import {signUpOnClick, closedSesion, authenticateFacebook, authenticateWithGoogle, goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
+import {signUpOnClick, /* closedSesion,*/ authenticateFacebook, authenticateWithGoogle, goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -78,12 +78,24 @@ const objTemp = {
     <div class="row">
     <div class="col-12 col-s-12">
       <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+      <select class="type logIn border" id="post-type">
+        <option value="false">Amigos</option>
+        <option value="true">Público</option>
+      </select>
+      <textarea rows="10" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
+      <button type = "button" class="type logIn border" id="button-post" class = "border"> Publicar </button>
+      <div id="container-publication">
+      <ul class="w-100 demo-list-control mdl-list" id="notes-list">
+      </ul>
+      </div>
     </div>`;
 
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
     btnCloseSesion.addEventListener('click', closedSesion);
+    const btnPost = elem.querySelector('#button-post');
+    btnPost.addEventListener('click', publish);
     return elem;
   },
   registry: () => {

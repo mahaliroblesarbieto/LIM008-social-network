@@ -2,7 +2,7 @@ import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
-  closeSesion} from './lib/index.js';
+  /* closeSesion*/} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
@@ -124,3 +124,17 @@ const showLogErrors = (error) => {
 };
 
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
+
+export const publish = () => {
+  const user = firebase.auth().currentUser.displayName;
+  const enteredText = document.querySelector('#entered-text').value;
+  const postType = document.querySelector('#post-type').value;
+  console.log(enteredText);
+  console.log(user);
+  console.log(postType);
+  savePublication(user, enteredText, postType)
+    .then((data) => consultPost(data))
+    .catch(error => {
+      console.error(`Error creando el post => ${error}`);
+    });
+};

@@ -15,14 +15,10 @@ global.firebase = firebasemock.MockFirebaseSdk(
 
 import { authenticateGoogleAccount,
   authenticateFacebookAccount,
-  authenticateWithEmailAndPassword,
+  authenticateEmailAndPassword,
   createUserWithEmailAndPassword} from '../src/lib/index.js';
 
 describe('authenticateGoogleAccount', () => {
-  it('debería ser una función', () => {
-    expect(typeof authenticateGoogleAccount).toBe('function');
-  });
-
   it('debería ser una función', () => {
     expect(typeof authenticateGoogleAccount).toBe('function');
   });
@@ -34,9 +30,9 @@ describe('authenticateFacebookAccount', () => {
   });
 });
 
-describe('authenticateWithEmailAndPassword', () => {
+describe('authenticateEmailAndPassword', () => {
   it('debería ser una función', () => {
-    expect(typeof authenticateWithEmailAndPassword).toBe('function');
+    expect(typeof authenticateEmailAndPassword).toBe('function');
   });
 });
 
@@ -46,9 +42,9 @@ describe('createUserWithEmailAndPassword', () => {
   });
 });
 
-describe('authenticateWithEmailAndPassword', () => {
+describe('authenticateEmailAndPassword', () => {
   it('Debería poder iniciar sesion', () => {
-    return authenticateWithEmailAndPassword('front@end.la', '123456')
+    return authenticateEmailAndPassword('front@end.la', '123456')
       .then((user) => {
         expect(user.email).toBe('front@end.la');
       });
@@ -63,3 +59,24 @@ describe('createUserWithEmailAndPassword', () => {
       });
   });
 });
+
+describe('authenticateGoogleAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateGoogleAccount()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).not.toBe(null);
+      });
+  });
+});
+
+describe('authenticateFacebookAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateFacebookAccount()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).not.toBe(null);
+      });
+  });
+});
+
