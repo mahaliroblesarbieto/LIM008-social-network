@@ -35,7 +35,14 @@ export const savePublication = (name, text, type) =>
 
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
+  console.log(objNote.date.toDate());
   liElement.innerHTML = `
+    <div class="row">
+      <div class="col-12 col-s-12"><div>
+        <span>${objNote.uid}</span>
+        <span>${objNote.date.toDate()}</span>
+      </div>
+    </div>
     <div class="row">
       <div class="col-12 col-s-12"><div>
         <span>${objNote.text}</span>
