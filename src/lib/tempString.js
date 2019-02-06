@@ -1,4 +1,4 @@
-import {signUpOnClick, /* closedSesion,*/ authenticateFacebook, authenticateWithGoogle, goToRegister, authenticateWithEmailAndPassword } from '../view_controller.js';
+import {signUpOnClick, closedSesion, authenticateFacebook, authenticateWithGoogle, goToRegister, authenticateWithEmailAndPassword, publish } from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {

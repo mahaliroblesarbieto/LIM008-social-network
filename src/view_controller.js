@@ -2,7 +2,9 @@ import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
-  /* closeSesion*/} from './lib/index.js';
+  closeSesion,
+  savePublication,
+  consultPost} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {

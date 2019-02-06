@@ -11,7 +11,7 @@ export const authenticateEmailAndPassword = (email, password) =>
 export const authenticateFacebookAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
   // .addScope('public_profile')); 
-// export const closeSesion = () => firebase.auth().signOut();
+export const closeSesion = () => firebase.auth().signOut();
 
 // export const savePublication = (name, text, type) => 
 //   firebase.firestore().collection('Posts').add({
@@ -23,29 +23,52 @@ export const authenticateFacebookAccount = () =>
 
 // const itemNote = (objNote) => {
 //   const liElement = document.createElement('li');
-//   liElement.innerHTML = `<div>
-//       <span class="mdl-list__item-primary-content">
+//   liElement.innerHTML = `
+//   <div class="row">
+//       <div class="col-12 col-s-12"><div>
 //         <span>${objNote.text}</span>
-//       </span>
 //       </div>
+//     </div>
+//     <div class="row">
+//       <div class="col-12 col-s-12">
+//         <div class="col-2 col-s-2">
+//           <button type = "button" id = "btnLogIn"  class="type logIn border">Editar</button>
+//         </div>
+//         <div class="col-2 col-s-2">
+//           <button type = "button" id = "btnLogIn"  class="type logIn border">Eliminar</button>
+//         </div>
+//         <div class="col-2 col-s-2">
+//         </div>
+//         <div class="col-2 col-s-2">
+//         </div>
+//         <div class="col-2">
+//         </div>
+//         <div class="col-2">
+//         </div>
+//       </div>
+//     </div>
 //     `;
 //   return liElement;
 // };
 
+// Dani
+export const consultPost = (callback) => {
+  firebase.firestore()
+    .collection('Posts')
+    .orderBy('date', 'desc')
+    .onSnapshot(querySnapshot => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      // data.forEach((element) => {
+      //   const ul = document.querySelector('#notes-list');
+      //   ul.appendChild(itemNote(element));
+      // });
+    });
+  callback(data);
+};
 
-// export const consultPost = () => {
-//   firebase.firestore()
-//     .collection('Posts')
-//     .orderBy('date', 'desc')
-//     .onSnapshot(querySnapshot => {
-//       const data = [];
-//       querySnapshot.forEach((doc) => {
-//         data.push({ id: doc.id, ...doc.data() });
-//       });
-        
-//       data.forEach((element) => {
-//         const ul = document.querySelector('#notes-list');
-//         ul.appendChild(itemNote(element));
-//       });
-//     });
-// };
+export const deletePosts = (idPost) => {
+  // firebase.firestore().collection('Posts').doc(idPost).delete();
+}; 
