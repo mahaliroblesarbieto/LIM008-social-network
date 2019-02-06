@@ -10,8 +10,8 @@ export const changeHash = (hash) => {
   changeTmp(location.hash);
 };
 
-import { getlogin } from './lib/tempString.js';
-getlogin();
+/*import { getlogin } from './lib/tempString.js';
+getlogin();*/
 
 const email = document.getElementById('txtEmail');
 const password = document.getElementById('txtPassword');
