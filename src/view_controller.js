@@ -3,7 +3,8 @@ import {authenticateGoogleAccount,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
   closeSesion,
-  savePublication} from './lib/index.js';
+  savePublication,
+  consultPost} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
@@ -134,9 +135,7 @@ export const publish = () => {
   console.log(user);
   console.log(postType);
   savePublication(user, enteredText, postType)
-    .then(refDoc => {
-      console.log(`Id del post => ${refDoc.id}`);
-    })
+    .then((data) => consultPost(data))
     .catch(error => {
       console.error(`Error creando el post => ${error}`);
     });

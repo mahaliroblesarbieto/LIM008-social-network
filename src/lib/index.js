@@ -25,11 +25,39 @@ export const initRouter = () => {
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
 
-export const savePublication = (name, text, type) => {
+export const savePublication = (name, text, type) => 
   firebase.firestore().collection('Posts').add({
     uid: name, 
     text: text,
     public: type, 
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
+
+const itemNote = (objNote) => {
+  const liElement = document.createElement('li');
+  liElement.innerHTML = `<div>
+      <span class="mdl-list__item-primary-content">
+        <span>${objNote.text}</span>
+      </span>
+      </div>
+    `;
+  return liElement;
+};
+
+
+export const consultPost = () => {
+  firebase.firestore()
+    .collection('Posts')
+    .orderBy('date', 'desc')
+    .onSnapshot(querySnapshot => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+        
+      data.forEach((element) => {
+        const ul = document.querySelector('#notes-list');
+        ul.appendChild(itemNote(element));
+      });
+    });
 };

@@ -88,9 +88,14 @@ const objTemp = {
         <option value="false">Amigos</option>
         <option value="true">Público</option>
       </select>
-      <input type="text" id="entered-text" class = "border" placeholder = "¿Qué estas pensando?"></input>
+      <textarea rows="10" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
       <button type = "button" class="type logIn border" id="button-post" class = "border"> Publicar </button>
+      <div id="container-publication">
+      <ul class="w-100 demo-list-control mdl-list" id="notes-list">
+      </ul>
+      </div>
     </div>`;
+    
 
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
