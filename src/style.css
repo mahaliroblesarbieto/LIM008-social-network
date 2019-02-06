@@ -1,5 +1,7 @@
 /*Nos aseguramos que el relleno y el borde se incluyan en el ancho y la altura totales de los elementos en todos los div de la pagina */
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 * {
     margin: 0;
@@ -9,6 +11,38 @@
 html,body{
     height: 100%;
     width: 100%;
+}
+
+header{
+    color:white
+}
+
+option{
+    color:white 
+}
+
+span{
+    width: 100%;
+    text-align: center
+}
+
+textarea{
+    width: 100%;
+    font-size: 1.3em;
+    border-radius: 5px;
+    text-align:center;
+    font-family:'Source Sans Pro', sans-serif;
+    /*line-height: 60%;*/
+    color: #2e2c2c;
+    padding-top: 3%
+}
+
+.width{
+    width: 10%
+
+}
+#entered-text::placeholder{
+    text-align: center
 }
 .height100{
     height: 100%;

@@ -80,21 +80,47 @@ const objTemp = {
     return elem; 
   },
   home: () => {
-    const tmpl = `<h3 id ="principal"> Bienvenido</h3>
-    <div class="row">
-    <div class="col-12 col-s-12">
-      <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
-      <select class="type logIn border" id="post-type">
-        <option value="false">Amigos</option>
-        <option value="true">Público</option>
-      </select>
-      <textarea rows="10" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
-      <button type = "button" class="type logIn border" id="button-post" class = "border"> Publicar </button>
-      <div id="container-publication">
-      <ul class="w-100 demo-list-control mdl-list" id="notes-list">
-      </ul>
+    const tmpl = 
+    `<header class="text type logIn">
+      <div class="row" id="title">
+        <h1>WORLDPET</h1>
+        <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
       </div>
-    </div>`;
+    </header>
+    <section class="text">
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <textarea rows="2" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-2 col-s-2">
+            <select class="type logIn border width" id="post-type">
+              <option value="false">Amigos</option>
+              <option value="true">Público</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="button-post" class = "border"> Publicar </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="container-publication" class="col-12 col-s-12">
+          <ul class="w-100 demo-list-control mdl-list" id="notes-list">
+          </ul>
+        </div>
+      </div>
+    </section>`;
     
 
     const elem = document.createElement('div');
