@@ -73,7 +73,7 @@ export const consultPost = () => {
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
       });
-        
+      console.log(data);
       data.forEach((element) => {
         const ul = document.querySelector('#notes-list');
         ul.appendChild(itemNote(element));
