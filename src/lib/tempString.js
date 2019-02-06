@@ -83,8 +83,18 @@ const objTemp = {
     const tmpl = 
     `<header class="text type logIn">
       <div class="row" id="title">
-        <h1>WORLDPET</h1>
-        <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+        <div class="col-12 col-s-12">
+          <div class="col-10 col-s-10">
+            <h1>WORLDPET</h1>
+          </div>
+          <div class="col-2 col-s-2">
+            <select class="logIn width" id="closeSesion">
+              <option disabled selected></option>
+              <option value="true">Cerrar Sesión</option>
+            </select>
+            <!--<button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>-->
+          </div>
+        </div>
       </div>
     </header>
     <section class="text">
@@ -126,7 +136,7 @@ const objTemp = {
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
-    btnCloseSesion.addEventListener('click', closedSesion);
+    btnCloseSesion.addEventListener('change', closedSesion);
     const btnPost = elem.querySelector('#button-post');
     btnPost.addEventListener('click', publish);
     return elem;
