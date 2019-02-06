@@ -84,6 +84,7 @@ const objTemp = {
     <div class="row">
     <div class="col-12 col-s-12">
       <button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>
+<<<<<<< HEAD
       <select class="type logIn border" id="post-type">
         <option value="false">Amigos</option>
         <option value="true">Público</option>
@@ -94,6 +95,14 @@ const objTemp = {
       <ul class="w-100 demo-list-control mdl-list" id="notes-list">
       </ul>
       </div>
+=======
+    </div>
+    <div class="col-12 col-s-12">
+      <form id="postform">
+      <textarea name="comment" form="usrform">Enter text here...</textarea>
+      <button type="button">
+      </form>
+>>>>>>> d8963066ccc92024fde822564162b82f61496dc0
     </div>`;
     
 
