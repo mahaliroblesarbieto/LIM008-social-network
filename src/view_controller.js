@@ -134,9 +134,7 @@ export const publish = () => {
   if (enteredText !== '') {
     savePublication(user, enteredText, postType)
       .then((data) => consultPost(data))
-      .catch(error => {
-        console.error(`Error creando el post => ${error}`);
-      });
+      .catch({});
   }
 };
 
