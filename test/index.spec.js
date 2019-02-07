@@ -1,24 +1,24 @@
-// const jest = require('jest');
+// configurando firebase mock
+const firebasemock = require('firebase-mock');
+const mockauth = new firebasemock.MockFirebase();
+const mockfirestore = new firebasemock.MockFirestore();
+mockfirestore.autoFlush();
+mockauth.autoFlush();
 
-// jest.mock('../path-to-firebase-init', () => {
-//   return mocksdk;
-// });
+global.firebase = firebasemock.MockFirebaseSdk(
+  // use null if your code does not use RTDB
+  path => (path ? mockdatabase.child(path) : null),
+  () => mockauth,
+  () => mockfirestore
+);
 
-// mocksdk.database().flush();
-// data is logged
-
-// importamos la funcion que vamos a testear
 
 import { authenticateGoogleAccount,
   authenticateFacebookAccount,
-  authenticateWithEmailAndPassword,
+  authenticateEmailAndPassword,
   createUserWithEmailAndPassword} from '../src/lib/index.js';
 
 describe('authenticateGoogleAccount', () => {
-  it('debería ser una función', () => {
-    expect(typeof authenticateGoogleAccount).toBe('function');
-  });
-
   it('debería ser una función', () => {
     expect(typeof authenticateGoogleAccount).toBe('function');
   });
@@ -30,9 +30,9 @@ describe('authenticateFacebookAccount', () => {
   });
 });
 
-describe('authenticateWithEmailAndPassword', () => {
+describe('authenticateEmailAndPassword', () => {
   it('debería ser una función', () => {
-    expect(typeof authenticateWithEmailAndPassword).toBe('function');
+    expect(typeof authenticateEmailAndPassword).toBe('function');
   });
 });
 
@@ -42,17 +42,40 @@ describe('createUserWithEmailAndPassword', () => {
   });
 });
 
-// Intentando test para createUser
+describe('authenticateEmailAndPassword', () => {
+  it('Debería poder iniciar sesion', () => {
+    return authenticateEmailAndPassword('front@end.la', '123456')
+      .then((user) => {
+        expect(user.email).toBe('front@end.la');
+      });
+  });
+});
 
-// const firebasemock = require('firebase-mock');
-// const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
+describe('createUserWithEmailAndPassword', () => {
+  it('Debería poder crear un usuario', () => {
+    return createUserWithEmailAndPassword('front@end.la', '123456')
+      .then((user) => {
+        expect(user.email).toBe('front@end.la');
+      });
+  });
+});
 
-// global.firebase = firebasemock.MockFirebaseSdk(
-//   // use null if your code does not use RTDB
-//   path => (path ? mockdatabase.child(path) : null),
-//   () => mockauth,
-//   () => mockfirestore
-// );
+describe('authenticateGoogleAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateGoogleAccount()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).not.toBe(null);
+      });
+  });
+});
+
+describe('authenticateFacebookAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateFacebookAccount()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).not.toBe(null);
+      });
+  });
+});

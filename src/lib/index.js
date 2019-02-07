@@ -1,13 +1,6 @@
-import { changeTmp } from './app.js';
-
-
-export const changeHash = (hash) => {
-  location.hash = hash;
-  changeTmp(location.hash);
-};
-
 export const authenticateGoogleAccount = () => 
-  firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider().addScope('https://www.googleapis.com/auth/plus.login'));
+  firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  //.addScope('https://www.googleapis.com/auth/plus.login'));
 
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -16,14 +9,12 @@ export const authenticateEmailAndPassword = (email, password) =>
   firebase.auth().signInWithEmailAndPassword(email, password);
 
 export const authenticateFacebookAccount = () => 
-  firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider().addScope('public_profile')); 
+  firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()) ;
+  //.addScope('public_profile')); 
 
 export const closeSesion = () => firebase.auth().signOut();
 
-export const initRouter = () => {
-  window.addEventListener('load', changeTmp(window.location.hash));
-  if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
-};
+
 
 export const savePublication = (name, text, type) => 
   firebase.firestore().collection('Posts').add({
@@ -56,12 +47,13 @@ export const deletePost = (postId) => {
  }
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
-  //console.log(objNote.date.toDate());
+ const date = (objNote.date.toDate()).toString();
+ const newDate = date.substr(4, date.length - 37);
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">
    <span>${objNote.uid}</span>
-   <span>${objNote.date.toDate()}</span>
+   <span>${newDate}</span>
  </div>
 </div>
 <div class="row">
