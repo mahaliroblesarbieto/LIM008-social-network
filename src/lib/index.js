@@ -126,6 +126,11 @@ const itemNote = (objNote) => {
     console.log(objNote.id);
     UpdatedPost(objNote.id, textNew);
   });
+
+  const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
+  btnCancelUpdate.addEventListener('click', () => {
+    modalUpdatePost.style.display = 'none';
+  });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
   console.log(btndeletePost);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');
@@ -133,14 +138,9 @@ const itemNote = (objNote) => {
     modalConfirmDelete.style.display = 'block';
   });
   const btnConfirmDelete = liElement.querySelector('#btn-delete-confirm');
-  btnConfirmDelete.addEventListener('click' ,() => {deletePost(objNote.id)});
-
-
-  /*const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
-  btnDelete.addEventListener('click', () => {
-    //deletePost(objNote.id);
-  });*/
-
+  btnConfirmDelete.addEventListener('click', () => { 
+    deletePost(objNote.id);
+  });
   return liElement;
 };
 export const consultPost = () => {
