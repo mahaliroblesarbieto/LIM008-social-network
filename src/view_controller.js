@@ -4,7 +4,8 @@ import {authenticateGoogleAccount,
   authenticateFacebookAccount,
   closeSesion,
   savePublication,
-  consultPost} from './lib/index.js';
+  consultPost,
+  deletePost} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
@@ -139,3 +140,16 @@ export const publish = () => {
       });
   }
 };
+
+// export const deletePosting = () => {
+//   deletePost(objNote.id)
+//     .then(() => { 
+//       consultPost();
+//       //      abrir una ventana modal que pida confirmar
+//       //      imprimir la nueva data en los templates
+//       console.log('Es exitoso');
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
