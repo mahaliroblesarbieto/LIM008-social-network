@@ -35,10 +35,10 @@ const viewTmp = (routers) => {
     home.innerHTML = '';
     home.appendChild(objTemp[router]());
     break;
-  }
+  };
 };
-
 export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
+

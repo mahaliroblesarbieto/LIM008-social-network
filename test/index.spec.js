@@ -59,6 +59,7 @@ describe('createUserWithEmailAndPassword', () => {
       });
   });
 });
+<<<<<<< HEAD
 
 describe('authenticateGoogleAccount', () => {
   it('Debería poder iniciar sesión', () => {
@@ -73,6 +74,12 @@ describe('authenticateGoogleAccount', () => {
 describe('authenticateFacebookAccount', () => {
   it('Debería poder iniciar sesión', () => {
     return authenticateFacebookAccount()
+=======
+
+describe('authenticateGoogleAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateGoogleAccount()
+>>>>>>> 94c9b811eef22f537717850b083c89941ef64ecd
       .then(() => {
         const user = firebase.auth().currentUser;
         expect(user).not.toBe(null);
@@ -80,3 +87,15 @@ describe('authenticateFacebookAccount', () => {
   });
 });
 
+<<<<<<< HEAD
+=======
+describe('authenticateFacebookAccount', () => {
+  it('Debería poder iniciar sesión', () => {
+    return authenticateFacebookAccount()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).not.toBe(null);
+      });
+  });
+});
+>>>>>>> 94c9b811eef22f537717850b083c89941ef64ecd
