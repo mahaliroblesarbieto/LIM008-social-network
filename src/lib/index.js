@@ -1,6 +1,6 @@
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  //.addScope('https://www.googleapis.com/auth/plus.login'));
+  // .addScope('https://www.googleapis.com/auth/plus.login'));
 
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -10,11 +10,9 @@ export const authenticateEmailAndPassword = (email, password) =>
 
 export const authenticateFacebookAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()) ;
-  //.addScope('public_profile')); 
+  // .addScope('public_profile')); 
 
 export const closeSesion = () => firebase.auth().signOut();
-
-
 
 export const savePublication = (name, text, type) => 
   firebase.firestore().collection('Posts').add({
@@ -35,20 +33,20 @@ export const UpdatedPost = (id, textNew) => {
 
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete()
-  .then(() => {
+    .then(() => {
     // consultPost();
     //      abrir una ventana modal que pida confirmar
     //      imprimir la nueva data en los templates
-    console.log('Es exitoso');
-  })
-  .catch((error) => {
-    console.log(error);
-  });
- }
+      console.log('Es exitoso');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
- const date = (objNote.date.toDate()).toString();
- const newDate = date.substr(4, date.length - 37);
+  const date = (objNote.date.toDate()).toString();
+  const newDate = date.substr(4, date.length - 37);
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">
@@ -138,9 +136,16 @@ const itemNote = (objNote) => {
     modalConfirmDelete.style.display = 'block';
   });
   const btnConfirmDelete = liElement.querySelector('#btn-delete-confirm');
-  btnConfirmDelete.addEventListener('click', () => { 
+  btnConfirmDelete.addEventListener('click', () => {
     deletePost(objNote.id);
   });
+
+
+  /* const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
+  btnDelete.addEventListener('click', () => {
+    //deletePost(objNote.id);
+  });*/
+
   return liElement;
 };
 export const consultPost = () => {
@@ -153,7 +158,7 @@ export const consultPost = () => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
-        //console.log(data);
+        // console.log(data);
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
