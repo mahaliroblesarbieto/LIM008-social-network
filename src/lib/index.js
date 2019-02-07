@@ -40,65 +40,88 @@ export const UpdatedPost = (id, textNew) => {
     text: textNew
   });
 };
-const upd = (element) => {
-  console.log(element);
-};
-const deletePost = (postId) => {
-  console.log(postId);
-  //firebase.firestore().collection('Posts').doc(postId).delete();
 
-};
+
+export const deletePost = (postId) => {
+  firebase.firestore().collection('Posts').doc(postId).delete()
+  .then(() => {
+    // consultPost();
+    //      abrir una ventana modal que pida confirmar
+    //      imprimir la nueva data en los templates
+    console.log('Es exitoso');
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+ }
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
-  console.log(objNote.date.toDate());
+  //console.log(objNote.date.toDate());
   liElement.innerHTML = `
-    <div class="row">
-      <div class="col-12 col-s-12"><div>
-        <span>${objNote.uid}</span>
-        <span>${objNote.date.toDate()}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12"><div>
-        <span>${objNote.text}</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-s-12">
-        <div class="col-2 col-s-2">
-          <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
-        </div>
-        <div class="col-2 col-s-2">
-          <button type = "button" id = "#btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
-        </div>
-        <div class="col-2 col-s-2">
-        </div>
-        <div class="col-2 col-s-2">
-        </div>
-        <div class="col-2">
-        </div>
-        <div class="col-2">
-        </div>
-      </div>
-    </div>
-    <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-    <textarea rows="4" cols="50" id="post-content">
-    ${objNote.text}
-    </textarea>
-    <div class="row">
-    <div class="col-12 col-s-12">
-      <div class="col-2 col-s-2">
-        <button type = "button" id = "btn-update-content"  class="type logIn border">Editar</button>
-      </div>
-      <div class="col-2 col-s-2">
-        <button type = "button" id = "btn-close-modal"  class="type logIn border">Cerrar</button>
-      </div>
-    </div>
-  </div>
-    </div>
-    </div>`;
+  <div class="row">
+ <div class="col-12 col-s-12">
+   <span>${objNote.uid}</span>
+   <span>${objNote.date.toDate()}</span>
+ </div>
+</div>
+<div class="row">
+ <div class="col-12 col-s-12">
+   <span>${objNote.text}</span>
+ </div>
+</div>
+<div class="row">
+ <div class="col-12 col-s-12">
+   <div class="col-2 col-s-2">
+     <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
+   </div>
+   <div class="col-2 col-s-2">
+     <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
+   </div>
+   <div class="col-2 col-s-2">
+   </div>
+   <div class="col-2 col-s-2">
+   </div>
+   <div class="col-2">
+   </div>
+   <div class="col-2">
+   </div>
+ </div>
+</div>
+<div id="myModal" class="modal">
+ <!-- Modal content -->
+ <div class="modal-content">
+   <textarea rows="4" cols="50" id="post-content">
+     ${objNote.text}
+   </textarea>
+   <div class="row">
+     <div class="col-12 col-s-12">
+       <div class="col-2 col-s-2">
+         <button type = "button" id = "btn-update-content"  class="type logIn border">Editar</button>
+       </div>
+       <div class="col-2 col-s-2">
+         <button type = "button" id = "btn-close-modal"  class="type logIn border">Cerrar</button>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div id="myModaldos" class="modal">
+ <!-- Modal content -->
+ <div class="modal-content">
+    <p>¿Estas seguro que deseas eliminar? </p>
+   <div class="row">
+     <div class="col-12 col-s-12">
+       <div class="col-2 col-s-2">
+         <button type = "button" id = "btn-delete-confirm"  class="type logIn border">Si</button>
+       </div>
+       <div class="col-2 col-s-2">
+         <button type = "button" id = "btn-delete-negative"  class="type logIn border">No</button>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>`;
   
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
   const modalUpdatePost = liElement.querySelector('#myModal');
@@ -111,6 +134,16 @@ const itemNote = (objNote) => {
     console.log(objNote.id);
     UpdatedPost(objNote.id, textNew);
   });
+  const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
+  console.log(btndeletePost);
+  const modalConfirmDelete = liElement.querySelector('#myModaldos');
+  btndeletePost.addEventListener('click', () => {
+    modalConfirmDelete.style.display = 'block';
+  });
+  const btnConfirmDelete = liElement.querySelector('#btn-delete-confirm');
+  btnConfirmDelete.addEventListener('click' ,() => {deletePost(objNote.id)});
+
+
   /*const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
   btnDelete.addEventListener('click', () => {
     //deletePost(objNote.id);
@@ -128,7 +161,7 @@ export const consultPost = () => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
-        console.log(data);
+        //console.log(data);
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
