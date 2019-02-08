@@ -31,7 +31,7 @@ describe('lista de notas', () => {
         (data) => {
           const result = data.find((post) => post.text === 'kimberly');
           expect(result.text).toBe('kimberly');
-          done()
+          done();
         }
       ));
   });
