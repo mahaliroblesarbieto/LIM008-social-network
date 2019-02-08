@@ -4,7 +4,8 @@ import {signUpOnClick,
   authenticateWithGoogle, 
   goToRegister, 
   authenticateWithEmailAndPassword,
-  publish, funciona } from '../view_controller.js';
+  publish,
+  consultPosts} from '../view_controller.js';
 import { consultTypePost } from './index.js';
 export { objTemp };
 const objTemp = {
@@ -134,6 +135,7 @@ const objTemp = {
             <button type = "button" class="type logIn border width" id="post-friend"  class = "border"> Amigos </button>
           </div>
           <div class="col-2 col-s-2">
+            <button type = "button" class="type logIn border width" id="post-all"  class = "border"> Todos </button>
           </div>
           <div class="col-2 col-s-2">
           </div>
@@ -166,6 +168,8 @@ const objTemp = {
     btnPostFriend.addEventListener('click', () => {
       consultTypePost('false');
     });
+    const btnPostAll = elem.querySelector('#post-all');
+    btnPostAll.addEventListener('click', consultPosts);
     return elem;
   },
   registry: () => {

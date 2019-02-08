@@ -9,19 +9,22 @@ import {authenticateGoogleAccount,
   deletePost,
   newAddLike } from './lib/index.js';
 import {changeTmp} from './lib/app.js';
-export const funciona = () => {
-  consultPost;
-  const ul = document.querySelector('#notes-list');
-  ul.innerHTML = '';
-  data.forEach((post) => {
-  ul.appendChild(itemNote(post)); 
-  });
-};
 
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
+
+export const consultPosts = () => {
+  consultPost((posts) => {
+    const ul = document.querySelector('#notes-list');
+    ul.innerHTML = '';
+    posts.forEach((post) => {
+      ul.appendChild(itemNote(post)); 
+    });
+  });
+};
+
 
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({
@@ -158,7 +161,22 @@ export const showLogErrors = (error) => {
   }
 };
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
+/* ********** */
+/*
+=> {
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
+      });
+    }); 
+*/
 
+/* ************ */
 export const publish = () => {
   const user = firebase.auth().currentUser.displayName;
   const enteredText = document.querySelector('#entered-text').value;
