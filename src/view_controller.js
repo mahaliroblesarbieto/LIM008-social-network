@@ -7,9 +7,6 @@ import {authenticateGoogleAccount,
   consultPost} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
-const email = document.getElementById('txtEmail');
-const password = document.getElementById('txtPassword');
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
@@ -18,8 +15,8 @@ export const changeHash = (hash) => {
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({
     id: data.uid,
-    dateUser: data.user,
-    nameUser: data.email
+    nameUser: data.user,
+    emailUser: data.email
   });
 };
 
@@ -31,6 +28,13 @@ const saveData = (data) => {
   changeHash('#/home');
 }; 
 
+const saveDataWithEmail = (data) => {
+  const uid = data.uid;
+  const user = data.userName;
+  const email = data.userEmail;
+  createDocumentUID(uid, {uid, user, email});
+  changeHash('#/home');
+};
 export const closedSesion = () => {
   closeSesion()
     .then(() => {
@@ -55,49 +59,44 @@ export const goToRegister = () => {
 };
 
 export const signUpOnClick = () => {
-  console.log('paso');
+  const name = document.querySelector('#nombres').value;
+  const lastName = document.querySelector('#apellidos').value;
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
-  if (email === '' || password === '') {
-    alert('Complete los datos');
-  } else if (email !== '' && password !== '') {
-    console.log('paso2');
+  const nameNew = name + '  ' + lastName;
+  if (email === '' || password === '' || name === '' || lastName === '') {
+    showUncompletedErrors();
+  } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then((data) => saveData(data))
-      .catch((error) => {
-        const errorCode = error.code;
-        switch (errorCode) {
-        case 'auth/email-already-in-use':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico ya registrado';
-          break;
-        case 'auth/invalid-email':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
-          break;
-        case 'auth/weak-password':
-          document.querySelector('#passwordError').innerHTML = 'Contraseña debe tener mínimo 6 dígitos';
-          break;
-        case 'error':
-          document.querySelector('#emailError').innerHTML = 'Correo electrónico inválido';
-          break;
-        }
-      });
-  } else {
-    console.log('este es el problema');
+      .then(() => { 
+        const user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: nameNew,
+        }).then(function() {
+          const dataNew = {
+            uid: user.uid,
+            userEmail: user.email,
+            userName: user.displayName
+          };
+          saveDataWithEmail(dataNew);
+        }).catch(function(error) {
+          showSignErrors(error);
+        });
+      })
+      .catch((error) => showSignErrors(error));
   }
 };
 
 export const authenticateWithEmailAndPassword = () => {
-  authenticateEmailAndPassword(email.value, password.value)
-    .then((data) => saveData(data))
-    .catch(function(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      if (errorCode === 'auth/wrong-password') {
-        alert('Wrong password.');
-      } else {
-        alert(errorMessage);
-      }
-    });
+  const email = document.querySelector('#txtEmail').value;
+  const password = document.querySelector('#txtPassword').value;
+  if (email === '' || password === '') {
+    showUncompletedErrors();
+  } else if (email !== '' && password !== '') {
+    authenticateEmailAndPassword(email, password)
+      .then((data) => saveData(data))
+      .catch((error) => showLogErrors(error)); 
+  }
 };
 
 export const authenticateFacebook = () => {
@@ -111,7 +110,7 @@ export const authenticateFacebook = () => {
     });
 };
 
-const showSignErrors = (error) => {
+export const showSignErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
   case 'auth/email-already-in-use':
@@ -130,7 +129,7 @@ const showSignErrors = (error) => {
   }  
 };
 
-const showLogErrors = (error) => {
+export const showLogErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
   case 'auth/invalid-email':
@@ -147,7 +146,6 @@ const showLogErrors = (error) => {
     break;
   }
 };
-
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
 
 export const publish = () => {
@@ -157,9 +155,6 @@ export const publish = () => {
   if (enteredText !== '') {
     savePublication(user, enteredText, postType)
       .then((data) => consultPost(data))
-      .catch(error => {
-        console.error(`Error creando el post => ${error}`);
-      });
+      .catch({});
   }
 };
-

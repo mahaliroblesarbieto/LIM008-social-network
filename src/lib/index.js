@@ -1,10 +1,11 @@
+import {changeHash} from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   // .addScope('https://www.googleapis.com/auth/plus.login'));
 
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
-
+  
 export const authenticateEmailAndPassword = (email, password) => 
   firebase.auth().signInWithEmailAndPassword(email, password);
 
@@ -23,14 +24,12 @@ export const savePublication = (name, text, type) =>
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
-
 export const UpdatedPost = (id, textNew) => {
   let refUser = firebase.firestore().collection('Posts').doc(id);
   refUser.update({
     text: textNew
   });
 };
-
 
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete()
@@ -132,6 +131,11 @@ const itemNote = (objNote) => {
     const textNew = liElement.querySelector('#post-content').value;
     UpdatedPost(objNote.id, textNew);
   });
+
+  const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
+  btnCancelUpdate.addEventListener('click', () => {
+    modalUpdatePost.style.display = 'none';
+  });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');
   btndeletePost.addEventListener('click', () => {
@@ -142,6 +146,10 @@ const itemNote = (objNote) => {
     deletePost(objNote.id);
   });
 
+  const btnDeniedDelete = liElement.querySelector('#btn-delete-negative');
+  btnDeniedDelete.addEventListener('click', () => { 
+    changeHash('#/home');
+  });
   let number = objNote.likes;
   const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
   btnLike.addEventListener('click', () => {
@@ -167,4 +175,3 @@ export const consultPost = () => {
       });
     });
 };
-

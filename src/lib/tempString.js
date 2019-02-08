@@ -72,7 +72,6 @@ const objTemp = {
       <div class="col-4"></div>
     </div>
   </section> `;
-
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
