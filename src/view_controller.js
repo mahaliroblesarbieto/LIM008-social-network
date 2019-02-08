@@ -146,9 +146,7 @@ export const showLogErrors = (error) => {
     break;
   }
 };
-
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
-
 export const publish = () => {
   const user = firebase.auth().currentUser.displayName;
   const enteredText = document.querySelector('#entered-text').value;

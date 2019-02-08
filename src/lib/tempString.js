@@ -5,6 +5,7 @@ import {signUpOnClick,
   goToRegister, 
   authenticateWithEmailAndPassword,
   publish } from '../view_controller.js';
+import { consultPost } from './index.js';
 export { objTemp };
 const objTemp = {
   login: () => {
