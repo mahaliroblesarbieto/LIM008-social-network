@@ -1,3 +1,4 @@
+import {changeHash} from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   // .addScope('https://www.googleapis.com/auth/plus.login'));
@@ -18,7 +19,8 @@ export const savePublication = (name, text, type) =>
   firebase.firestore().collection('Posts').add({
     uid: name, 
     text: text,
-    public: type, 
+    public: type,
+    likes: 0, 
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
@@ -40,6 +42,12 @@ export const deletePost = (postId) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+const newAddLike = (id, newLike) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': newLike
+  });
 };
 
 const itemNote = (objNote) => {
@@ -67,7 +75,7 @@ const itemNote = (objNote) => {
      <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
    </div>
    <div class="col-2 col-s-2">
-     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"></p>Me gusta</button>
+     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"> ${objNote.likes}</p>Me gusta</button>
    </div>
    <div class="col-2 col-s-2">
    </div>
@@ -137,13 +145,16 @@ const itemNote = (objNote) => {
   btnConfirmDelete.addEventListener('click', () => {
     deletePost(objNote.id);
   });
+
+  const btnDeniedDelete = liElement.querySelector('#btn-delete-negative');
+  btnDeniedDelete.addEventListener('click', () => { 
+    changeHash('#/home');
+  });
   let number = objNote.likes;
-  console.log(number);
   const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
   btnLike.addEventListener('click', () => {
-    addLike(objNote.id);
     number = number + 1 ;
-    liElement.querySelector('#number').textContent = number;
+    newAddLike(objNote.id, number);
   });
   return liElement;
 };
