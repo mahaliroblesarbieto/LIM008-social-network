@@ -49,22 +49,38 @@ export const newAddLike = (id, newLike) => {
   });
 };
 
-export const consultPost = () => {
-  firebase.firestore()
-    .collection('Posts')
+export const consultPost = (callback) =>
+  firebase.firestore().collection('Posts')
+    .orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data()});
+      });
+      callback(data);
+    }); 
+
+/* export const consultPost = () => {
+  firebase.firestore().collection('Posts')
     .orderBy('date', 'desc')
     .onSnapshot(querySnapshot => {
       const ul = document.querySelector('#notes-list');
       ul.innerHTML = '';
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
+    7  const data = [];
+     / querySnapshot.forEach((doc) => {
+     /   data.push({ id: doc.id, ...doc.data() });
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
       });
     });
-};
+};*/
+/* export const consultPost = () => 
+  firebase.firestore().collection('Posts')
+    .orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+
+    });*/
 
 export const consultTypePost = (type) => {
   firebase.firestore()

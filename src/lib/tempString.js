@@ -4,7 +4,8 @@ import {signUpOnClick,
   authenticateWithGoogle, 
   goToRegister, 
   authenticateWithEmailAndPassword,
-  publish} from '../view_controller.js';
+  publish,
+  consultPosts} from '../view_controller.js';
 import { consultTypePost, consultPost } from './index.js';
 export { objTemp };
 const objTemp = {
@@ -166,7 +167,7 @@ const objTemp = {
       consultTypePost('false');
     });
     const btnPostAll = elem.querySelector('#post-all');
-    btnPostAll.addEventListener('click', consultPost);
+    btnPostAll.addEventListener('click', consultPosts);
     return elem;
   },
   registry: () => {

@@ -14,6 +14,22 @@ export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
+/*getNotes((notes) => {
+  root.innerHTML = '';        
+  root.appendChild(Home(notes));  
+});*/
+
+export const consultPosts = () => {
+  consultPost((posts) => {
+    //console.log(posts);
+    const ul = document.querySelector('#notes-list');
+    ul.innerHTML = '';
+    posts.forEach((post) => {
+      ul.appendChild(itemNote(post)); 
+    });
+  });
+};
+
 
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({
@@ -150,7 +166,22 @@ export const showLogErrors = (error) => {
   }
 };
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
+/* ********** */
+/*
+=> {
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
+      });
+    }); 
+*/
 
+/* ************ */
 export const publish = () => {
   const user = firebase.auth().currentUser.displayName;
   const enteredText = document.querySelector('#entered-text').value;
