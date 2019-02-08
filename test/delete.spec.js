@@ -5,10 +5,9 @@ const fixtureData = {
     Posts: {
       __doc__: {
         abc1d: {
-          uid: name, 
+          uid: 'kimberly',
           text: 'kimberly',
-          public: type, 
-          date: firebase.firestore.FieldValue.serverTimestamp()
+          type: true, 
         },
       }
     }
