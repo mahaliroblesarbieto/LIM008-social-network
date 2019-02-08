@@ -1,4 +1,3 @@
-import { itemNote } from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   // .addScope('https://www.googleapis.com/auth/plus.login'));
@@ -183,23 +182,4 @@ export const consultTypePost = (type) => {
     });
 };
 
-export const consultTypePost = (type) => {
-  console.log('a');
-  firebase.firestore()
-    .collection('Posts')
-    .orderBy('date', 'desc')
-    .where('public', '==', type)
-    .onSnapshot(querySnapshot => {
-      console.log('b');
-      const ul = document.querySelector('#notes-list');
-      ul.innerHTML = '';
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
-      });
-      data.forEach((post) => {
-        ul.appendChild(itemNote(post)); 
-      });
-    });
-};
-  
+
