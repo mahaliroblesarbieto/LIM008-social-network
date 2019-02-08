@@ -160,6 +160,7 @@ export const publish = () => {
   }
 };
 
+<<<<<<< HEAD
 export const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
@@ -268,3 +269,5 @@ export const itemNote = (objNote) => {
   });
   return liElement;
 };
+=======
+>>>>>>> 92f3b283e2d3ce59e71958d65ea1fe2bbec182a7
