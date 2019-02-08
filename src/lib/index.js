@@ -175,3 +175,24 @@ export const consultPost = () => {
       });
     });
 };
+
+export const consultTypePost = (type) => {
+  console.log('a');
+  firebase.firestore()
+    .collection('Posts')
+    .orderBy('date', 'desc')
+    .where('public', '==', type)
+    .onSnapshot(querySnapshot => {
+      console.log('b');
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
+      });
+    });
+};
+  

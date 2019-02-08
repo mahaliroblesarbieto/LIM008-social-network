@@ -4,8 +4,8 @@ import {signUpOnClick,
   authenticateWithGoogle, 
   goToRegister, 
   authenticateWithEmailAndPassword,
-  publish } from '../view_controller.js';
-import { consultPost } from './index.js';
+  publish} from '../view_controller.js';
+import { consultTypePost } from './index.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -156,6 +156,10 @@ const objTemp = {
     btnCloseSesion.addEventListener('change', closedSesion);
     const btnPost = elem.querySelector('#button-post');
     btnPost.addEventListener('click', publish);
+    const btnPostPublic = elem.querySelector('#post-public');
+    btnPostPublic.addEventListener('click', consultTypePost('true'));
+    const btnPostFriend = elem.querySelector('#post-friend');
+    btnPostFriend.addEventListener('click', consultTypePost('false'));
     return elem;
   },
   registry: () => {
