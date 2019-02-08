@@ -15,8 +15,8 @@ export const changeHash = (hash) => {
 const createDocumentUID = (id, data) => {
   firebase.firestore().collection('users').doc(id).set({
     id: data.uid,
-    dateUser: data.user,
-    nameUser: data.email
+    nameUser: data.user,
+    emailUser: data.email
   });
 };
 
@@ -28,6 +28,13 @@ const saveData = (data) => {
   changeHash('#/home');
 }; 
 
+const saveDataWithEmail = (data) => {
+  const uid = data.uid;
+  const user = data.userName;
+  const email = data.userEmail;
+  createDocumentUID(uid, {uid, user, email});
+  changeHash('#/home');
+}
 export const closedSesion = () => {
   closeSesion()
     .then(() => {
@@ -56,11 +63,26 @@ export const signUpOnClick = () => {
   const lastName = document.querySelector('#apellidos').value;
   const email = document.querySelector('#emailSignUp').value;
   const password = document.querySelector('#passwordSignUp').value;
+  const nameNew = name + '  ' + lastName;
   if (email === '' || password === '' || name === '' || lastName === '') {
     showUncompletedErrors();
   } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then((data) => saveData(data))
+      .then(() => { 
+        const user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: nameNew,
+        }).then(function() {
+          const dataNew = {
+            uid: user.uid,
+            userEmail: user.email,
+            userName: user.displayName
+          };
+          saveDataWithEmail(dataNew);
+        }).catch(function(error) {
+          showSignErrors(error);
+        });
+      })
       .catch((error) => showSignErrors(error));
   }
 };
@@ -137,4 +159,3 @@ export const publish = () => {
       .catch({});
   }
 };
-
