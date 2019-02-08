@@ -43,6 +43,13 @@ export const deletePost = (postId) => {
       console.log(error);
     });
 };
+
+const addLike = (id) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': 0
+  });
+};
+
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
@@ -68,6 +75,7 @@ const itemNote = (objNote) => {
      <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
    </div>
    <div class="col-2 col-s-2">
+     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"></p>Me gusta</button>
    </div>
    <div class="col-2 col-s-2">
    </div>
@@ -121,11 +129,9 @@ const itemNote = (objNote) => {
   const btnUpdateContent = liElement.querySelector('#btn-update-content');
   btnUpdateContent.addEventListener('click', () => {
     const textNew = liElement.querySelector('#post-content').value;
-    console.log(objNote.id);
     UpdatedPost(objNote.id, textNew);
   });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
-  console.log(btndeletePost);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');
   btndeletePost.addEventListener('click', () => {
     modalConfirmDelete.style.display = 'block';
@@ -135,14 +141,17 @@ const itemNote = (objNote) => {
     deletePost(objNote.id);
   });
 
-
-  /* const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
-  btnDelete.addEventListener('click', () => {
-    //deletePost(objNote.id);
-  });*/
-
+  let number = objNote.likes;
+  console.log(number);
+  const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
+  btnLike.addEventListener('click', () => {
+    addLike(objNote.id);
+    number = number + 1 ;
+    liElement.querySelector('#number').textContent = number;
+  });
   return liElement;
 };
+
 export const consultPost = () => {
   firebase.firestore()
     .collection('Posts')
@@ -153,7 +162,6 @@ export const consultPost = () => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
-        // console.log(data);
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
