@@ -19,8 +19,8 @@ export const savePublication = (name, text, type) =>
     uid: name, 
     text: text,
     public: type,
-    likes: 0, 
-    date: firebase.firestore.FieldValue.serverTimestamp()
+    // likes: 0, 
+    // date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
 export const UpdatedPost = (id, textNew) => {

@@ -5,8 +5,9 @@ const fixtureData = {
     Posts: {
       __doc__: {
         abc1d: {
+          uid: 'mahali',
           text: 'kimberly',
-          type: true, 
+          public: true,
         },
       }
     }
@@ -24,10 +25,10 @@ describe('savePublication', () => {
 
 describe('lista de notas', () => {
   it('Debería poder agregar una nota', (done) => {
-    return savePublication('kimberly')
+    return savePublication('mahali', 'kimberly', true)
       .then(() => consultPost(
-        (data) => {
-          const result = data.find((post) => post.text === 'kimberly');
+        (callback) => {
+          const result = callback.find((post) => post.text === 'kimberly');
           expect(result.text).toBe('kimberly');
           done();
         }
