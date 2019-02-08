@@ -65,7 +65,15 @@ export const consultPost = () => {
       });
     });
 };
-
+// export const funciona = () => {
+//   consultPost((posts) => {
+//   const ul = document.querySelector('#notes-list');
+//   ul.innerHTML = '';
+//   posts.forEach((post) => {
+//     ul.appendChild(itemNote(post)); 
+//   });
+// });
+// };
 export const consultTypePost = (type) => {
   firebase.firestore()
     .collection('Posts')

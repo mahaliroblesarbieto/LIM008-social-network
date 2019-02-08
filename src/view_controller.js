@@ -9,6 +9,14 @@ import {authenticateGoogleAccount,
   deletePost,
   newAddLike } from './lib/index.js';
 import {changeTmp} from './lib/app.js';
+export const funciona = () => {
+  consultPost;
+  const ul = document.querySelector('#notes-list');
+  ul.innerHTML = '';
+  data.forEach((post) => {
+  ul.appendChild(itemNote(post)); 
+  });
+};
 
 export const changeHash = (hash) => {
   location.hash = hash;

@@ -1,5 +1,6 @@
 import {objTemp} from './tempString.js';
 import { consultPost } from './index.js';
+import { funciona } from '../view_controller.js';
 
 export const changeTmp = (hash) => {
   switch (hash) {
@@ -29,13 +30,13 @@ const viewTmp = (routers) => {
   case 'home' :
     const container = document.getElementById('container');
     container.innerHTML = '';
-    container.appendChild(objTemp[router]());
-    consultPost();
+    container.appendChild(objTemp[router](consultPost()));
+
     break;
   case 'registry':
     const home = document.getElementById('home');
     home.innerHTML = '';
-    home.appendChild(objTemp[router]());
+    home.appendChild(objTemp['registry']());
     break;
   };
 };

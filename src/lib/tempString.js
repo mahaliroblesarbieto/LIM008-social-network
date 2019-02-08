@@ -4,7 +4,7 @@ import {signUpOnClick,
   authenticateWithGoogle, 
   goToRegister, 
   authenticateWithEmailAndPassword,
-  publish} from '../view_controller.js';
+  publish, funciona } from '../view_controller.js';
 import { consultTypePost } from './index.js';
 export { objTemp };
 const objTemp = {
@@ -80,7 +80,7 @@ const objTemp = {
     elem.querySelector('#btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
     return elem; 
   },
-  home: () => {
+  home: (data) => {
     const tmpl = 
     `<header class="text type logIn">
       <div class="row" id="title">
@@ -155,6 +155,8 @@ const objTemp = {
     const btnCloseSesion = elem.querySelector('#closeSesion');
     btnCloseSesion.addEventListener('change', closedSesion);
     const btnPost = elem.querySelector('#button-post');
+    
+
     btnPost.addEventListener('click', publish);
     const btnPostPublic = elem.querySelector('#post-public');
     btnPostPublic.addEventListener('click', () => {
