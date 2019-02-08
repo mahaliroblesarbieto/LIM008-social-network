@@ -34,7 +34,7 @@ const saveDataWithEmail = (data) => {
   const email = data.userEmail;
   createDocumentUID(uid, {uid, user, email});
   changeHash('#/home');
-}
+};
 export const closedSesion = () => {
   closeSesion()
     .then(() => {
