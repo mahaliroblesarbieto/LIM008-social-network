@@ -41,19 +41,7 @@ export const deletePost = (postId) => {
       console.log(error);
     });
 };
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-=======
-
-const addLike = (id) => {
-  firebase.firestore().collection('Posts').doc(id).update({
-    'likes': 0
-  });
-};
-
->>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
@@ -149,15 +137,6 @@ const itemNote = (objNote) => {
   btnConfirmDelete.addEventListener('click', () => {
     deletePost(objNote.id);
   });
-
-<<<<<<< HEAD
-
-  /* const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
-  btnDelete.addEventListener('click', () => {
-    //deletePost(objNote.id);
-  });*/
->>>>>>> 4a0c810166e1e2ac6bc082b8c724c25b68d7ebec
-=======
   let number = objNote.likes;
   console.log(number);
   const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
@@ -168,7 +147,6 @@ const itemNote = (objNote) => {
   });
   return liElement;
 };
->>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
 
 export const consultPost = () => {
   firebase.firestore()
@@ -180,24 +158,9 @@ export const consultPost = () => {
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        // console.log(data);
->>>>>>> 4a0c810166e1e2ac6bc082b8c724c25b68d7ebec
-=======
->>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
       });
     });
 };
-
-// const likes = (id) => {
-//   console.log(`Del post => ${id}, se agrega un atributo 'likes.megusta': '1'`);
-//   let refUser = firebase.firebase().collection('Posts').doc(id);
-//   refUser.update({
-//     'likes.megusta': '1'
-//   });
-// };
