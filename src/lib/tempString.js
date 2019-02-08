@@ -127,6 +127,24 @@ const objTemp = {
         </div>
       </div>
       <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="post-public"  class = "border"> Público </button>
+          </div>
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="post-friend"  class = "border"> Amigos </button>
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div id="container-publication" class="col-12 col-s-12">
           <ul class="w-100 demo-list-control mdl-list" id="notes-list">
           </ul>
