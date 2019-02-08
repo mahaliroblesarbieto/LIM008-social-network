@@ -132,6 +132,11 @@ const itemNote = (objNote) => {
     const textNew = liElement.querySelector('#post-content').value;
     UpdatedPost(objNote.id, textNew);
   });
+
+  const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
+  btnCancelUpdate.addEventListener('click', () => {
+    modalUpdatePost.style.display = 'none';
+  });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');
   btndeletePost.addEventListener('click', () => {
