@@ -5,7 +5,6 @@ const fixtureData = {
     Posts: {
       __doc__: {
         abc1d: {
-          uid: 'kimberly',
           text: 'kimberly',
           type: true, 
         },

@@ -29,8 +29,8 @@ const viewTmp = (routers) => {
   case 'home' :
     const container = document.getElementById('container');
     container.innerHTML = '';
-    container.appendChild(objTemp[router](consultPosts()));
-
+    container.appendChild(objTemp[router]);
+    consultPosts();
     break;
   case 'registry':
     const home = document.getElementById('home');

@@ -1,4 +1,3 @@
-import { itemNote} from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   // .addScope('https://www.googleapis.com/auth/plus.login'));
@@ -33,14 +32,6 @@ export const UpdatedPost = (id, textNew) => {
 
 export const deletePost = (postId) => {
   firebase.firestore().collection('Posts').doc(postId).delete()
-    .then(() => {
-    // consultPost();
-    //      abrir una ventana modal que pida confirmar
-      console.log('Es exitoso');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
 };
 
 export const newAddLike = (id, newLike) => {
