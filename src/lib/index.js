@@ -1,3 +1,4 @@
+import {changeHash} from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
   // .addScope('https://www.googleapis.com/auth/plus.login'));
@@ -43,7 +44,7 @@ export const deletePost = (postId) => {
     });
 };
 
-export const newAddLike = (id, newLike) => {
+const newAddLike = (id, newLike) => {
   firebase.firestore().collection('Posts').doc(id).update({
     'likes': newLike
   });
@@ -102,7 +103,6 @@ const itemNote = (objNote) => {
    </div>
  </div>
 </div>
-
 <div id="myModaldos" class="modal">
  <!-- Modal content -->
  <div class="modal-content">
@@ -163,15 +163,13 @@ const itemNote = (objNote) => {
   return liElement;
 };
 
-export const consultTypePost = (type) => {
-  console.log('a');
+export const consultPost = () => {
   firebase.firestore()
     .collection('Posts')
     .orderBy('date', 'desc')
-    .where('public', '==', type)
     .onSnapshot(querySnapshot => {
-      console.log('b');
-    
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
       const data = [];
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
@@ -182,4 +180,22 @@ export const consultTypePost = (type) => {
     });
 };
 
-
+export const consultTypePost = (type) => {
+  console.log('a');
+  firebase.firestore()
+    .collection('Posts')
+    .orderBy('date', 'desc')
+    .where('public', '==', type)
+    .onSnapshot(querySnapshot => {
+      console.log('b');
+      const ul = document.querySelector('#notes-list');
+      ul.innerHTML = '';
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      data.forEach((post) => {
+        ul.appendChild(itemNote(post)); 
+      });
+    });
+};

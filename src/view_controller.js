@@ -4,8 +4,7 @@ import {authenticateGoogleAccount,
   authenticateFacebookAccount,
   closeSesion,
   savePublication,
-  consultPost, 
-  newAddLike} from './lib/index.js';
+  consultPost} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
@@ -159,4 +158,3 @@ export const publish = () => {
       .catch({});
   }
 };
-

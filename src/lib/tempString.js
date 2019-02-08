@@ -80,7 +80,7 @@ const objTemp = {
     elem.querySelector('#btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
     return elem; 
   },
-  home: (posts) => {
+  home: () => {
     const tmpl = 
     `<header class="text type logIn">
       <div class="row" id="title">
@@ -155,11 +155,6 @@ const objTemp = {
     const btnCloseSesion = elem.querySelector('#closeSesion');
     btnCloseSesion.addEventListener('change', closedSesion);
     const btnPost = elem.querySelector('#button-post');
-    const ul = document.querySelector('#notes-list');
-    // ul.innerHTML = '';
-    posts.forEach((post) => {
-      ul.appendChild(itemNote(post));
-    });
     btnPost.addEventListener('click', publish);
     const btnPostPublic = elem.querySelector('#post-public');
     btnPostPublic.addEventListener('click', () => {
@@ -228,4 +223,3 @@ const objTemp = {
     return elem; 
   }
 };
-
