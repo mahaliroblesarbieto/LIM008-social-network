@@ -18,7 +18,8 @@ export const savePublication = (name, text, type) =>
   firebase.firestore().collection('Posts').add({
     uid: name, 
     text: text,
-    public: type, 
+    public: type,
+    likes: 0, 
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
@@ -44,9 +45,9 @@ export const deletePost = (postId) => {
     });
 };
 
-const addLike = (id) => {
+const newAddLike = (id, newLike) => {
   firebase.firestore().collection('Posts').doc(id).update({
-    'likes': 0
+    'likes': newLike
   });
 };
 
@@ -75,7 +76,7 @@ const itemNote = (objNote) => {
      <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
    </div>
    <div class="col-2 col-s-2">
-     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"></p>Me gusta</button>
+     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"> ${objNote.likes}</p>Me gusta</button>
    </div>
    <div class="col-2 col-s-2">
    </div>
@@ -142,12 +143,10 @@ const itemNote = (objNote) => {
   });
 
   let number = objNote.likes;
-  console.log(number);
   const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
   btnLike.addEventListener('click', () => {
-    addLike(objNote.id);
     number = number + 1 ;
-    liElement.querySelector('#number').textContent = number;
+    newAddLike(objNote.id, number);
   });
   return liElement;
 };
