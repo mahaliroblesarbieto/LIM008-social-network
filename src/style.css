@@ -13,6 +13,14 @@ html,body{
     width: 100%;
 }
 
+.public{
+    background-image: url(img/world.png);
+}
+
+.friends{
+    background-image: url(img/animal-prints.png);
+}
+
 header{
     color:white
 }

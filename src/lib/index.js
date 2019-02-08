@@ -54,11 +54,13 @@ const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
+
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">
    <span>${objNote.uid}</span>
    <span>${newDate}</span>
+   <span id = "img">${objNote.public}</span>
  </div>
 </div>
 <div class="row">
@@ -120,6 +122,11 @@ const itemNote = (objNote) => {
    </div>
  </div>
 </div>`;
+  if (objNote.public === 'true') {
+    liElement.querySelector('#img').classList.add('public');
+  } else {
+    liElement.querySelector('#img').classList.add('friends');
+  }
   
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
   const modalUpdatePost = liElement.querySelector('#myModal');
