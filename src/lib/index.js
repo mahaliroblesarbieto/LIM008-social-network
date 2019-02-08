@@ -58,9 +58,7 @@ const itemNote = (objNote) => {
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">
-   <span>${objNote.uid}</span>
-   <span>${newDate}</span>
-   <span id = "img">${objNote.public}</span>
+   <p>${objNote.uid}, ${newDate} <img id ="typeimage"> </img></p>
  </div>
 </div>
 <div class="row">
@@ -123,9 +121,9 @@ const itemNote = (objNote) => {
  </div>
 </div>`;
   if (objNote.public === 'true') {
-    liElement.querySelector('#img').classList.add('public');
+    liElement.querySelector('#typeimage').src = 'img/world.png';
   } else {
-    liElement.querySelector('#img').classList.add('friends');
+    liElement.querySelector('#typeimage').src = 'img/animal-prints.png';
   }
   
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);

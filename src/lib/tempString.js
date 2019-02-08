@@ -49,12 +49,12 @@ const objTemp = {
           </div>
           <div class="row ">
             <div class="col-12 col-s-12">
-              <button  id="button-facebook" class="type facebook border"><img class = "icon" src = "img/iconofacebook.png"></img>Continuar con Facebook </button>
+              <button  id="button-facebook" class="type facebook border"><img class = "icon left" src = "img/iconofacebook.png"></img>Continuar con Facebook </button>
             </div>
           </div>
           <div class="row">
             <div class="col-12 col-s-12">
-              <button type = "button" id="button-google" class = "type google border"><img class = "icon" src = "img/iconogoogle.png"></img>Continuar con Google </button>
+              <button type = "button" id="button-google" class = "type google border"><img class = "icon left" src = "img/iconogoogle.png"></img>Continuar con Google </button>
             </div> 
           </div>
           <div class="row">
