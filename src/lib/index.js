@@ -42,8 +42,18 @@ export const deletePost = (postId) => {
     });
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+
+const addLike = (id) => {
+  firebase.firestore().collection('Posts').doc(id).update({
+    'likes': 0
+  });
+};
+
+>>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
 const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
@@ -69,6 +79,7 @@ const itemNote = (objNote) => {
      <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
    </div>
    <div class="col-2 col-s-2">
+     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"></p>Me gusta</button>
    </div>
    <div class="col-2 col-s-2">
    </div>
@@ -122,7 +133,6 @@ const itemNote = (objNote) => {
   const btnUpdateContent = liElement.querySelector('#btn-update-content');
   btnUpdateContent.addEventListener('click', () => {
     const textNew = liElement.querySelector('#post-content').value;
-    console.log(objNote.id);
     UpdatedPost(objNote.id, textNew);
   });
 
@@ -131,7 +141,6 @@ const itemNote = (objNote) => {
     modalUpdatePost.style.display = 'none';
   });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
-  console.log(btndeletePost);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');
   btndeletePost.addEventListener('click', () => {
     modalConfirmDelete.style.display = 'block';
@@ -141,12 +150,25 @@ const itemNote = (objNote) => {
     deletePost(objNote.id);
   });
 
+<<<<<<< HEAD
 
   /* const btnDelete = liElement.querySelector(`#btnDelete-${objNote.id}`);
   btnDelete.addEventListener('click', () => {
     //deletePost(objNote.id);
   });*/
 >>>>>>> 4a0c810166e1e2ac6bc082b8c724c25b68d7ebec
+=======
+  let number = objNote.likes;
+  console.log(number);
+  const btnLike = liElement.querySelector(`#btnLike-${objNote.id}`);
+  btnLike.addEventListener('click', () => {
+    addLike(objNote.id);
+    number = number + 1 ;
+    liElement.querySelector('#number').textContent = number;
+  });
+  return liElement;
+};
+>>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
 
 export const consultPost = () => {
   firebase.firestore()
@@ -159,9 +181,12 @@ export const consultPost = () => {
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // console.log(data);
 >>>>>>> 4a0c810166e1e2ac6bc082b8c724c25b68d7ebec
+=======
+>>>>>>> e9e7a08fe85733f36bda1559b2f1b794963a9608
       });
       data.forEach((post) => {
         ul.appendChild(itemNote(post)); 
