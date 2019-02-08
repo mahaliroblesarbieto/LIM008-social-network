@@ -5,7 +5,7 @@ import {signUpOnClick,
   goToRegister, 
   authenticateWithEmailAndPassword,
   publish } from '../view_controller.js';
-import { consultPost } from './index.js';
+import { consultTypePost } from './index.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -80,7 +80,7 @@ const objTemp = {
     elem.querySelector('#btnLogIn').addEventListener('click', authenticateWithEmailAndPassword);
     return elem; 
   },
-  home: () => {
+  home: (posts) => {
     const tmpl = 
     `<header class="text type logIn">
       <div class="row" id="title">
@@ -126,6 +126,24 @@ const objTemp = {
         </div>
       </div>
       <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="post-public"  class = "border"> Público </button>
+          </div>
+          <div class="col-2">
+            <button type = "button" class="type logIn border width" id="post-friend"  class = "border"> Amigos </button>
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+          <div class="col-2 col-s-2">
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div id="container-publication" class="col-12 col-s-12">
           <ul class="w-100 demo-list-control mdl-list" id="notes-list">
           </ul>
@@ -137,7 +155,20 @@ const objTemp = {
     const btnCloseSesion = elem.querySelector('#closeSesion');
     btnCloseSesion.addEventListener('change', closedSesion);
     const btnPost = elem.querySelector('#button-post');
+    const ul = document.querySelector('#notes-list');
+    // ul.innerHTML = '';
+    posts.forEach((post) => {
+      ul.appendChild(itemNote(post));
+    });
     btnPost.addEventListener('click', publish);
+    const btnPostPublic = elem.querySelector('#post-public');
+    btnPostPublic.addEventListener('click', () => {
+      consultTypePost('true');
+    });
+    const btnPostFriend = elem.querySelector('#post-friend');
+    btnPostFriend.addEventListener('click', () => {
+      consultTypePost('false');
+    });
     return elem;
   },
   registry: () => {
