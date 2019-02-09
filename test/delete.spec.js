@@ -8,6 +8,7 @@ const fixtureData = {
           uid: 'mahali',
           text: 'kimberly',
           public: true,
+          likes: 0,
         },
       }
     }
@@ -15,7 +16,7 @@ const fixtureData = {
 };
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { savePublication, deletePost, consultPost } from '../src/lib/index.js';
+import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike } from '../src/lib/index.js';
 
 describe('savePublication', () => {
   it('debería ser una función', () => {
@@ -25,11 +26,49 @@ describe('savePublication', () => {
 
 describe('lista de notas', () => {
   it('Debería poder agregar una nota', (done) => {
-    return savePublication('mahali', 'kimberly', true)
+    return savePublication('mahali', 'karla', true)
       .then(() => consultPost(
         (callback) => {
-          const result = callback.find((post) => post.text === 'kimberly');
-          expect(result.text).toBe('kimberly');
+          const result = callback.find((post) => post.text === 'karla');
+          expect(result.text).toBe('karla');
+          done();
+        }
+      ));
+  });
+});
+
+describe('UpdatePost', () => {
+  it('debería ser una función', () => {
+    expect(typeof UpdatedPost).toBe('function');
+  });
+});
+
+describe('lista de posts', () => {
+  it('Debería poder actualizar un post', (done) => {
+    return UpdatedPost('abc1d', 'sandra')
+      .then(() => consultPost(
+        (data) => {
+          const result = data.find((post) => post.text === 'sandra');
+          expect(result.text).toBe('sandra');
+          done();
+        }
+      ));
+  });
+});
+
+describe('newAddLike', () => {
+  it('debería ser una función', () => {
+    expect(typeof newAddLike).toBe('function');
+  });
+});
+
+describe('lista de posts', () => {
+  it('Debería poder actualizar los likes', (done) => {
+    return newAddLike('abc1d', '1')
+      .then(() => consultPost(
+        (data) => {
+          const result = data.find((post) => post.likes === '1');
+          expect(result.likes).toBe('1');
           done();
         }
       ));

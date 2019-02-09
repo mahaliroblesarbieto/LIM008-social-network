@@ -11,7 +11,7 @@ export const authenticateEmailAndPassword = (email, password) =>
 export const authenticateFacebookAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()) ;
   // .addScope('public_profile')); 
-
+// FALTA CLOSE SESION
 export const closeSesion = () => firebase.auth().signOut();
 
 export const savePublication = (name, text, type) => 
@@ -19,27 +19,25 @@ export const savePublication = (name, text, type) =>
     uid: name, 
     text: text,
     public: type,
-    // likes: 0, 
-    // date: firebase.firestore.FieldValue.serverTimestamp()
+    likes: 0, 
+    date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
-export const UpdatedPost = (id, textNew) => {
-  let refUser = firebase.firestore().collection('Posts').doc(id);
-  refUser.update({
+export const UpdatedPost = (postId, textNew) => {
+  return firebase.firestore().collection('Posts').doc(postId).update({
     text: textNew
   });
 };
 
 export const deletePost = (postId) => {
-  firebase.firestore().collection('Posts').doc(postId).delete()
+  return firebase.firestore().collection('Posts').doc(postId).delete();
 };
-
-export const newAddLike = (id, newLike) => {
-  firebase.firestore().collection('Posts').doc(id).update({
+export const newAddLike = (postId, newLike) => {
+  return firebase.firestore().collection('Posts').doc(postId).update({
     'likes': newLike
   });
 };
-
+// FALTA TESTEAR CONSULT POST
 export const consultPost = (callback) =>
   firebase.firestore().collection('Posts')
     .orderBy('date', 'desc')
@@ -72,7 +70,7 @@ export const consultPost = (callback) =>
     .onSnapshot((querySnapshot) => {
 
     });*/
-
+// FALTA CONSULT TYPE POST
 export const consultTypePost = (type) => {
   firebase.firestore()
     .collection('Posts')
