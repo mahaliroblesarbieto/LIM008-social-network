@@ -5,8 +5,8 @@ import {signUpOnClick,
   goToRegister, 
   authenticateWithEmailAndPassword,
   publish,
-  consultPosts} from '../view_controller.js';
-import { consultTypePost, consultPost } from './index.js';
+  consultPosts,
+  consultTypePosts} from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -160,11 +160,11 @@ const objTemp = {
     btnPost.addEventListener('click', publish);
     const btnPostPublic = elem.querySelector('#post-public');
     btnPostPublic.addEventListener('click', () => {
-      consultTypePost('true');
+      consultTypePosts('true');
     });
     const btnPostFriend = elem.querySelector('#post-friend');
     btnPostFriend.addEventListener('click', () => {
-      consultTypePost('false');
+      consultTypePosts('false');
     });
     const btnPostAll = elem.querySelector('#post-all');
     btnPostAll.addEventListener('click', consultPosts);

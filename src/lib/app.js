@@ -1,5 +1,5 @@
 import {objTemp} from './tempString.js';
-import { consultPost } from './index.js';
+import { consultPosts } from '../view_controller.js';
 
 export const changeTmp = (hash) => {
   switch (hash) {
@@ -30,7 +30,7 @@ const viewTmp = (routers) => {
     const container = document.getElementById('container');
     container.innerHTML = '';
     container.appendChild(objTemp[router]());
-    consultPost();
+    consultPosts();
     break;
   case 'registry':
     const home = document.getElementById('home');
