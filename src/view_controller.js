@@ -1,5 +1,6 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
+  createDocumentUserUid,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
   closeSesion,
@@ -39,27 +40,27 @@ export const deletePosts = (postId) => {
       console.log(error);
     });
 };
-export const UpdatedPosts = (postId, textNew) => {
+export const UpdatedPosts = (postId ,textNew) => {
   UpdatedPost(postId, textNew)
     .then(console.log('Se actualizó el post'))
     .catch((error) => {
       console.log(error);
     });
 };
-const createDocumentUID = (id, data) => {
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    nameUser: data.user,
-    emailUser: data.email
-  });
-};
+
 
 const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
-  createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+  createDocumentUserUid(uid, {uid, user, email})
+    .then(() => {
+      changeHash('#/home');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 }; 
 
 const saveDataWithEmail = (data) => {
@@ -194,10 +195,10 @@ export const publish = () => {
 };
 
 export const itemNote = (objNote) => {
+  console.log(objNote.date);
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
-
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">

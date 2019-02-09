@@ -56,3 +56,12 @@ export const consultTypePost = (type, callback) =>
       });
       callback(data);
     });
+
+export const createDocumentUserUid = (id, data) => 
+  firebase.firestore().collection('users').doc(id).set({
+    id: data.uid,
+    nameUser: data.user,
+    emailUser: data.email
+  });
+  
+
