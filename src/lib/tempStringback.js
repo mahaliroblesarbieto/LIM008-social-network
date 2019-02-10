@@ -10,37 +10,68 @@ export { objTemp };
 const objTemp = {
   login: () => {
     const tmpl = `<section>
-    <div class="row ">
+    <div class="row backgroundLogin">
       <div class="col-4"></div>
         <div id ="home" class="col-4 border">
           <div class="background-principal">
           <div class="row">
             <div class="col-s-12 col-12">
               <img class="logo" src="img/logoworldpet.jpg" alt="logo worldpet"> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <h1 class = "margin-t">WORLDPET</h1> <h4>Accede a la mayor red social para amantes de las mascotas.</h4>
-              <p id= "uncompletedError" class = "errors uncomp"></p>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
+            <p id= "uncompletedError" class = "errors uncomp"></p>
               <input id="txtEmail" type = "email" class = "border" placeholder="Correo"/>
               <div id = "emailErrorLog" class = "errors"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <input id="txtPassword" type = "password" class = "border" placeholder="Contraseña"/>
               <div id = "passwordErrorLog" class = "errors"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <button type = "button" id = "btnLogIn"  class="type logIn border">  Iniciar Sesión</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <h4 style="text-align: center;">------------------ ó ------------------</h4>
+            </div>
+          </div>
+          <div class="row ">
+            <div class="col-12 col-s-12">
               <button  id="button-facebook" class="type facebook border"><img class = "icon left" src = "img/iconofacebook.png"></img>Continuar con Facebook </button>
-              <h6 style="text-align: center;"> </h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <button type = "button" id="button-google" class = "type google border"><img class = "icon left" src = "img/iconogoogle.png"></img>Continuar con Google </button>
-              <h4 style="text-align: center;">Si no tienes una cuenta, puedes crearla dando clic a:</h4>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
+              <h4 style="text-align: center;">Si no tienes una cuenta, puedes crearla dando clic al siguiente botón:</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-s-12">
               <button type = "button" id = "btnSignUp" class = "type create-count border" > Crear Cuenta </button>
-          
-              </div>
+            </div>
           </div>
         </div>
         </div>
       <div class="col-4" ></div>
     </div>
   </section> `;
-    //para añadir css a un elemnto de html por javascript
-    document.getElementById("body").classList.add('backgroundLogin');
-    // https://uniwebsidad.com/foro/pregunta/445/como-se-puede-cambiar-la-clase-css-de-un-elemento-mediante-javascript/?from=librosweb
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
@@ -119,8 +150,6 @@ const objTemp = {
         </div>
       </div>
     </section>`;
-
-    document.getElementById("body").classList.remove('backgroundLogin');
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
