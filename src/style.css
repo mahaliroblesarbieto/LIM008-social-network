@@ -72,7 +72,8 @@ textarea{
 }
 
 .backgroundLogin {
-    background-image: url(img/fondomascota4.jpg);
+    background-image: url(img/fondomascota.jpg);
+    background-color: rgba(0, 0, 0, 0.6);
     /*background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -154,7 +155,7 @@ button{
     "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
     "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     font-weight: bold;
-    font-size: 100%;
+    font-size: 120%;
     padding-right: 50%;
     height: auto;
     margin-top: 5px;
@@ -200,7 +201,13 @@ button{
 }
 
 .create-count{
-    background:  rgb(218, 68, 9); 
+    background: white;
+    color: rgb(20, 173, 6);
+    border: 3px solid rgb(20, 173, 6);
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
+    font-weight: bolder
 }
 
 /*Todas estas columnas deben estar flotando hacia la izquierda y tener un relleno de 15px */
@@ -217,7 +224,7 @@ button{
 }
 /* css implemtado por kimberly para divs de errores */
 .errors{
-    height: 20px;
+    height: 15px;
     color: red;
     /* border-color: black; */
     width: 100%;

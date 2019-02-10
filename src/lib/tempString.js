@@ -12,8 +12,8 @@ const objTemp = {
     const tmpl = `<section>
     <div class="row ">
       <div class="col-4"></div>
-        <div id ="home" class="col-4 border">
-          <div class="background-principal">
+      <div id ="home" class="col-4 border">
+        <div class="background-principal">
           <div class="row">
             <div class="col-s-12 col-12">
               <img class="logo" src="img/logoworldpet.jpg" alt="logo worldpet"> 
@@ -29,17 +29,15 @@ const objTemp = {
               <h6 style="text-align: center;"> </h6>
               <button type = "button" id="button-google" class = "type google border"><img class = "icon left" src = "img/iconogoogle.png"></img>Continuar con Google </button>
               <h4 style="text-align: center;">Si no tienes una cuenta, puedes crearla dando clic a:</h4>
-              <button type = "button" id = "btnSignUp" class = "type create-count border" > Crear Cuenta </button>
-          
-              </div>
+              <button type = "button" id = "btnSignUp" class = "type create-count border" > Crear una Cuenta </button
+            </div>
           </div>
         </div>
-        </div>
+      </div>
       <div class="col-4" ></div>
     </div>
   </section> `;
-    //para añadir css a un elemnto de html por javascript
-    document.getElementById("body").classList.add('backgroundLogin');
+    document.getElementById('body').classList.add('backgroundLogin');
     // https://uniwebsidad.com/foro/pregunta/445/como-se-puede-cambiar-la-clase-css-de-un-elemento-mediante-javascript/?from=librosweb
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
@@ -138,54 +136,37 @@ const objTemp = {
     return elem;
   },
   registry: () => {
-    const tmpl = ` 
+    const tmpl = `
     <div class="background-principal">
       <div class="row">
         <div class="col-s-12 col-12">
           <img class="logo" src="img/logoworldpet.jpg" alt="logo worldpet"> 
+          <h1>Regístrate para ver más</h1>
+          <h4>Accede a la mayor red social para amantes de mascotas con una cuenta gratuita</h4>
+          <div class="col-s-12 col-12">
+          <p id= "uncompletedError" class = "errors uncomp"></p>
+          <input type="text" id="nombres" class = "border" placeholder = " Ingresa tus nombres"></input>
+          <div "col-s-12 col-12"></div>
+          </div>
+          <div class="col-s-12 col-12">
+          <input type="text" id="apellidos" class = "border" placeholder = " Ingresa tus apellidos"></input>
+          <div "col-s-12 col-12"></div>
+          </div>
+          <div "col-s-12 col-12"></div>
+          <div class="col-s-12 col-12">
+          <input id="emailSignUp" type = "email" class = "border" placeholder=" Correo"/>
+          <div id = "emailError" class = "errors"></div>
+          </div>
+          <div class="col-s-12 col-12">
+          <input id="passwordSignUp" type = "password" class = "border" placeholder="Crea una contraseña"/>
+          <div id = "passwordError" class = "errors"></div>
+          </div>
+          <div class="col-s-12 col-12">
+          <button type = "button" class="type logIn border" id="signUpUser" class = "border"> Regístrate </button>
+          </div>
         </div>
       </div>
-    <form class="border background-principal">
-    <div class="row">
-    <div class="col-12 col-s-12">
-     <h1>Te damos la bienvenida a WorldPet</h1>
-    </div>
-  </div>
-  <div class="row">
-              <div class="col-12 col-s-12">
-                <h4>Todo lo que tu mascota necesita en un solo app.</h4>
-              </div> 
-      </div>
-  <div class="row">
-    <div class="col-12 col-s-12">
-     <p id= "uncompletedError" class = "errors uncomp"></p>
-     <input type="text" id="nombres" class = "border" placeholder = " Ingresa tus nombres"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-s-12">
-     <input type="text" id="apellidos" class = "border" placeholder = " Ingresa tus apellidos"></input>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-s-12 regist">
-     <input id="emailSignUp" type = "email" class = "border" placeholder=" Correo"/>
-     <div id = "emailError" class = "errors"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="pass col-12 col-s-12 regist ">
-     <input id="passwordSignUp" type = "password" class = "border" placeholder=" Contraseña"/>
-     <div id = "passwordError" class = "errors"></div>
-     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-s-12">
-      <button type = "button" class="type logIn border" id="signUpUser" class = "border"> Registrar </button>
-    </div>
-  </form>
-  </div>
-  `;
+    </div>`;
 
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
