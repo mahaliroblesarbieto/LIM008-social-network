@@ -146,11 +146,11 @@ const objTemp = {
           <div class="col-s-12 col-12">
           <p id= "uncompletedError" class = "errors uncomp"></p>
           <input type="text" id="nombres" class = "border" placeholder = " Ingresa tus nombres"></input>
-          <div "col-s-12 col-12"></div>
+          <div class = "errors"></div>
           </div>
           <div class="col-s-12 col-12">
           <input type="text" id="apellidos" class = "border" placeholder = " Ingresa tus apellidos"></input>
-          <div "col-s-12 col-12"></div>
+          <div class = "errors"></div>
           </div>
           <div "col-s-12 col-12"></div>
           <div class="col-s-12 col-12">
