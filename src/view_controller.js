@@ -1,4 +1,4 @@
-import {authenticateGoogleAccount,
+/*import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,

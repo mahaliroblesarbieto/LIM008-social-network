@@ -1,4 +1,4 @@
-import { changeTmp } from './app.js';
+/*import { changeTmp } from './app.js';
 
 export const changeHash = (hash) => {
   location.hash = hash;
@@ -23,4 +23,4 @@ export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
-
+*/

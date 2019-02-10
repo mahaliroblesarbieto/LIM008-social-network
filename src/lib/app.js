@@ -1,4 +1,4 @@
-import {objTemp} from './tempString.js';
+/*import {objTemp} from './tempString.js';
 
 export const changeTmp = (hash) => {
   switch (hash) {
