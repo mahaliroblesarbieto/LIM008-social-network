@@ -74,27 +74,6 @@ describe('newAddLike', () => {
       ));
   });
 });
-
-
-describe('consultPost', () => {
-  it('debería ser una función', () => {
-    expect(typeof consultPost).toBe('function');
-  });
-});
-
-describe('lista de posts', () => {
-  it('Debería poder obtener todos los posts', (done) => {
-    return consultPost(callback)
-      .then(() => 
-        (callback) => {
-          const result = callback.find((post) => post === 'Posts');
-          expect(result).toBe('Posts');
-          done();
-        });
-  });
-});
-// 
-
 describe('deletePost', () => {
   it('debería ser una función', () => {
     expect(typeof deletePost).toBe('function');
@@ -113,4 +92,3 @@ describe('deletePost', () => {
       ));
   });
 });
-
