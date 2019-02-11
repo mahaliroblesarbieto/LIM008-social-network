@@ -38,6 +38,8 @@ const objTemp = {
       <div class="col-4" ></div>
     </div>
   </section>`;
+  
+    document.getElementById('body').classList.add('backgroundLogin');
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
@@ -60,8 +62,6 @@ const objTemp = {
     <div class="col-3">
       <div class="row">
         <div class="col-12">
-          <img class="logo width" src="img/logoworldpet.jpg" alt="logo worldpet">
-          <p class="name width center">Nombre de Usuario</p>
           <hr/>
           <a id="post-all" type="button" role="button" class = "width font" href="javascript:void(0)">Todas las publicaciones</a>
           <hr/>
@@ -69,7 +69,7 @@ const objTemp = {
           <hr/>
           <a id="post-friend" type="button" role="button" class = "width font" href="javascript:void(0)">Posts de amigos</a>
           <hr/>
-          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>
+          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
           <hr/>
         </div>
       </div>
@@ -82,13 +82,13 @@ const objTemp = {
           <div class="row">
             <div class="col-8"></div>
             <div class="col-2">
-              <select class=" type login border width padding" id="post-type">
+              <select class="select-post width" id="post-type">
                 <option value="true">Público</option>
                 <option value="false">Amigos</option>
               </select>
             </div>
             <div class="col-2">
-              <button type = "button" id="button-post"  class = "type login border width padding"> Publicar </button>
+              <button type = "button" id="button-post"  class = "login width btn-post"> Publicar </button>
             </div>
           </div>
         </div>
@@ -103,10 +103,11 @@ const objTemp = {
     </div>
   </div>
 </div>`;
+    document.getElementById('body').classList.remove('backgroundLogin');
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
-    btnCloseSesion.addEventListener('change', closedSesion);
+    btnCloseSesion.addEventListener('click', closedSesion);
     const btnPost = elem.querySelector('#button-post');
     btnPost.addEventListener('click', publish);
     const btnPostPublic = elem.querySelector('#post-public');

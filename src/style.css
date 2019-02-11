@@ -20,11 +20,19 @@ html,body{
 }
 
 /* Estilos para templates login y registry*/
-
 .backgroundLogin {
     background-image: url(img/fondomascota.jpg);
     zoom: 0.61;
   }
+
+  .select-post{
+    background: white;
+    color:  rgb(28, 190, 13);
+    border: 2px solid  rgb(28, 190, 13);
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 8%
+}
 
 .background-principal{
     background-color: #fff;
@@ -159,7 +167,7 @@ a{
 }
 
 .color{
-    background-color:#e44d3a;
+    background-color:rgb(250, 63, 6);
 }
 
 .gray{
@@ -167,8 +175,8 @@ a{
 }
 
 .border-post{
-    border-radius: 2%;
-    border: 3px solid rgb(250, 63, 6); 
+    border: none;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16);  
 }
 
 textarea{
@@ -308,7 +316,7 @@ textarea{
     font-size: 13px;
     width: 30px;
     height: 30px;
-    background-color: #e44d3a;
+    background-color: rgb(250, 63, 6);;
     line-height: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -325,11 +333,18 @@ textarea{
     float: left;
     margin-top: 6px;
     margin-right: 5px;
-    color: #e44d3a;
+    color: rgb(250, 63, 6);;
   }
   .btn-like{
       background-color: #fff;
-      border: 1px solid #e44d3a;
+      border: 1px solid rgb(250, 63, 6);;
       margin-left: 3px;
       height: 30px;
   }
+
+  .btn-post{
+    font-size: 0.9em;
+    border: none;
+    font-weight: 500;
+    padding: 10%
+}

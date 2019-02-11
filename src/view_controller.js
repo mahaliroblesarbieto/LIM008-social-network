@@ -195,86 +195,88 @@ export const publish = () => {
 };
 
 export const itemNote = (objNote) => {
-  console.log(objNote.date);
   const liElement = document.createElement('li');
   liElement.className = 'list-post';
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
   liElement.innerHTML = `
   <div class="row post-bar" >
-  <div class="col-12 col-s-12 border-buttom null-padding-bottom">
-    <div class="row">
-      <div class="col-1 col-s-1">
-       <img src="./img/user.png"> </img>
+    <div class="col-12 col-s-12 border-buttom null-padding-bottom">
+      <div class="row">
+        <div class="col-1 col-s-1">
+          <img src="./img/user.png"> </img>
+        </div>
+        <div class="col-10 col-s-10">
+          <p class="null-margin-top post-name-user">${objNote.uid}</p>
+          <p class="null-margin-top post-name-date"> ${newDate} </p>
+        </div>
+        <div class="col-1 col-s-1">
+          <img id ="typeimage"> </img>
+        </div>
       </div>
-      <div class="col-10 col-s-10">
-       <p class="null-margin-top post-name-user">${objNote.uid}</p>
-       <p class="null-margin-top post-name-date"> ${newDate} </p>
-      </div>
-      <div class="col-1 col-s-1">
-       <img id ="typeimage"> </img>
-      
-      </div>
-
     </div>
-     
-  </div>
-  <div class="col-12 col-s-12 border-buttom" >
-     <div class="col-12 col-s-12">
+    <div class="col-12 col-s-12 border-buttom" >
+      <div class="row col-12 col-s-12">
         <span>${objNote.text}</span>
-     </div>
-  </div>
-  <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
-     <div class="row">
-         <div class="col-12 col-s-12">
-            <div class="col-4 col-s-4">
+      </div>
+    </div>
+    <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-4 col-s-4">
             <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like"><p class="font-like">Like 
             </p></button> <span class="post-total-like">${objNote.likes}</span>
-            </div>
-            <div class="col-4 col-s-4">
-            <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
-            </div>
-            <div class="col-4 col-s-4">
-            <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
-             </div>
-         </div>
+          </div>
+          <div class="col-4 col-s-4">
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post"><i class="far fa-edit"></i></button>
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btnDelete-${objNote.id}"  class="color width btn-post"><i class="far fa-trash-alt"></i></button>
+          </div>
+        </div>
       </div>
-  </div> 
- <div>
- <div id="myModal" class="modal">
- <!-- Modal content -->
- <div class="modal-content">
-   <textarea rows="4" cols="50" id="post-content">
-     ${objNote.text}
-   </textarea>
-   <div class="row">
-     <div class="col-12 col-s-12">
-       <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-update-content"  class="type logIn border">Editar</button>
-       </div>
-       <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-close-modal"  class="type logIn border">Cerrar</button>
-       </div>
-     </div>
-   </div>
- </div>
-</div>
-<div id="myModaldos" class="modal">
- <!-- Modal content -->
- <div class="modal-content">
-    <p>¿Estas seguro que deseas eliminar? </p>
-   <div class="row">
-     <div class="col-12 col-s-12">
-       <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-confirm"  class="type logIn border">Si</button>
-       </div>
-       <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-negative"  class="type logIn border">No</button>
-       </div>
-     </div>
-   </div>
- </div>
-</div>`;
+    </div> 
+  </div>
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <textarea rows="4" cols="50" id="post-content">
+        ${objNote.text}
+      </textarea>
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-8 col-s-8">
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btn-close-modal"  class="select-post width">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="myModaldos" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p>¿Estas seguro que deseas eliminar? </p>
+      <div class="row">
+        <div class="col-12 col-s-12">
+          <div class="col-8 col-s-8">
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btn-delete-confirm"  class="color width btn-post">Si</button>
+          </div>
+          <div class="col-2 col-s-2">
+            <button type = "button" id = "btn-delete-negative"  class="select-post width">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
   if (objNote.public === 'true') {
     liElement.querySelector('#typeimage').src = 'img/world.png';
   } else {
