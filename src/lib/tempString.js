@@ -50,7 +50,7 @@ const objTemp = {
   },
   home: () => {
     const tmpl = 
-    `<header class="login">
+    `<header class="color">
     <div class="row" id="title">
       <div class="col-12 col-s-12 center title">
       <img class = "left" src = "img/menu.png"></img>
