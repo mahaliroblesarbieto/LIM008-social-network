@@ -215,10 +215,6 @@ export const itemNote = (objNote) => {
        <img id ="typeimage"> </img>
       
       </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
     </div>
      
   </div>

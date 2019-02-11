@@ -6,10 +6,7 @@
     box-sizing: border-box;
     list-style:none;
     text-decoration: none
-<<<<<<< HEAD
-=======
     
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
 }
 
 html,body{
@@ -23,14 +20,19 @@ html,body{
 }
 
 /* Estilos para templates login y registry*/
-<<<<<<< HEAD
-=======
-
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
 .backgroundLogin {
     background-image: url(img/fondomascota.jpg);
     zoom: 0.61;
   }
+
+  .select-post{
+    background: white;
+    color:  rgb(28, 190, 13);
+    border: 2px solid  rgb(28, 190, 13);
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 7%
+}
 
 .background-principal{
     background-color: #fff;
@@ -149,15 +151,9 @@ button{
     background: #ffffff;
     padding:2%;
 }
-<<<<<<< HEAD
 
 /* Estilo para template home*/
 
-=======
-
-/* Estilo para template home*/
-
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
 .title{
     font-family:'Fredoka One', cursive;
     font-size:1em;
@@ -171,18 +167,6 @@ a{
 }
 
 .color{
-<<<<<<< HEAD
-    background-color: rgb(241, 125, 58);
-}
-
-.gray{
-    background-color:  rgb(234, 243, 238);
-}
-
-.border-post{
-    border: none;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16); 
-=======
     background-color:#e44d3a;
 }
 
@@ -191,9 +175,8 @@ a{
 }
 
 .border-post{
-    border-radius: 2%;
-    border: 3px solid rgb(250, 63, 6); 
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
+    border: none;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16);  
 }
 
 textarea{
@@ -203,25 +186,6 @@ textarea{
     font-family:'Source Sans Pro', sans-serif;
     color: #2e2c2c;
 }
-<<<<<<< HEAD
-
-.btn-post{
-    font-size: 0.9em;
-    border: none;
-    font-weight: 500;
-    padding: 10%
-}
-
-.select-post{
-    background: white;
-    color:  rgb(28, 190, 13);
-    border: 2px solid  rgb(28, 190, 13);
-    font-size: 0.9em;
-    font-weight: 500;
-    padding: 7%
-}
-=======
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
 /*Todas estas columnas deben estar flotando hacia la izquierda y tener un relleno de 15px */
 [class*="col-"] {
     float: left;
@@ -271,8 +235,6 @@ textarea{
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 }
-<<<<<<< HEAD
-=======
 
 /**********/
 .modal {
@@ -379,4 +341,10 @@ textarea{
       margin-left: 3px;
       height: 30px;
   }
->>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
+
+  .btn-post{
+    font-size: 0.9em;
+    border: none;
+    font-weight: 500;
+    padding: 10%
+}
