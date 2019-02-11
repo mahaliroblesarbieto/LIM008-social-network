@@ -6,6 +6,7 @@
     box-sizing: border-box;
     list-style:none;
     text-decoration: none
+    
 }
 
 html,body{
@@ -19,6 +20,7 @@ html,body{
 }
 
 /* Estilos para templates login y registry*/
+
 .backgroundLogin {
     background-image: url(img/fondomascota.jpg);
     zoom: 0.61;
@@ -157,11 +159,11 @@ a{
 }
 
 .color{
-    background-color: rgb(241, 125, 58);
+    background-color:#e44d3a;
 }
 
 .gray{
-    background-color:  rgb(234, 243, 238);
+    background-color:#f2f2f2;
 }
 
 .border-post{
@@ -225,3 +227,103 @@ textarea{
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
 }
+
+/**********/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  /* estilo para las lista de post*/
+  .list-post{
+      margin-bottom: 50px;
+  }
+  /* estilo de post*/
+  .post-bar{
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    border-left: 1px solid #e4e4e4;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    margin-bottom: 20px;
+  }
+  .post-name-user{
+    color: #000000;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 2px;
+  }
+
+  .post-name-date{
+    color: #b2b2b2;
+    font-size: 14px;
+  }
+
+  .null-margin-top{
+      margin-top: 0px;
+  }
+  .null-padding-bottom{
+      padding-bottom: 0px;
+  }
+  .border-buttom{
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .post-total-like{
+    color: #ffffff;
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    background-color: #e44d3a;
+    line-height: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 30px;
+    float: left;
+    text-align: center;
+    font-weight: 600;
+    margin-left: -25px;
+  }
+  .font-like{
+    font-size: 14px;
+    float: left;
+    margin-top: 6px;
+    margin-right: 5px;
+    color: #e44d3a;
+  }

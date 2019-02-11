@@ -197,39 +197,50 @@ export const publish = () => {
 export const itemNote = (objNote) => {
   console.log(objNote.date);
   const liElement = document.createElement('li');
+  liElement.className = 'list-post';
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
   liElement.innerHTML = `
-  <div class="row">
- <div class="col-12 col-s-12">
-   <p>${objNote.uid}, ${newDate} <img id ="typeimage"> </img></p>
- </div>
-</div>
-<div class="row">
- <div class="col-12 col-s-12">
-   <span>${objNote.text}</span>
- </div>
-</div>
-<div class="row">
- <div class="col-12 col-s-12">
-   <div class="col-2 col-s-2">
-     <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
-   </div>
-   <div class="col-2 col-s-2">
-     <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
-   </div>
-   <div class="col-2 col-s-2">
-     <button type = "button" id = "btnLike-${objNote.id}"  class="type logIn border"><p id="number"> ${objNote.likes}</p>Me gusta</button>
-   </div>
-   <div class="col-2 col-s-2">
-   </div>
-   <div class="col-2">
-   </div>
-   <div class="col-2">
-   </div>
- </div>
-</div>
-<div id="myModal" class="modal">
+  <div class="row post-bar" >
+  <div class="col-12 col-s-12 border-buttom null-padding-bottom">
+    <div class="row">
+      <div class="col-1 col-s-1">
+       <img src="./img/user.png"> </img>
+      </div>
+      <div class="col-10 col-s-10">
+       <p class="null-margin-top post-name-user">${objNote.uid}</p>
+       <p class="null-margin-top post-name-date"> ${newDate} </p>
+      </div>
+      <div class="col-1 col-s-1">
+       <img id ="typeimage"> </img>
+      
+      </div>
+
+    </div>
+     
+  </div>
+  <div class="col-12 col-s-12" style="background-color: cadetblue ; margin-top: 0.2%">
+     <div class="col-12 col-s-12">
+        <span>${objNote.text}</span>
+     </div>
+  </div>
+  <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
+     <div class="row">
+         <div class="col-12 col-s-12">
+            <div class="col-4 col-s-4">
+            <button type = "button" id = "btnLike-${objNote.id}"  class="icon-home"><p class="font-like">Like</p></button><span class="post-total-like">${objNote.likes}</span>
+            </div>
+            <div class="col-4 col-s-4">
+            <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
+            </div>
+            <div class="col-4 col-s-4">
+            <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
+             </div>
+         </div>
+      </div>
+  </div> 
+ <div>
+ <div id="myModal" class="modal">
  <!-- Modal content -->
  <div class="modal-content">
    <textarea rows="4" cols="50" id="post-content">
