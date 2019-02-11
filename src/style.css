@@ -327,3 +327,9 @@ textarea{
     margin-right: 5px;
     color: #e44d3a;
   }
+  .btn-like{
+      background-color: #fff;
+      border: 1px solid #e44d3a;
+      margin-left: 3px;
+      height: 30px;
+  }

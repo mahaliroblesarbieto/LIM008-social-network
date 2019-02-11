@@ -219,7 +219,7 @@ export const itemNote = (objNote) => {
     </div>
      
   </div>
-  <div class="col-12 col-s-12" style="background-color: cadetblue ; margin-top: 0.2%">
+  <div class="col-12 col-s-12 border-buttom" >
      <div class="col-12 col-s-12">
         <span>${objNote.text}</span>
      </div>
@@ -228,7 +228,8 @@ export const itemNote = (objNote) => {
      <div class="row">
          <div class="col-12 col-s-12">
             <div class="col-4 col-s-4">
-            <button type = "button" id = "btnLike-${objNote.id}"  class="icon-home"><p class="font-like">Like</p></button><span class="post-total-like">${objNote.likes}</span>
+            <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like"><p class="font-like">Like 
+            </p></button> <span class="post-total-like">${objNote.likes}</span>
             </div>
             <div class="col-4 col-s-4">
             <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
