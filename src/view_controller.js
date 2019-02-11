@@ -42,7 +42,7 @@ export const deletePosts = (postId) => {
       console.log(error);
     });
 };
-export const UpdatedPosts = (postId ,textNew) => {
+export const UpdatedPosts = (postId, textNew) => {
   UpdatedPost(postId, textNew)
     .then(console.log('Se actualizó el post'))
     .catch((error) => {
@@ -62,7 +62,6 @@ const saveData = (data) => {
     .catch((error) => {
       console.log(error);
     });
-
 }; 
 
 const saveDataWithEmail = (data) => {
@@ -113,7 +112,7 @@ export const signUpOnClick = () => {
                 console.log(user);
               })
               .catch((error) => {
-                console.log(error)
+                console.log(error);
               });
           })
           .catch((error) => console.log(error));
@@ -195,7 +194,6 @@ export const publish = () => {
 };
 
 export const itemNote = (objNote) => {
-  console.log(objNote.date);
   const liElement = document.createElement('li');
   liElement.className = 'list-post';
   const date = (objNote.date.toDate()).toString();
@@ -231,11 +229,13 @@ export const itemNote = (objNote) => {
             </p></button> <span class="post-total-like">${objNote.likes}</span>
             </div>
             <div class="col-4 col-s-4">
-            <button type = "button" id = "btnUpdate-${objNote.id}"  class="type logIn border">Editar</button>
             </div>
-            <div class="col-4 col-s-4">
-            <button type = "button" id = "btnDelete-${objNote.id}"  class="type logIn border">Eliminar</button>
-             </div>
+            <div class="col-2 col-s-2">
+              <button type = "button" id = "btnUpdate-${objNote.id}"  class="login width btn-post">Editar</button>
+            </div>
+            <div class="col-2 col-s-2">
+              <button type = "button" id = "btnDelete-${objNote.id}"  class="login width btn-post">Eliminar</button>
+            </div>
          </div>
       </div>
   </div> 
@@ -249,10 +249,10 @@ export const itemNote = (objNote) => {
    <div class="row">
      <div class="col-12 col-s-12">
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-update-content"  class="type logIn border">Editar</button>
+         <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
        </div>
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-close-modal"  class="type logIn border">Cerrar</button>
+         <button type = "button" id = "btn-close-modal"  class="login width btn-post">Cerrar</button>
        </div>
      </div>
    </div>
@@ -265,10 +265,10 @@ export const itemNote = (objNote) => {
    <div class="row">
      <div class="col-12 col-s-12">
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-confirm"  class="type logIn border">Si</button>
+         <button type = "button" id = "btn-delete-confirm"  class="login width btn-post">Si</button>
        </div>
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-negative"  class="type logIn border">No</button>
+         <button type = "button" id = "btn-delete-negative"  class="login width btn-post">No</button>
        </div>
      </div>
    </div>

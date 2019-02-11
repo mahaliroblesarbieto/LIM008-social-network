@@ -71,7 +71,7 @@ export const updatePasswordUser = (nameNew) =>
 
 export const userCurrent = () => firebase.auth().currentUser;
 
- /* const user = firebase.auth().currentUser;
+/* const user = firebase.auth().currentUser;
         user.updateProfile({
           displayName: nameNew,
         }).then(function() {
