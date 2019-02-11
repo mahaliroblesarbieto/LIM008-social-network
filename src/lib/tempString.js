@@ -69,7 +69,7 @@ const objTemp = {
           <hr/>
           <a id="post-friend" type="button" role="button" class = "width font" href="javascript:void(0)">Posts de amigos</a>
           <hr/>
-          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>
+          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
           <hr/>
         </div>
       </div>
