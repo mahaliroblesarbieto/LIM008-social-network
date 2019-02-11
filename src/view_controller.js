@@ -231,10 +231,10 @@ export const itemNote = (objNote) => {
             <div class="col-4 col-s-4">
             </div>
             <div class="col-2 col-s-2">
-              <button type = "button" id = "btnUpdate-${objNote.id}"  class="login width btn-post">Editar</button>
+              <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post"><i class="far fa-edit"></i></button>
             </div>
             <div class="col-2 col-s-2">
-              <button type = "button" id = "btnDelete-${objNote.id}"  class="login width btn-post">Eliminar</button>
+              <button type = "button" id = "btnDelete-${objNote.id}"  class="login width btn-post"><i class="far fa-trash-alt"></i></button>
             </div>
          </div>
       </div>
