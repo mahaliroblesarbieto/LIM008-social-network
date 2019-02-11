@@ -1,45 +1,65 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
+  createDocumentUserUid,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
   closeSesion,
   savePublication,
   consultPost,
+  consultTypePost,
   UpdatedPost,
   deletePost,
-  newAddLike } from './lib/index.js';
+  newAddLike
+} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
-
 export const consultPosts = () => {
-  consultPost((posts) => {
-    const ul = document.querySelector('#notes-list');
-    ul.innerHTML = '';
-    posts.forEach((post) => {
-      ul.appendChild(itemNote(post)); 
+  consultPost(showPosts);
+};
+
+const showPosts = (posts) => {
+  const ul = document.querySelector('#notes-list');
+  ul.innerHTML = '';
+  posts.forEach((post) => {
+    ul.appendChild(itemNote(post)); 
+  });
+};
+export const consultTypePosts = (type) => {
+  consultTypePost(type, showPosts);
+};
+export const deletePosts = (postId) => {
+  deletePost(postId)
+    .then(() => {
+      console.log('Se eliminó el post');
+    })
+    .catch((error) => {
+      console.log(error);
     });
-  });
+};
+export const UpdatedPosts = (postId, textNew) => {
+  UpdatedPost(postId, textNew)
+    .then(console.log('Se actualizó el post'))
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
-
-const createDocumentUID = (id, data) => {
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    nameUser: data.user,
-    emailUser: data.email
-  });
-};
 
 const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
-  createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+  createDocumentUserUid(uid, {uid, user, email})
+    .then(() => {
+      changeHash('#/home');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }; 
 
 const saveDataWithEmail = (data) => {
@@ -161,38 +181,23 @@ export const showLogErrors = (error) => {
   }
 };
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
-/* ********** */
-/*
-=> {
-      const ul = document.querySelector('#notes-list');
-      ul.innerHTML = '';
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
-      });
-      data.forEach((post) => {
-        ul.appendChild(itemNote(post)); 
-      });
-    }); 
-*/
 
-/* ************ */
 export const publish = () => {
   const user = firebase.auth().currentUser.displayName;
   const enteredText = document.querySelector('#entered-text').value;
   const postType = document.querySelector('#post-type').value;
   if (enteredText !== '') {
     savePublication(user, enteredText, postType)
-      .then((data) => consultPost(data))
+      .then((data) => consultPosts(data))
       .catch({});
   }
 };
 
 export const itemNote = (objNote) => {
+  console.log(objNote.date);
   const liElement = document.createElement('li');
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
-
   liElement.innerHTML = `
   <div class="row">
  <div class="col-12 col-s-12">
@@ -271,7 +276,7 @@ export const itemNote = (objNote) => {
   const btnUpdateContent = liElement.querySelector('#btn-update-content');
   btnUpdateContent.addEventListener('click', () => {
     const textNew = liElement.querySelector('#post-content').value;
-    UpdatedPost(objNote.id, textNew);
+    UpdatedPosts(objNote.id, textNew);
   });
 
   const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
@@ -285,7 +290,7 @@ export const itemNote = (objNote) => {
   });
   const btnConfirmDelete = liElement.querySelector('#btn-delete-confirm');
   btnConfirmDelete.addEventListener('click', () => {
-    deletePost(objNote.id);
+    deletePosts(objNote.id);
   });
   const btnDeniedDelete = liElement.querySelector('#btn-delete-negative');
   btnDeniedDelete.addEventListener('click', () => { 

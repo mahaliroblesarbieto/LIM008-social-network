@@ -29,13 +29,13 @@ const viewTmp = (routers) => {
   case 'home' :
     const container = document.getElementById('container');
     container.innerHTML = '';
-    container.appendChild(objTemp[router]);
+    container.appendChild(objTemp[router]());
     consultPosts();
     break;
   case 'registry':
     const home = document.getElementById('home');
     home.innerHTML = '';
-    home.appendChild(objTemp['registry']());
+    home.appendChild(objTemp[router]());
     break;
   };
 };
@@ -43,4 +43,3 @@ export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
-
