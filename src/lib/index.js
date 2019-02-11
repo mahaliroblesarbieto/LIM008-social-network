@@ -1,7 +1,5 @@
-import { itemNote} from '../view_controller.js';
 export const authenticateGoogleAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  // .addScope('https://www.googleapis.com/auth/plus.login'));
 
 export const createUserWithEmailAndPassword = (email, password) =>
   firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -11,7 +9,6 @@ export const authenticateEmailAndPassword = (email, password) =>
 
 export const authenticateFacebookAccount = () => 
   firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()) ;
-  // .addScope('public_profile')); 
 
 export const closeSesion = () => firebase.auth().signOut();
 
@@ -24,62 +21,66 @@ export const savePublication = (name, text, type) =>
     date: firebase.firestore.FieldValue.serverTimestamp()
   });
 
-export const UpdatedPost = (id, textNew) => {
-  let refUser = firebase.firestore().collection('Posts').doc(id);
-  refUser.update({
+export const UpdatedPost = (postId, textNew) => 
+  firebase.firestore().collection('Posts').doc(postId).update({
     text: textNew
   });
-};
 
-export const deletePost = (postId) => {
-  firebase.firestore().collection('Posts').doc(postId).delete()
-    .then(() => {
-    // consultPost();
-    //      abrir una ventana modal que pida confirmar
-      console.log('Es exitoso');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+export const deletePost = (postId) => 
+  firebase.firestore().collection('Posts').doc(postId).delete();
 
-export const newAddLike = (id, newLike) => {
+export const newAddLike = (id, newLike) => 
   firebase.firestore().collection('Posts').doc(id).update({
     'likes': newLike
   });
-};
 
-export const consultPost = () => {
-  firebase.firestore()
-    .collection('Posts')
+export const consultPost = (callback) =>
+  firebase.firestore().collection('Posts')
     .orderBy('date', 'desc')
-    .onSnapshot(querySnapshot => {
-      const ul = document.querySelector('#notes-list');
-      ul.innerHTML = '';
+    .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
+        data.push({ id: doc.id, ...doc.data()});
       });
-      data.forEach((post) => {
-        ul.appendChild(itemNote(post)); 
-      });
+      callback(data);
     });
-};
-
-export const consultTypePost = (type) => {
+export const consultTypePost = (type, callback) =>
   firebase.firestore()
     .collection('Posts')
     .orderBy('date', 'desc')
     .where('public', '==', type)
-    .onSnapshot(querySnapshot => {
-      const ul = document.querySelector('#notes-list');
-      ul.innerHTML = '';
+    .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() });
+        data.push({ id: doc.id, ...doc.data()});
       });
-      data.forEach((post) => {
-        ul.appendChild(itemNote(post)); 
-      });
+      callback(data);
     });
-};
+
+export const createDocumentUserUid = (id, data) => 
+  firebase.firestore().collection('users').doc(id).set({
+    id: data.uid,
+    nameUser: data.user,
+    emailUser: data.email
+  });
+
+export const updatePasswordUser = (nameNew) => 
+  firebase.auth().currentUser.updateProfile({
+    displayName: nameNew,
+  });
+
+export const userCurrent = () => firebase.auth().currentUser;
+
+ /* const user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: nameNew,
+        }).then(function() {
+          const dataNew = {
+            uid: user.uid,
+            userEmail: user.email,
+            userName: user.displayName
+          };
+          saveDataWithEmail(dataNew);
+        }).catch(function(error) {
+          showSignErrors(error);
+        });*/

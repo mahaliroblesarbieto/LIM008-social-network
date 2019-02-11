@@ -1,34 +1,68 @@
 import {authenticateGoogleAccount,
   createUserWithEmailAndPassword,
+  createDocumentUserUid,
   authenticateEmailAndPassword,
   authenticateFacebookAccount,
   closeSesion,
   savePublication,
   consultPost,
+  consultTypePost,
   UpdatedPost,
   deletePost,
-  newAddLike } from './lib/index.js';
+  newAddLike,
+  updatePasswordUser,
+  userCurrent
+} from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
+export const consultPosts = () => {
+  consultPost(showPosts);
+};
 
-const createDocumentUID = (id, data) => {
-  firebase.firestore().collection('users').doc(id).set({
-    id: data.uid,
-    nameUser: data.user,
-    emailUser: data.email
+const showPosts = (posts) => {
+  const ul = document.querySelector('#notes-list');
+  ul.innerHTML = '';
+  posts.forEach((post) => {
+    ul.appendChild(itemNote(post)); 
   });
 };
+export const consultTypePosts = (type) => {
+  consultTypePost(type, showPosts);
+};
+export const deletePosts = (postId) => {
+  deletePost(postId)
+    .then(() => {
+      console.log('Se eliminó el post');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+export const UpdatedPosts = (postId ,textNew) => {
+  UpdatedPost(postId, textNew)
+    .then(console.log('Se actualizó el post'))
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 
 const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
   const email = data.user.email;
-  createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+  createDocumentUserUid(uid, {uid, user, email})
+    .then(() => {
+      changeHash('#/home');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
 }; 
 
 const saveDataWithEmail = (data) => {
@@ -72,19 +106,17 @@ export const signUpOnClick = () => {
   } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
       .then(() => { 
-        const user = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: nameNew,
-        }).then(function() {
-          const dataNew = {
-            uid: user.uid,
-            userEmail: user.email,
-            userName: user.displayName
-          };
-          saveDataWithEmail(dataNew);
-        }).catch(function(error) {
-          showSignErrors(error);
-        });
+        updatePasswordUser(nameNew)
+          .then(() => {
+            userCurrent()
+              .then((user) => {
+                console.log(user);
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => showSignErrors(error));
   }
@@ -157,7 +189,7 @@ export const publish = () => {
   const postType = document.querySelector('#post-type').value;
   if (enteredText !== '') {
     savePublication(user, enteredText, postType)
-      .then((data) => consultPost(data))
+      .then((data) => consultPosts(data))
       .catch({});
   }
 };
@@ -183,6 +215,10 @@ export const itemNote = (objNote) => {
        <img id ="typeimage"> </img>
       
       </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
     </div>
      
   </div>

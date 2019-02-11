@@ -4,8 +4,14 @@ import {signUpOnClick,
   authenticateWithGoogle, 
   goToRegister, 
   authenticateWithEmailAndPassword,
+<<<<<<< HEAD
   publish} from '../view_controller.js';
 import { consultTypePost, consultPost } from './index.js';
+=======
+  publish,
+  consultPosts,
+  consultTypePosts} from '../view_controller.js';
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -36,9 +42,13 @@ const objTemp = {
       </div>
       <div class="col-4" ></div>
     </div>
+<<<<<<< HEAD
   </section> `;
     document.getElementById('body').classList.add('backgroundLogin');
     // https://uniwebsidad.com/foro/pregunta/445/como-se-puede-cambiar-la-clase-css-de-un-elemento-mediante-javascript/?from=librosweb
+=======
+  </section>`;
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     elem.querySelector('#button-facebook').addEventListener('click', authenticateFacebook);
@@ -48,6 +58,7 @@ const objTemp = {
     return elem; 
   },
   home: () => {
+<<<<<<< HEAD
     const tmpl = `
       <header class="color">
         <div class="row" id="title">
@@ -100,12 +111,70 @@ const objTemp = {
             <div id="notes-list" class="col-10 col-s-10">
             </div>
             <div class="col-1"></div>
-          </div>
+=======
+    const tmpl = 
+    `<header class="color">
+    <div class="row" id="title">
+      <div class="col-12 col-s-12 center title">
+      <img class = "left" src = "img/menu.png"></img>
+      WORLDPET
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-12">
+          <img class="logo width" src="img/logoworldpet.jpg" alt="logo worldpet">
+          <p class="name width center">Nombre de Usuario</p>
+          <hr/>
+          <a id="post-all" type="button" role="button" class = "width font" href="javascript:void(0)">Todas las publicaciones</a>
+          <hr/>
+          <a id="post-public" type="button" role="button" class = "width font" href="javascript:void(0)">Posts públicos</a>
+          <hr/>
+          <a id="post-friend" type="button" role="button" class = "width font" href="javascript:void(0)">Posts de amigos</a>
+          <hr/>
+          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>
+          <hr/>
         </div>
       </div>
+    </div>
+    <div class="col-9 gray">
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10 border-post background-principal">
+          <textarea rows="2" cols="25" id="entered-text" class = "border col-12" placeholder="¿Qué estas pensando?"></textarea>
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-2">
+              <select class=" type login border width padding" id="post-type">
+                <option value="true">Público</option>
+                <option value="false">Amigos</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <button type = "button" id="button-post"  class = "type login border width padding"> Publicar </button>
+            </div>
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+<<<<<<< HEAD
     </div>`;
 
     document.getElementById('body').classList.remove('backgroundLogin');
+=======
+      <div class="row">
+        <div class="col-1"></div>
+        <div id="notes-list" class="col-10 col-s-10">
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+  </div>
+</div>`;
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');
@@ -114,14 +183,18 @@ const objTemp = {
     btnPost.addEventListener('click', publish);
     const btnPostPublic = elem.querySelector('#post-public');
     btnPostPublic.addEventListener('click', () => {
-      consultTypePost('true');
+      consultTypePosts('true');
     });
     const btnPostFriend = elem.querySelector('#post-friend');
     btnPostFriend.addEventListener('click', () => {
-      consultTypePost('false');
+      consultTypePosts('false');
     });
     const btnPostAll = elem.querySelector('#post-all');
+<<<<<<< HEAD
     btnPostAll.addEventListener('click', consultPost);
+=======
+    btnPostAll.addEventListener('click', consultPosts);
+>>>>>>> f81c43f3b6a385f6ae17e7085c0400a526c52c40
     return elem;
   },
   registry: () => {
