@@ -167,7 +167,7 @@ a{
 }
 
 .color{
-    background-color:#e44d3a;
+    background-color:rgb(250, 63, 6);
 }
 
 .gray{
@@ -316,7 +316,7 @@ textarea{
     font-size: 13px;
     width: 30px;
     height: 30px;
-    background-color: #e44d3a;
+    background-color: rgb(250, 63, 6);;
     line-height: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -333,11 +333,11 @@ textarea{
     float: left;
     margin-top: 6px;
     margin-right: 5px;
-    color: #e44d3a;
+    color: rgb(250, 63, 6);;
   }
   .btn-like{
       background-color: #fff;
-      border: 1px solid #e44d3a;
+      border: 1px solid rgb(250, 63, 6);;
       margin-left: 3px;
       height: 30px;
   }
