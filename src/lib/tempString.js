@@ -83,75 +83,61 @@ const objTemp = {
   },
   home: () => {
     const tmpl = 
-    `<header class="text type logIn">
-      <div class="row" id="title">
-        <div class="col-12 col-s-12">
-          <div class="col-10 col-s-10">
-            <h1>WORLDPET</h1>
-          </div>
-          <div class="col-2 col-s-2">
-            <select class="logIn width" id="closeSesion">
-              <option disabled selected></option>
-              <option value="true">Cerrar Sesión</option>
-            </select>
-            <!--<button type = "button" class="type logIn border" id="closeSesion" class = "border"> Cerrar Sesión </button>-->
-          </div>
+    `<header class="color">
+    <div class="row" id="title">
+      <div class="col-12 col-s-12 center title">
+      <img class = "left" src = "img/menu.png"></img>
+      WORLDPET
+      </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-12">
+          <img class="logo width" src="img/logoworldpet.jpg" alt="logo worldpet">
+          <p class="name width center">Nombre de Usuario</p>
+          <hr/>
+          <a id="post-all" type="button" role="button" class = "width font" href="javascript:void(0)">Todas las publicaciones</a>
+          <hr/>
+          <a id="post-public" type="button" role="button" class = "width font" href="javascript:void(0)">Posts públicos</a>
+          <hr/>
+          <a id="post-friend" type="button" role="button" class = "width font" href="javascript:void(0)">Posts de amigos</a>
+          <hr/>
+          <a id="closeSesion" type="button" role="button" class = "width font" href="javascript:void(0)">Cerrar Sesión</a>
+          <hr/>
         </div>
       </div>
-    </header>
-    <section class="text">
+    </div>
+    <div class="col-9 gray">
       <div class="row">
-        <div class="col-12 col-s-12">
-          <textarea rows="2" cols="25" id="entered-text" class = "border" placeholder="¿Qué estas pensando?"></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-2 col-s-2">
-          </div>
-          <div class="col-2 col-s-2">
-          </div>
-          <div class="col-2 col-s-2">
-          </div>
-          <div class="col-2">
-          </div>
-          <div class="col-2 col-s-2">
-            <select class="type logIn border width" id="post-type">
-              <option value="false">Amigos</option>
-              <option value="true">Público</option>
-            </select>
-          </div>
-          <div class="col-2">
-            <button type = "button" class="type logIn border width" id="button-post"  class = "border"> Publicar </button>
+        <div class="col-1"></div>
+        <div class="col-10 border-post background-principal">
+          <textarea rows="2" cols="25" id="entered-text" class = "border col-12" placeholder="¿Qué estas pensando?"></textarea>
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-2">
+              <select class=" type login border width padding" id="post-type">
+                <option value="true">Público</option>
+                <option value="false">Amigos</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <button type = "button" id="button-post"  class = "type login border width padding"> Publicar </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-2">
-            <button type = "button" class="type logIn border width" id="post-public"  class = "border"> Público </button>
-          </div>
-          <div class="col-2">
-            <button type = "button" class="type logIn border width" id="post-friend"  class = "border"> Amigos </button>
-          </div>
-          <div class="col-2 col-s-2">
-            <button type = "button" class="type logIn border width" id="post-all"  class = "border"> Todos </button>
-          </div>
-          <div class="col-2 col-s-2">
-          </div>
-          <div class="col-2 col-s-2">
-          </div>
-          <div class="col-2 col-s-2">
-          </div>
-        </div>
+        <div class="col-1"></div>
       </div>
       <div class="row">
-        <div id="container-publication" class="col-12 col-s-12">
-          <ul class="w-100 demo-list-control mdl-list" id="notes-list">
-          </ul>
+        <div class="col-1"></div>
+        <div id="notes-list" class="col-10 col-s-10">
         </div>
+        <div class="col-1"></div>
       </div>
-    </section>`;
+    </div>
+  </div>
+</div>`;
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
     const btnCloseSesion = elem.querySelector('#closeSesion');

@@ -9,7 +9,9 @@ import {authenticateGoogleAccount,
   consultTypePost,
   UpdatedPost,
   deletePost,
-  newAddLike
+  newAddLike,
+  updatePasswordUser,
+  userCurrent
 } from './lib/index.js';
 import {changeTmp} from './lib/app.js';
 
@@ -104,19 +106,17 @@ export const signUpOnClick = () => {
   } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
       .then(() => { 
-        const user = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: nameNew,
-        }).then(function() {
-          const dataNew = {
-            uid: user.uid,
-            userEmail: user.email,
-            userName: user.displayName
-          };
-          saveDataWithEmail(dataNew);
-        }).catch(function(error) {
-          showSignErrors(error);
-        });
+        updatePasswordUser(nameNew)
+          .then(() => {
+            userCurrent()
+              .then((user) => {
+                console.log(user);
+              })
+              .catch((error) => {
+                console.log(error)
+              });
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => showSignErrors(error));
   }

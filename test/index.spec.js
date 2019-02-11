@@ -16,7 +16,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 import { authenticateGoogleAccount,
   authenticateFacebookAccount,
   authenticateEmailAndPassword,
-  createUserWithEmailAndPassword} from '../src/lib/index.js';
+  createUserWithEmailAndPassword,
+  closeSesion} from '../src/lib/index.js';
 
 describe('authenticateGoogleAccount', () => {
   it('debería ser una función', () => {
@@ -76,6 +77,22 @@ describe('authenticateFacebookAccount', () => {
       .then(() => {
         const user = firebase.auth().currentUser;
         expect(user).not.toBe(null);
+      });
+  });
+});
+
+describe('closeSesion', () => {
+  it('debería ser una función', () => {
+    expect(typeof closeSesion).toBe('function');
+  });
+});
+
+describe('closeSesion', () => {
+  it('Debería cerrar sesión', () => {
+    return closeSesion()
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        expect(user).toBe(null);
       });
   });
 });
