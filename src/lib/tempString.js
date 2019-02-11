@@ -83,13 +83,13 @@ const objTemp = {
               <div class="row">
                 <div class="col-8"></div>
                 <div class="col-2">
-                  <select class=" type login border width padding" id="post-type">
+                  <select class="select-post width" id="post-type">
                     <option value="true">Público</option>
                     <option value="false">Amigos</option>
                   </select>
                 </div>
                 <div class="col-2">
-                  <button type = "button" id="button-post"  class = "type login border width padding"> Publicar </button>
+                  <button type = "button" id="button-post"  class = "login width btn-post"> Publicar </button>
                 </div>
               </div>
             </div>
