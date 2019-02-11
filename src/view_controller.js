@@ -248,11 +248,13 @@ export const itemNote = (objNote) => {
    </textarea>
    <div class="row">
      <div class="col-12 col-s-12">
+       <div class="col-8 col-s-8">
+       </div>
        <div class="col-2 col-s-2">
          <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
        </div>
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-close-modal"  class="login width btn-post">Cerrar</button>
+         <button type = "button" id = "btn-close-modal"  class="select-post width">Cerrar</button>
        </div>
      </div>
    </div>
@@ -264,11 +266,13 @@ export const itemNote = (objNote) => {
     <p>¿Estas seguro que deseas eliminar? </p>
    <div class="row">
      <div class="col-12 col-s-12">
-       <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-confirm"  class="login width btn-post">Si</button>
+       <div class="col-8 col-s-8">
        </div>
        <div class="col-2 col-s-2">
-         <button type = "button" id = "btn-delete-negative"  class="login width btn-post">No</button>
+         <button type = "button" id = "btn-delete-confirm"  class="color width btn-post">Si</button>
+       </div>
+       <div class="col-2 col-s-2">
+         <button type = "button" id = "btn-delete-negative"  class="select-post width">No</button>
        </div>
      </div>
    </div>
