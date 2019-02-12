@@ -44,6 +44,7 @@ export const consultPost = (callback) =>
         data.push({ id: doc.id, ...doc.data()});
       });
       callback(data);
+      console.log(callback);
     });
 
 export const consultTypePost = (type, callback) =>

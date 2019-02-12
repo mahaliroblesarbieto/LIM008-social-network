@@ -219,7 +219,14 @@ export const itemNote = (objNote) => {
     </div>
     <div class="col-12 col-s-12 border-buttom" >
       <div class="row col-12 col-s-12">
-        <span>${objNote.text}</span>
+      <form>
+        <textarea class="textarea-style-div" id="my-post-${objNote.id}" readonly>${objNote.text}</textarea>
+        <div class="col-10 col-s-10 xscol-8">
+        </div>
+        <div class="col-2 col-s-2 xscol-4">
+            <button type = "button" id = "btnSave-${objNote.id}" class="login width btn-post">Guardar</button>
+        </div>
+      </form>
       </div>
     </div>
     <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
@@ -240,26 +247,6 @@ export const itemNote = (objNote) => {
         </div>
       </div>
     </div> 
-  </div>
-  <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <textarea rows="4" cols="50" id="post-content">
-        ${objNote.text}
-      </textarea>
-      <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-8 col-s-8 xscol-2">
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-close-modal"  class="select-post width">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
   <div id="myModaldos" class="modal">
     <!-- Modal content -->
@@ -284,21 +271,19 @@ export const itemNote = (objNote) => {
   } else {
     liElement.querySelector('#typeimage').src = 'img/animal-prints.png';
   }
-  
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
   const modalUpdatePost = liElement.querySelector('#myModal');
+  const btnSave = liElement.querySelector(`#btnSave-${objNote.id}`);
+  btnSave.style.display = 'none';
   btnUpdatePost.addEventListener('click', () => {
-    modalUpdatePost.style.display = 'block';
+    const myPost = liElement.querySelector(`#my-post-${objNote.id}`);
+    myPost.readOnly = false; 
+    btnSave.style.display = 'block';
   });
-  const btnUpdateContent = liElement.querySelector('#btn-update-content');
-  btnUpdateContent.addEventListener('click', () => {
-    const textNew = liElement.querySelector('#post-content').value;
+  btnSave.addEventListener('click', () => {
+    const myPost = liElement.querySelector(`#my-post-${objNote.id}`);
+    const textNew = myPost.value;
     UpdatedPosts(objNote.id, textNew);
-  });
-
-  const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
-  btnCancelUpdate.addEventListener('click', () => {
-    modalUpdatePost.style.display = 'none';
   });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');

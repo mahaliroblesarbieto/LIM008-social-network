@@ -101,6 +101,12 @@ button{
     height: 25%;
     font-weight: bolder;
 }
+.textarea-style-div{
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+}
 
 .left{
     float:left;
