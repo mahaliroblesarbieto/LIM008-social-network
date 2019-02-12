@@ -52,16 +52,16 @@ const objTemp = {
     const tmpl = 
     `<header class="color">
     <div class="row" id="title">
-      <div class="col-12 col-s-12 center title">
+      <div class="col-12 col-s-12 col-sm-12 center title">
       <img class = "left" src = "img/menu.png"></img>
       WORLDPET
       </div>
     </div>
   </header>
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 col-sm-3">
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-sm-12">
           <hr/>
           <a id="post-all" type="button" role="button" class = "width font" href="javascript:void(0)">Todas las publicaciones</a>
           <hr/>
@@ -76,18 +76,18 @@ const objTemp = {
     </div>
     <div class="col-9 gray">
       <div class="row">
-        <div class="col-1"></div>
+        <div class="col-1 col-sm-2"></div>
         <div class="col-10 border-post background-principal">
-          <textarea rows="2" cols="25" id="entered-text" class = "border col-12" placeholder="¿Qué estas pensando?"></textarea>
+          <textarea rows="2" cols="25" id="entered-text" class = "border col-12 col-sm-2" placeholder="¿Qué estas pensando?"></textarea>
           <div class="row">
-            <div class="col-8"></div>
-            <div class="col-2">
+            <div class="col-8 col-sm-8"></div>
+            <div class="col-2 col-sm-6">
               <select class="select-post width" id="post-type">
                 <option value="true">Público</option>
                 <option value="false">Amigos</option>
               </select>
             </div>
-            <div class="col-2">
+            <div class="col-2 col-sm-8">
               <button type = "button" id="button-post"  class = "login width btn-post"> Publicar </button>
             </div>
           </div>

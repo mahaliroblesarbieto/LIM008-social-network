@@ -16,7 +16,7 @@ const fixtureData = {
 };
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike } from '../src/lib/index.js';
+import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike, consultTypePost } from '../src/lib/index.js';
 
 describe('savePublication', () => {
   it('debería ser una función', () => {
@@ -90,5 +90,40 @@ describe('deletePost', () => {
           done();
         }
       ));
+  });
+});
+
+describe('consultPost', () => {
+  it('debería ser una función', () => {
+    expect(typeof consultPost).toBe('function');
+  });
+});
+
+describe('consultPost', () => {
+  it('Debería poder traer la colección de posts', (done) => {
+    return consultPost('mahali', 'karla', true)
+      .then((callback) => {
+        const result = callback.find((post) => post.text === 'karla');
+        expect(result.text).toBe('karla');
+        done();
+      });
+  });
+});
+
+
+describe('consultTypePost', () => {
+  it('debería ser una función', () => {
+    expect(typeof consultTypePost).toBe('function');
+  });
+});
+
+describe('consultTypePost', () => {
+  it('Debería poder obetener los post publicos', (done) => {
+    return consultTypePost('mahali', 'karla', true)
+      .then((callback) => {
+        const result = callback.find((post) => post.text === 'karla');
+        expect(result.text).toBe('karla');
+        done();
+      });
   });
 });

@@ -24,9 +24,9 @@ describe('createDocumentUserUid', () => {
 
 describe('createDocumentUserUid', () => {
   it('Debería poder agregar una coleccion para guardar los datos de los usuarios', (done) => {
-    return createDocumentUserUid('abc12', {uid: 'abcd12', user: 'kimberly', email: 'kimberlyrojasra@gmail.com'})
+    return createDocumentUserUid('abc12', {id: 'abcd12', nameUser: 'kimberly', emailUser: 'kimberlyrojasra@gmail.com'})
       .then(data => {
-        expect(data['uid']).toBe('abc12');
+        expect(data.id).toBe('abc12');
         done();
       });
   });
