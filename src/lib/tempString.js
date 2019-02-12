@@ -50,16 +50,17 @@ const objTemp = {
   },
   home: () => {
     const tmpl = 
-    `<header class="color">
+    `<header class="color headerfijo">
     <div class="row" id="title">
       <div class="col-12 col-s-12 center title">
-      <img class = "left" src = "img/menu.png"></img>
+      <img  id = "menu" class = "left" src = "img/menu.png" onClick="muestra_oculta('contenidolateral')"></img>
       WORLDPET
       </div>
     </div>
   </header>
+  <div class="row col-12"></div>
   <div class="row">
-    <div class="col-3">
+    <div class="col-3 ocultar" id="contenidolateral">
       <div class="row">
         <div class="col-12">
           <hr/>
@@ -77,17 +78,17 @@ const objTemp = {
     <div class="col-9 gray">
       <div class="row">
         <div class="col-1"></div>
-        <div class="col-10 border-post background-principal">
+        <div class="col-12 border-post background-principal">
           <textarea rows="2" cols="25" id="entered-text" class = "border col-12" placeholder="¿Qué estas pensando?"></textarea>
           <div class="row">
-            <div class="col-8"></div>
-            <div class="col-2">
+            <div class="col-6 col-s-6 xscol-2" ></div>
+            <div class="col-3 col-s-3 xscol-5" >
               <select class="select-post width" id="post-type">
                 <option value="true">Público</option>
                 <option value="false">Amigos</option>
               </select>
             </div>
-            <div class="col-2">
+            <div class="col-3 col-s-3 xscol-5 right">
               <button type = "button" id="button-post"  class = "login width btn-post"> Publicar </button>
             </div>
           </div>
@@ -96,7 +97,7 @@ const objTemp = {
       </div>
       <div class="row">
         <div class="col-1"></div>
-        <div id="notes-list" class="col-10 col-s-10">
+        <div id="notes-list" class="xscol-12">
         </div>
         <div class="col-1"></div>
       </div>
@@ -120,6 +121,8 @@ const objTemp = {
     });
     const btnPostAll = elem.querySelector('#post-all');
     btnPostAll.addEventListener('click', consultPosts);
+    
+    
     return elem;
   },
   registry: () => {
@@ -162,3 +165,4 @@ const objTemp = {
     return elem; 
   }
 };
+
