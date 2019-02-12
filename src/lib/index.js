@@ -34,7 +34,8 @@ export const newAddLike = (id, newLike) =>
     'likes': newLike
   });
 
-export const consultPost = (callback) =>
+// 
+export const consultPost = (callback) => 
   firebase.firestore().collection('Posts')
     .orderBy('date', 'desc')
     .onSnapshot((querySnapshot) => {
@@ -44,6 +45,7 @@ export const consultPost = (callback) =>
       });
       callback(data);
     });
+
 export const consultTypePost = (type, callback) =>
   firebase.firestore()
     .collection('Posts')

@@ -17,7 +17,8 @@ import { authenticateGoogleAccount,
   authenticateFacebookAccount,
   authenticateEmailAndPassword,
   createUserWithEmailAndPassword,
-  closeSesion} from '../src/lib/index.js';
+  closeSesion,
+  updatePasswordUser} from '../src/lib/index.js';
 
 describe('authenticateGoogleAccount', () => {
   it('debería ser una función', () => {
@@ -94,5 +95,22 @@ describe('closeSesion', () => {
         const user = firebase.auth().currentUser;
         expect(user).toBe(null);
       });
+  });
+});
+
+describe('updatePassword', () => {
+  it('debería ser una función', () => {
+    expect(typeof updatePasswordUser).toBe('function');
+  });
+});
+
+describe('updatePasswordUser', () => {
+  it('Debería poder actualizar el nombre del usuario', () => {
+    return updatePasswordUser('sandra')
+      .then(() => {
+        const user = firebase.auth().currentUser
+          .updateProfile({displayName: nameNew, });
+        expect(user).not.toBe('null');
+      });  
   });
 });

@@ -9,6 +9,7 @@ const fixtureData = {
           text: 'kimberly',
           public: true,
           likes: 0,
+          displayName: 'sandra',
         },
       }
     }
@@ -16,7 +17,7 @@ const fixtureData = {
 };
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike, consultTypePost } from '../src/lib/index.js';
+import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike, consultTypePost, updatePasswordUser } from '../src/lib/index.js';
 
 describe('savePublication', () => {
   it('debería ser una función', () => {
@@ -100,13 +101,15 @@ describe('consultPost', () => {
 });
 
 describe('consultPost', () => {
-  it('Debería poder traer la colección de posts', (done) => {
-    return consultPost('mahali', 'karla', true)
-      .then((callback) => {
-        const result = callback.find((post) => post.text === 'karla');
-        expect(result.text).toBe('karla');
-        done();
-      });
+  it('Debería poder traer la colección de posts', () => {
+    consultPost;
+
+    // .then((posts) => {
+    //   const result = posts.find((post) => {
+    //     return post.text === 'karla';
+    //   });
+    expect().toEqual('abc1d');
+    done();
   });
 });
 
@@ -127,3 +130,4 @@ describe('consultTypePost', () => {
       });
   });
 });
+
