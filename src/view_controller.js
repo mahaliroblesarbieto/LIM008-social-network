@@ -64,12 +64,12 @@ const saveData = (data) => {
     });
 }; 
 
-const saveDataWithEmail = (data) => {
-  const uid = data.uid;
-  const user = data.userName;
-  const email = data.userEmail;
-  createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+const updatePasswordCurrentUser = (nameNew) => {
+  updatePasswordUser(nameNew)
+    .then(() => {
+      console.log('Exito');
+    })
+    .catch((error) => console.log(error));
 };
 export const closedSesion = () => {
   closeSesion()
@@ -104,18 +104,9 @@ export const signUpOnClick = () => {
     showUncompletedErrors();
   } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then(() => { 
-        updatePasswordUser(nameNew)
-          .then(() => {
-            userCurrent()
-              .then((user) => {
-                console.log(user);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          })
-          .catch((error) => console.log(error));
+      .then((data) => { 
+        saveData(data);
+        updatePasswordCurrentUser(nameNew);
       })
       .catch((error) => showSignErrors(error));
   }
@@ -181,9 +172,8 @@ export const showLogErrors = (error) => {
   }
 };
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
-
-export const publish = () => {
-  const user = firebase.auth().currentUser.displayName;
+export const showNameUser = (nameUser) => {
+  const user = nameUser;
   const enteredText = document.querySelector('#entered-text').value;
   const postType = document.querySelector('#post-type').value;
   if (enteredText !== '') {
@@ -191,6 +181,9 @@ export const publish = () => {
       .then((data) => consultPosts(data))
       .catch({});
   }
+};
+export const publish = () => {
+  userCurrent(showNameUser);
 };
 
 export const itemNote = (objNote) => {

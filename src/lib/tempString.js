@@ -80,15 +80,15 @@ const objTemp = {
         <div class="col-10 border-post background-principal">
           <textarea rows="2" cols="25" id="entered-text" class = "border col-12" placeholder="¿Qué estas pensando?"></textarea>
           <div class="row">
-            <div class="col-8"></div>
-            <div class="col-2">
-              <select class="select-post width" id="post-type">
+            <div class="col-8" col-s-4></div>
+            <div class="col-2 col-s-4">
+              <select class="select-post" id="post-type">
                 <option value="true">Público</option>
                 <option value="false">Amigos</option>
               </select>
             </div>
-            <div class="col-2">
-              <button type = "button" id="button-post"  class = "login width btn-post"> Publicar </button>
+            <div class="col-2 col-s-4">
+              <button type = "button" id="button-post"  class = "login btn-post"> Publicar </button>
             </div>
           </div>
         </div>
