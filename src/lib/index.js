@@ -45,10 +45,9 @@ export const consultPost = (callback) =>
       });
       callback(data);
     });
-console.log(callback(data));
+
 export const consultTypePost = (type, callback) =>
-  firebase.firestore()
-    .collection('Posts')
+  firebase.firestore().collection('Posts')
     .orderBy('date', 'desc')
     .where('public', '==', type)
     .onSnapshot((querySnapshot) => {
@@ -78,13 +77,12 @@ export const userCurrent = (callback) => {
   callback(nameUser);
 };
 
-// export const getUsers = (callback) =>
-//   firebase.firestore().collection('users')
-//     .onSnapshot((querySnapshot) => {
-//       const data = [];
-//       querySnapshot.forEach((doc) => {
-//         data.push({ id: doc.id, ...doc.data() })
-//       });
-//       callback(data);
-//       return data;
-//     }); 
+export const consultUser = (callback) => 
+  firebase.firestore().collection('users')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data()});
+      });
+      callback(data);
+    });
