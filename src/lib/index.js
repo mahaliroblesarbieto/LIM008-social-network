@@ -69,18 +69,9 @@ export const updatePasswordUser = (nameNew) =>
     displayName: nameNew,
   });
 
-export const userCurrent = () => firebase.auth().currentUser;
+export const userCurrent = (callback) => {
+  const nameUser = firebase.auth().currentUser.displayName;
+  callback(nameUser);
+};
 
-/* const user = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: nameNew,
-        }).then(function() {
-          const dataNew = {
-            uid: user.uid,
-            userEmail: user.email,
-            userName: user.displayName
-          };
-          saveDataWithEmail(dataNew);
-        }).catch(function(error) {
-          showSignErrors(error);
-        });*/
+
