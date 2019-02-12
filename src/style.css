@@ -101,6 +101,12 @@ button{
     height: 25%;
     font-weight: bolder;
 }
+.textarea-style-div{
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+}
 
 .left{
     float:left;
@@ -167,7 +173,7 @@ a{
 }
 
 .color{
-    background-color:#e44d3a;
+    background-color:rgb(250, 63, 6);
 }
 
 .gray{
@@ -191,6 +197,9 @@ textarea{
     float: left;
     padding: 15px;
 }
+
+.right {float: right;}
+
 /*Se coloca un estilo para que borre el flujo de las columnas dentro de la fila */
 .row::after {
     content: "";
@@ -205,6 +214,27 @@ textarea{
 [class*="col-s-"] {
     width: 100%;
 }
+.ocultar {
+    display:none;
+}
+.headerfijo {
+    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+.xscol-1 {width: 8.33%;}
+    .xscol-2 {width: 16.66%;}
+    .xscol-3 {width: 25%;}
+    .xscol-4 {width: 33.33%;}
+    .xscol-5 {width: 41.66%;}
+    .xscol-6 {width: 50%;}
+    .xscol-7 {width: 58.33%;}
+    .xscol-8 {width: 66.66%;}
+    .xscol-9 {width: 75%;}
+    .xscol-10 {width: 83.33%;}
+    .xscol-11 {width: 91.66%;}
+    .xscol-12 {width: 100%;}
 /*Para las tablets*/
 @media only screen and (min-width: 600px) {
     .col-s-1 {width: 8.33%;}
@@ -219,11 +249,15 @@ textarea{
     .col-s-10 {width: 83.33%;}
     .col-s-11 {width: 91.66%;}
     .col-s-12 {width: 100%;}
+    .ocultar {
+        display:none;
+    }
 }
 /*Para el escritorio*/
 @media only screen and (min-width: 768px) {
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
+    .xs-2 {width: 16.66%;}
     .col-3 {width: 25%;}
     .col-4 {width: 33.33%;}
     .col-5 {width: 41.66%;}
@@ -234,6 +268,10 @@ textarea{
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+
+    .ocultar {
+        display:block;
+    }
 }
 
 /**********/
@@ -258,6 +296,14 @@ textarea{
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+  }
+
+  /*#check{
+      display: none;
+  }
+
+  .menu{
+      display: none;
   }
   
   /* The Close Button */
@@ -295,11 +341,13 @@ textarea{
     font-weight: 600;
     margin-bottom: 6px;
     margin-top: 2px;
+    margin-left: 25px;
   }
 
   .post-name-date{
     color: #b2b2b2;
     font-size: 14px;
+    margin-left: 25px;
   }
 
   .null-margin-top{
@@ -316,7 +364,7 @@ textarea{
     font-size: 13px;
     width: 30px;
     height: 30px;
-    background-color: #e44d3a;
+    background-color: rgb(250, 63, 6);;
     line-height: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -333,11 +381,11 @@ textarea{
     float: left;
     margin-top: 6px;
     margin-right: 5px;
-    color: #e44d3a;
+    color: rgb(250, 63, 6);;
   }
   .btn-like{
       background-color: #fff;
-      border: 1px solid #e44d3a;
+      border: 1px solid rgb(250, 63, 6);;
       margin-left: 3px;
       height: 30px;
   }

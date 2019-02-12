@@ -43,6 +43,7 @@ export const consultPost = (callback) =>
         data.push({ id: doc.id, ...doc.data()});
       });
       callback(data);
+      console.log(callback);
     });
 export const consultTypePost = (type, callback) =>
   firebase.firestore()
@@ -73,5 +74,3 @@ export const userCurrent = (callback) => {
   const nameUser = firebase.auth().currentUser.displayName;
   callback(nameUser);
 };
-
-
