@@ -43,3 +43,13 @@ export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
+
+export const resize = () => {
+  let x = window.matchMedia('(min-width: 900px)');
+  if (x.matches) { 
+    location.reload();   
+  } 
+};
+window.onresize = resize;
+
+

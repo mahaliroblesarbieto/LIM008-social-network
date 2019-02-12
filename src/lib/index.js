@@ -73,5 +73,3 @@ export const userCurrent = (callback) => {
   const nameUser = firebase.auth().currentUser.displayName;
   callback(nameUser);
 };
-
-

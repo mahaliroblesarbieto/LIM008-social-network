@@ -186,6 +186,16 @@ export const publish = () => {
   userCurrent(showNameUser);
 };
 
+export const showHide = (id) => {
+  let x = window.matchMedia('(max-width: 768px)');
+  if (x.matches) { // If media query matches
+    if (document.getElementById) { // se obtiene el id
+      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
+      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
+    }
+  }
+};
+
 export const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   liElement.className = 'list-post';
@@ -195,14 +205,14 @@ export const itemNote = (objNote) => {
   <div class="row post-bar" >
     <div class="col-12 col-s-12 border-buttom null-padding-bottom">
       <div class="row">
-        <div class="col-1 col-s-1">
+        <div class="col-1 col-s-1 xscol-2">
           <img src="./img/user.png"> </img>
         </div>
-        <div class="col-10 col-s-10">
+        <div class="col-10 col-s-10 xscol-8">
           <p class="null-margin-top post-name-user">${objNote.uid}</p>
           <p class="null-margin-top post-name-date"> ${newDate} </p>
         </div>
-        <div class="col-1 col-s-1">
+        <div class="col-1 col-s-1 xscol-1">
           <img id ="typeimage"> </img>
         </div>
       </div>
@@ -214,17 +224,17 @@ export const itemNote = (objNote) => {
     </div>
     <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
       <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-4 col-s-4">
+        <div class="col-12 col-s-12 ">
+          <div class="col-4 col-s-4 xscol-4 ">
             <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like"><p class="font-like">Like 
             </p></button> <span class="post-total-like">${objNote.likes}</span>
           </div>
-          <div class="col-4 col-s-4">
+          <div class="col-4 col-s-4 xscol-2">
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-3">
             <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post"><i class="far fa-edit"></i></button>
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-3">
             <button type = "button" id = "btnDelete-${objNote.id}"  class="color width btn-post"><i class="far fa-trash-alt"></i></button>
           </div>
         </div>
@@ -239,12 +249,12 @@ export const itemNote = (objNote) => {
       </textarea>
       <div class="row">
         <div class="col-12 col-s-12">
-          <div class="col-8 col-s-8">
+          <div class="col-8 col-s-8 xscol-2">
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-5">
             <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-5">
             <button type = "button" id = "btn-close-modal"  class="select-post width">Cerrar</button>
           </div>
         </div>
@@ -257,12 +267,12 @@ export const itemNote = (objNote) => {
       <p>¿Estas seguro que deseas eliminar? </p>
       <div class="row">
         <div class="col-12 col-s-12">
-          <div class="col-8 col-s-8">
+          <div class="col-8 col-s-8 xscol-2">
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-5">
             <button type = "button" id = "btn-delete-confirm"  class="color width btn-post">Si</button>
           </div>
-          <div class="col-2 col-s-2">
+          <div class="col-2 col-s-2 xscol-5">
             <button type = "button" id = "btn-delete-negative"  class="select-post width">No</button>
           </div>
         </div>

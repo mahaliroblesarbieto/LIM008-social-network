@@ -191,6 +191,9 @@ textarea{
     float: left;
     padding: 15px;
 }
+
+.right {float: right;}
+
 /*Se coloca un estilo para que borre el flujo de las columnas dentro de la fila */
 .row::after {
     content: "";
@@ -206,25 +209,27 @@ textarea{
 [class*="col-s-"] {
     width: 100%;
 }
-
-[class*="col-sm-"] {
-    width: 100%;
+.ocultar {
+    display:none;
 }
-@media only screen and (min-width: 320px) {
-    .col-sm-1 {width: 8.33%;}
-    .col-sm-2 {width: 100%;}
-    .col-sm-3 {width: 100%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-sm-6 {width: 50%;
-    display: inline;}
-    .col-s-7 {width: 58.33%;}
-    .col-sm-8 {width: 60%;
-    float: right;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-sm-11 {width: 91.66%;}
-    .col-sm-12 {width: 100%;}
+.headerfijo {
+    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+}
+.xscol-1 {width: 8.33%;}
+    .xscol-2 {width: 16.66%;}
+    .xscol-3 {width: 25%;}
+    .xscol-4 {width: 33.33%;}
+    .xscol-5 {width: 41.66%;}
+    .xscol-6 {width: 50%;}
+    .xscol-7 {width: 58.33%;}
+    .xscol-8 {width: 66.66%;}
+    .xscol-9 {width: 75%;}
+    .xscol-10 {width: 83.33%;}
+    .xscol-11 {width: 91.66%;}
+    .xscol-12 {width: 100%;}
 /*Para las tablets*/
 @media only screen and (min-width: 600px) {
     .col-s-1 {width: 8.33%;}
@@ -239,11 +244,15 @@ textarea{
     .col-s-10 {width: 83.33%;}
     .col-s-11 {width: 91.66%;}
     .col-s-12 {width: 100%;}
+    .ocultar {
+        display:none;
+    }
 }
 /*Para el escritorio*/
 @media only screen and (min-width: 768px) {
     .col-1 {width: 8.33%;}
     .col-2 {width: 16.66%;}
+    .xs-2 {width: 16.66%;}
     .col-3 {width: 25%;}
     .col-4 {width: 33.33%;}
     .col-5 {width: 41.66%;}
@@ -254,6 +263,10 @@ textarea{
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+
+    .ocultar {
+        display:block;
+    }
 }
 
 /**********/
@@ -278,6 +291,14 @@ textarea{
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+  }
+
+  /*#check{
+      display: none;
+  }
+
+  .menu{
+      display: none;
   }
   
   /* The Close Button */
@@ -315,11 +336,13 @@ textarea{
     font-weight: 600;
     margin-bottom: 6px;
     margin-top: 2px;
+    margin-left: 25px;
   }
 
   .post-name-date{
     color: #b2b2b2;
     font-size: 14px;
+    margin-left: 25px;
   }
 
   .null-margin-top{
