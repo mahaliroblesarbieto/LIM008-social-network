@@ -19,17 +19,6 @@ export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
-
-export const showHide = (id) => {
-  let x = window.matchMedia('(max-width: 768px)');
-  if (x.matches) { // If media query matches
-    if (document.getElementById) { // se obtiene el id
-      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
-      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
-    }
-  }
-};
-
 export const consultPosts = () => {
   consultPost(showPosts);
 };
@@ -75,12 +64,12 @@ const saveData = (data) => {
     });
 }; 
 
-const saveDataWithEmail = (data) => {
-  const uid = data.uid;
-  const user = data.userName;
-  const email = data.userEmail;
-  createDocumentUID(uid, {uid, user, email});
-  changeHash('#/home');
+const updatePasswordCurrentUser = (nameNew) => {
+  updatePasswordUser(nameNew)
+    .then(() => {
+      console.log('Exito');
+    })
+    .catch((error) => console.log(error));
 };
 export const closedSesion = () => {
   closeSesion()
@@ -115,18 +104,9 @@ export const signUpOnClick = () => {
     showUncompletedErrors();
   } else if (email !== '' && password !== '' && name !== '' && lastName !== '') {
     createUserWithEmailAndPassword(email, password)
-      .then(() => { 
-        updatePasswordUser(nameNew)
-          .then(() => {
-            userCurrent()
-              .then((user) => {
-                console.log(user);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          })
-          .catch((error) => console.log(error));
+      .then((data) => { 
+        saveData(data);
+        updatePasswordCurrentUser(nameNew);
       })
       .catch((error) => showSignErrors(error));
   }
@@ -192,15 +172,27 @@ export const showLogErrors = (error) => {
   }
 };
 const showUncompletedErrors = () => document.querySelector('#uncompletedError').innerHTML = '<img id="iconUn" class="alert" src = "img/icon.png"/>' + 'Complete los campos requeridos';
-
-export const publish = () => {
-  const user = firebase.auth().currentUser.displayName;
+export const showNameUser = (nameUser) => {
+  const user = nameUser;
   const enteredText = document.querySelector('#entered-text').value;
   const postType = document.querySelector('#post-type').value;
   if (enteredText !== '') {
     savePublication(user, enteredText, postType)
       .then((data) => consultPosts(data))
       .catch({});
+  }
+};
+export const publish = () => {
+  userCurrent(showNameUser);
+};
+
+export const showHide = (id) => {
+  let x = window.matchMedia('(max-width: 768px)');
+  if (x.matches) { // If media query matches
+    if (document.getElementById) { // se obtiene el id
+      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
+      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
+    }
   }
 };
 
