@@ -1,5 +1,5 @@
 import {initRouter} from './lib/app.js';
-import {initFirebase} from './lib/configFireBase.js';
+import { initFirebase } from './lib/configFireBase1.js';
 const init = () => {
   initRouter();
   initFirebase();
