@@ -186,6 +186,7 @@ export const publish = () => {
   userCurrent(showNameUser);
 };
 
+
 export const showHide = (id) => {
   let x = window.matchMedia('(max-width: 768px)');
   if (x.matches) { // If media query matches
@@ -202,7 +203,7 @@ export const itemNote = (objNote) => {
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
   liElement.innerHTML = `
-  <div class="row post-bar" >
+  <div class="row post-bar background-principal width" >
     <div class="col-12 col-s-12 border-buttom null-padding-bottom">
       <div class="row">
         <div class="col-1 col-s-1 xscol-2">
@@ -219,49 +220,36 @@ export const itemNote = (objNote) => {
     </div>
     <div class="col-12 col-s-12 border-buttom" >
       <div class="row col-12 col-s-12">
-        <span>${objNote.text}</span>
+      <form>
+        <textarea class="textarea-style-div width" id="my-post-${objNote.id}" readonly>${objNote.text}</textarea>
+        <div class="col-10 col-s-10 xscol-8">
+        </div>
+        <div class="col-2 col-s-2 xscol-4">
+            <button type = "button" id = "btnSave-${objNote.id}" class="login width btn-post box-shadow">Guardar</button>
+        </div>
+      </form>
       </div>
     </div>
     <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
       <div class="row">
         <div class="col-12 col-s-12 ">
           <div class="col-4 col-s-4 xscol-4 ">
-            <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like"><p class="font-like">Like 
-            </p></button> <span class="post-total-like">${objNote.likes}</span>
+            <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like background-principal box-shadow"><p class="font-like">Like 
+            </p></button> <span class="post-total-like registry">${objNote.likes}</span>
           </div>
           <div class="col-4 col-s-4 xscol-2">
           </div>
           <div class="col-2 col-s-2 xscol-3">
-            <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post"><i class="far fa-edit"></i></button>
+            <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post box-shadow"><i class="far fa-edit"></i></button>
           </div>
           <div class="col-2 col-s-2 xscol-3">
-            <button type = "button" id = "btnDelete-${objNote.id}"  class="color width btn-post"><i class="far fa-trash-alt"></i></button>
+            <button type = "button" id = "btnDelete-${objNote.id}"  class="registry width btn-post box-shadow"><i class="far fa-trash-alt"></i></button>
           </div>
         </div>
       </div>
     </div> 
   </div>
-  <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <textarea rows="4" cols="50" id="post-content">
-        ${objNote.text}
-      </textarea>
-      <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-8 col-s-8 xscol-2">
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-update-content"  class="login width btn-post">Editar</button>
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-close-modal"  class="select-post width">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="myModaldos" class="modal">
+  <div id="myModaldos" class="modal width">
     <!-- Modal content -->
     <div class="modal-content">
       <p>¿Estas seguro que deseas eliminar? </p>
@@ -270,10 +258,10 @@ export const itemNote = (objNote) => {
           <div class="col-8 col-s-8 xscol-2">
           </div>
           <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-delete-confirm"  class="color width btn-post">Si</button>
+            <button type = "button" id = "btn-delete-confirm"  class="registry width btn-post box-shadow">Si</button>
           </div>
           <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-delete-negative"  class="select-post width">No</button>
+            <button type = "button" id = "btn-delete-negative"  class="select-post width box-shadow">No</button>
           </div>
         </div>
       </div>
@@ -284,21 +272,19 @@ export const itemNote = (objNote) => {
   } else {
     liElement.querySelector('#typeimage').src = 'img/animal-prints.png';
   }
-  
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
   const modalUpdatePost = liElement.querySelector('#myModal');
+  const btnSave = liElement.querySelector(`#btnSave-${objNote.id}`);
+  btnSave.style.display = 'none';
   btnUpdatePost.addEventListener('click', () => {
-    modalUpdatePost.style.display = 'block';
+    const myPost = liElement.querySelector(`#my-post-${objNote.id}`);
+    myPost.readOnly = false; 
+    btnSave.style.display = 'block';
   });
-  const btnUpdateContent = liElement.querySelector('#btn-update-content');
-  btnUpdateContent.addEventListener('click', () => {
-    const textNew = liElement.querySelector('#post-content').value;
+  btnSave.addEventListener('click', () => {
+    const myPost = liElement.querySelector(`#my-post-${objNote.id}`);
+    const textNew = myPost.value;
     UpdatedPosts(objNote.id, textNew);
-  });
-
-  const btnCancelUpdate = liElement.querySelector('#btn-close-modal');
-  btnCancelUpdate.addEventListener('click', () => {
-    modalUpdatePost.style.display = 'none';
   });
   const btndeletePost = liElement.querySelector(`#btnDelete-${objNote.id}`);
   const modalConfirmDelete = liElement.querySelector('#myModaldos');

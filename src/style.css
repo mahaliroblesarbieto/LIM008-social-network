@@ -26,7 +26,6 @@ html,body{
   }
 
   .select-post{
-    background: white;
     color:  rgb(28, 190, 13);
     border: 2px solid  rgb(28, 190, 13);
     font-size: 0.9em;
@@ -43,8 +42,11 @@ html,body{
     font-weight: bold;
 }
 
-h1{
+.fredoka{
     font-family:'Fredoka One', cursive;
+}
+
+h1{
     font-size:2em;
     margin: 0;
     padding:0;
@@ -71,7 +73,6 @@ h1{
 input {
   height: auto;
   font-size: 100%;
-  background: #ffffff;
   border: 1px solid rgb(152, 153, 155);
   color:  rgb(152, 153, 155);
   height: 20%;
@@ -95,11 +96,14 @@ input {
 
 button{
     color: white;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
     font-weight: bold;
     font-size: 120%;
     height: 25%;
     font-weight: bolder;
+}
+
+.box-shadow{
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
 }
 
 .left{
@@ -107,14 +111,12 @@ button{
 }
 
 .icon{
-    background: #ffffff;
     border-radius: 2px;
 }
 
 .type{
     border: none;
     margin: auto;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
 }
 
 .padding{
@@ -134,7 +136,6 @@ button{
 }
 
 .create-count{
-    background: white;
     color: rgb(250, 63, 6);
     border: 3px solid rgb(250, 63, 6);
 }
@@ -148,39 +149,28 @@ button{
     color: red;
     text-align: left;
     font-size: 100%;
-    background: #ffffff;
     padding:2%;
 }
 
 /* Estilo para template home*/
 
 .title{
-    font-family:'Fredoka One', cursive;
     font-size:1em;
     margin: 0;
     padding:0;
     color: white 
 }
 
-a{
-    color: black
-}
-
-.color{
-    background-color:rgb(250, 63, 6);
-}
 
 .gray{
     background-color:#f2f2f2;
 }
 
 .border-post{
-    border: none;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16);  
+    border: none;  
 }
 
 textarea{
-    width: 100%;
     font-size: 1em;
     border-radius: 5px;
     font-family:'Source Sans Pro', sans-serif;
@@ -212,7 +202,6 @@ textarea{
     display:none;
 }
 .headerfijo {
-    width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
 	left: 0; /* Posicionamos la cabecera al lado izquierdo */
 	top: 0; /* Posicionamos la cabecera pegada arriba */
 	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
@@ -276,7 +265,6 @@ textarea{
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
@@ -292,14 +280,6 @@ textarea{
     width: 80%;
   }
 
-  /*#check{
-      display: none;
-  }
-
-  .menu{
-      display: none;
-  }
-  
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -318,11 +298,10 @@ textarea{
   .list-post{
       margin-bottom: 50px;
   }
+
   /* estilo de post*/
   .post-bar{
     float: left;
-    width: 100%;
-    background-color: #fff;
     border-left: 1px solid #e4e4e4;
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
@@ -358,7 +337,6 @@ textarea{
     font-size: 13px;
     width: 30px;
     height: 30px;
-    background-color: rgb(250, 63, 6);;
     line-height: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -378,7 +356,6 @@ textarea{
     color: rgb(250, 63, 6);;
   }
   .btn-like{
-      background-color: #fff;
       border: 1px solid rgb(250, 63, 6);;
       margin-left: 3px;
       height: 30px;
