@@ -259,6 +259,14 @@ textarea{
     border: 1px solid #888;
     width: 80%;
   }
+
+  /*#check{
+      display: none;
+  }
+
+  .menu{
+      display: none;
+  }
   
   /* The Close Button */
   .close {

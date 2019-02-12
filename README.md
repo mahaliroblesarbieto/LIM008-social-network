@@ -113,15 +113,36 @@ AUTENTICACIÓN CON FACEBOOK
 
 ![Sin titulo](src/img/pantalla-facebook-movil.jpg)
 
+PANTALLA PRINCIPAL
+
+![Sin titulo](src/img/pantalla-principal-movil.jpg)
+
 ## Conclusión de prueba con el producto HTML
 
-PRIMERA PRUEBA
-![Sin titulo](src/img/html1.jpg)
+PRUEBA CON PANTALLA DE LOGIN
 
-- El usuario manifestó que se sentía confundido ya que veía la distribución de botones e input muy unidas.
+![Sin titulo](src/img/html-login.jpg)
+
+- Al observar la primera pantalla, el usuario lo primero que intenta es iniciar sesión, pero gracias a los mensajes de error se da cuenta que necesita crear cuenta.
+
+PRUEBA CON PANTALLA DE REGISTRO
+
+![Sin titulo](src/img/html-registry.jpg)
+
+- Usuario identifica que puede crear contraseña.
+- Usuario se da cuenta que no puede crear una cuentacon un correo ya registrado.
+- Cuando el usuario intenta registrarse continúa apareciendo el error y no le direcciona a alguna parte.
+-Usuario mencina que queria regresar a la pantalla de login pero no tiene esa opción en la pantalla.
+
+PRUEBA CON PANTALLA PRINCIPAL
+
+![Sin titulo](src/img/html-principal.jpg)
+
+- Cuando el usuario intenta acceder a las opciones de la barra lateral espera presionar en el espacio de la opción y no necesariamente en las letras de la opción.
+- El usuario no identifica con claridad las opciones, manifiesta que no son entendibles.
+- Usuario manifiesta que desea publicar fotoyno puede.
 - No diferenciaba el botón de iniciar sesión con el de registrarse.
-- Que no apreciaba bien el logo de la aplicación y tampoco el título.
-- No diferencia los espacios en los quetenía que colocar su correo y contraseña con los de los botones. 
+- Usuario no identifica la opcion para ver posts públicos o posts de amigos, no identifica la diferencia. 
 
 
 
