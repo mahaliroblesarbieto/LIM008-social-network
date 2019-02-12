@@ -98,7 +98,7 @@ describe('closeSesion', () => {
   });
 });
 
-describe('updatePassword', () => {
+describe('updatePasswordUser', () => {
   it('debería ser una función', () => {
     expect(typeof updatePasswordUser).toBe('function');
   });
@@ -107,10 +107,8 @@ describe('updatePassword', () => {
 describe('updatePasswordUser', () => {
   it('Debería poder actualizar el nombre del usuario', () => {
     return updatePasswordUser('sandra')
-      .then(() => {
-        const user = firebase.auth().currentUser
-          .updateProfile({displayName: nameNew, });
-        expect(user).not.toBe('null');
+      .then((user) => {
+        expect(user.displayName).toBe('sandra');
       });  
   });
 });

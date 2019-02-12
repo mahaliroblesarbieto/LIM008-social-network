@@ -44,9 +44,8 @@ export const consultPost = (callback) =>
         data.push({ id: doc.id, ...doc.data()});
       });
       callback(data);
-      console.log(callback);
     });
-
+console.log(callback(data));
 export const consultTypePost = (type, callback) =>
   firebase.firestore()
     .collection('Posts')
@@ -67,12 +66,25 @@ export const createDocumentUserUid = (id, data) =>
     emailUser: data.email
   });
 
-export const updatePasswordUser = (nameNew) => 
-  firebase.auth().currentUser.updateProfile({
+export const updatePasswordUser = (nameNew) => { 
+  const user = firebase.auth().currentUser;
+  user.updateProfile({
     displayName: nameNew,
   });
+};
 
 export const userCurrent = (callback) => {
   const nameUser = firebase.auth().currentUser.displayName;
   callback(nameUser);
 };
+
+// export const getUsers = (callback) =>
+//   firebase.firestore().collection('users')
+//     .onSnapshot((querySnapshot) => {
+//       const data = [];
+//       querySnapshot.forEach((doc) => {
+//         data.push({ id: doc.id, ...doc.data() })
+//       });
+//       callback(data);
+//       return data;
+//     }); 

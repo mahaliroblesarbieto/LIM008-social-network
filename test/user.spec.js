@@ -14,7 +14,7 @@ const fixtureData = {
 };
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { createDocumentUserUid } from '../src/lib/index.js';
+import { createDocumentUserUid, getUsers } from '../src/lib/index.js';
 
 describe('createDocumentUserUid', () => {
   it('debería ser una función', () => {
@@ -23,11 +23,13 @@ describe('createDocumentUserUid', () => {
 });
 
 describe('createDocumentUserUid', () => {
-  it('Debería poder agregar una coleccion para guardar los datos de los usuarios', (done) => {
+  it('Debería poder agregar un usuario', (done) => {
     return createDocumentUserUid('abc12', {id: 'abcd12', nameUser: 'kimberly', emailUser: 'kimberlyrojasra@gmail.com'})
-      .then(data => {
-        expect(data.id).toBe('abc12');
-        done();
-      });
+      .then(() => getUsers(
+        (data) => {
+          const result = data.find((post) => post.id === 'abc12');
+          expect(result.id).toBe('abc12')
+          done();
+        }));
   });
 });

@@ -102,14 +102,7 @@ describe('consultPost', () => {
 
 describe('consultPost', () => {
   it('Debería poder traer la colección de posts', () => {
-    consultPost;
-
-    // .then((posts) => {
-    //   const result = posts.find((post) => {
-    //     return post.text === 'karla';
-    //   });
-    expect().toEqual('abc1d');
-    done();
+    consultPost(expect(data).toEqual(Array));
   });
 });
 
@@ -121,7 +114,7 @@ describe('consultTypePost', () => {
 });
 
 describe('consultTypePost', () => {
-  it('Debería poder obetener los post publicos', (done) => {
+  it('Debería poder obtener los post publicos', (done) => {
     return consultTypePost('mahali', 'karla', true)
       .then((callback) => {
         const result = callback.find((post) => post.text === 'karla');
