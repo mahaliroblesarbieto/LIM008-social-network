@@ -17,7 +17,7 @@ import {changeTmp} from './lib/app.js';
 
 export const changeHash = (hash) => {
   location.hash = hash;
-  changeTmp(location.hash);
+  changeTmp(window.location.hash);
 };  
 export const consultPosts = () => {
   consultPost(showPosts);
