@@ -19,6 +19,17 @@ export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(location.hash);
 };  
+
+export const showHide = (id) => {
+  let x = window.matchMedia('(max-width: 768px)');
+  if (x.matches) { // If media query matches
+    if (document.getElementById) { // se obtiene el id
+      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
+      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
+    }
+  }
+};
+
 export const consultPosts = () => {
   consultPost(showPosts);
 };

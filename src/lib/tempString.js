@@ -6,7 +6,8 @@ import {signUpOnClick,
   authenticateWithEmailAndPassword,
   publish,
   consultPosts,
-  consultTypePosts} from '../view_controller.js';
+  consultTypePosts,
+  showHide} from '../view_controller.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -49,13 +50,13 @@ const objTemp = {
     return elem; 
   },
   home: () => {
-    const tmpl = 
-    `<header class="color headerfijo">
-    <div class="row" id="title">
-      <div class="col-12 col-s-12 center title">
-      <img  id = "menu" class = "left" src = "img/menu.png" onClick="muestra_oculta('contenidolateral')"></img>
-      WORLDPET
-      </div>
+    const tmpl = `
+  <header class="color headerfijo">
+     <div class="row" id="title">
+        <div class="col-12 col-s-12 center title">
+          <img id ="menu" class = "left" src = "img/menu.png"></img>
+          <h1>WORLDPET</h1>
+        </div>
     </div>
   </header>
   <div class="row col-12"></div>
@@ -121,8 +122,10 @@ const objTemp = {
     });
     const btnPostAll = elem.querySelector('#post-all');
     btnPostAll.addEventListener('click', consultPosts);
-    
-    
+    const btnMenu = elem.querySelector('#menu');
+    btnMenu.addEventListener('click', () => { 
+      showHide('contenidolateral');
+    });
     return elem;
   },
   registry: () => {
