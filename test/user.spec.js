@@ -7,14 +7,14 @@ const fixtureData = {
           id: 'abc12',
           nameUser: 'kimberly',
           emailUser: 'kimberlyrojasra@gmail.com',
-        },
+        }
       }
     }
   }
 };
 
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
-import { createDocumentUserUid, getUsers, consultUser } from '../src/lib/index.js';
+import { createDocumentUserUid, consultUser} from '../src/lib/index.js';
 
 describe('createDocumentUserUid', () => {
   it('debería ser una función', () => {
@@ -23,12 +23,15 @@ describe('createDocumentUserUid', () => {
 });
 
 describe('createDocumentUserUid', () => {
-  it('Debería poder agregar un usuario', (done) => {
-    return createDocumentUserUid('abc12', {id: 'abcd12', nameUser: 'kimberly', emailUser: 'kimberlyrojasra@gmail.com'})
-      .then(() =>
-          const result = data.find((post) => post.id === 'abc12');
-          expect(result.id).toBe('abc12');
+  fit('Debería poder agregar un usuario', (done) => {
+    return createDocumentUserUid('abc12', {uid: 'abc12', user: 'kim', email: 'kimberlyrojasra@gmail.com'})
+      .then((response) => {
+        console.log(response);
+        
+        consultUser((data) => {
+          console.log(data);
           done();
-        }));
+        })
+      });
   });
 });
