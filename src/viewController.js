@@ -10,19 +10,14 @@ import {authenticateGoogleAccount,
   UpdatedPost,
   deletePost,
   newAddLike,
-  updatePasswordUser,
+  updateNameUser,
   userCurrent
 } from './lib/index.js';
 import {changeTmp} from './lib/app.js';
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(window.location.hash);
 };  
-export const consultPosts = () => {
-  consultPost(showPosts);
-};
-
 const showPosts = (posts) => {
   const ul = document.querySelector('#notes-list');
   ul.innerHTML = '';
@@ -30,27 +25,28 @@ const showPosts = (posts) => {
     ul.appendChild(itemNote(post)); 
   });
 };
+export const consultPosts = () => {
+  consultPost(showPosts);
+};
 export const consultTypePosts = (type) => {
   consultTypePost(type, showPosts);
 };
 export const deletePosts = (postId) => {
   deletePost(postId)
     .then(() => {
-      console.log('Se eliminó el post');
+      alert('Se eliminó el post');
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 };
 export const UpdatedPosts = (postId, textNew) => {
   UpdatedPost(postId, textNew)
-    .then(console.log('Se actualizó el post'))
+    .then(alert('Se actualizó el post'))
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 };
-
-
 const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
@@ -60,16 +56,15 @@ const saveData = (data) => {
       changeHash('#/home');
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 }; 
-
-const updatePasswordCurrentUser = (nameNew) => {
-  updatePasswordUser(nameNew)
+const updateNameCurrentUser = (nameNew) => {
+  updateNameUser(nameNew)
     .then(() => {
-      console.log('Exito');
+      alert('Exito');
     })
-    .catch((error) => console.log(error));
+    .catch((error) => alert(error));
 };
 export const closedSesion = () => {
   closeSesion()
@@ -78,7 +73,6 @@ export const closedSesion = () => {
     })
     .catch();
 };
-
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
     .then((data) => saveData(data))
@@ -89,11 +83,9 @@ export const authenticateWithGoogle = () => {
       }
     });
 };
-
 export const goToRegister = () => {
   changeHash('#/registry');
 };
-
 export const signUpOnClick = () => {
   const name = document.querySelector('#nombres').value;
   const lastName = document.querySelector('#apellidos').value;
@@ -106,12 +98,11 @@ export const signUpOnClick = () => {
     createUserWithEmailAndPassword(email, password)
       .then((data) => { 
         saveData(data);
-        updatePasswordCurrentUser(nameNew);
+        updateNameCurrentUser(nameNew);
       })
       .catch((error) => showSignErrors(error));
   }
 };
-
 export const authenticateWithEmailAndPassword = () => {
   const email = document.querySelector('#txtEmail').value;
   const password = document.querySelector('#txtPassword').value;
@@ -123,7 +114,6 @@ export const authenticateWithEmailAndPassword = () => {
       .catch((error) => showLogErrors(error)); 
   }
 };
-
 export const authenticateFacebook = () => {
   authenticateFacebookAccount()
     .then((data) => saveData(data))
@@ -134,7 +124,6 @@ export const authenticateFacebook = () => {
       }
     });
 };
-
 export const showSignErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
@@ -153,7 +142,6 @@ export const showSignErrors = (error) => {
   default: document.querySelector('#emailError').innerHTML = '';
   }  
 };
-
 export const showLogErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
@@ -185,18 +173,15 @@ export const showNameUser = (nameUser) => {
 export const publish = () => {
   userCurrent(showNameUser);
 };
-
-
 export const showHide = (id) => {
   let x = window.matchMedia('(max-width: 768px)');
-  if (x.matches) { // If media query matches
-    if (document.getElementById) { // se obtiene el id
-      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
-      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
+  if (x.matches) { 
+    if (document.getElementById) { 
+      let el = document.getElementById(id); 
+      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; 
     }
   }
 };
-
 export const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   liElement.className = 'list-post';
@@ -230,7 +215,7 @@ export const itemNote = (objNote) => {
       </form>
       </div>
     </div>
-    <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
+    <div class="col-12 col-s-12 padding-bottom-top-0">
       <div class="row">
         <div class="col-12 col-s-12 ">
           <div class="col-4 col-s-4 xscol-4 ">
@@ -273,7 +258,6 @@ export const itemNote = (objNote) => {
     liElement.querySelector('#typeimage').src = 'img/animal-prints.png';
   }
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
-  const modalUpdatePost = liElement.querySelector('#myModal');
   const btnSave = liElement.querySelector(`#btnSave-${objNote.id}`);
   btnSave.style.display = 'none';
   btnUpdatePost.addEventListener('click', () => {

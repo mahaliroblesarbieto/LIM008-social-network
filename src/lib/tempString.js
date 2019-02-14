@@ -7,7 +7,7 @@ import {signUpOnClick,
   publish,
   consultPosts,
   consultTypePosts,
-  showHide} from '../view_controller.js';
+  showHide} from '../viewController.js';
 export { objTemp };
 const objTemp = {
   login: () => {
@@ -39,7 +39,6 @@ const objTemp = {
       <div class="col-4" ></div>
     </div>
   </section>`;
-  
     document.getElementById('body').classList.add('backgroundLogin');
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
@@ -51,60 +50,60 @@ const objTemp = {
   },
   home: () => {
     const tmpl = `
-  <header class="registry headerfijo width">
-     <div class="row" id="title">
-        <div class="col-12 col-s-12 center title fredoka">
-          <img id ="menu" class = "left" src = "img/menu.png"></img>
-          <h1 class = "fredoka">WORLDPET</h1>
-        </div>
-    </div>
-  </header>
-  <div class="row col-12"></div>
-  <div class="row">
-    <div class="col-3 ocultar" id="contenidolateral">
-      <div class="row">
-        <div class="col-12 col-sm-12">
-          <hr/>
-          <a id="post-all" type="button" role="button" class = "width container" href="javascript:void(0)">Todas las publicaciones</a>
-          <hr/>
-          <a id="post-public" type="button" role="button" class = "width container" href="javascript:void(0)">Posts públicos</a>
-          <hr/>
-          <a id="post-friend" type="button" role="button" class = "width container" href="javascript:void(0)">Posts de amigos</a>
-          <hr/>
-          <a id="closeSesion" type="button" role="button" class = "width container" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
-          <hr/>
-        </div>
+    <header class="registry headerfijo width">
+      <div class="row" id="title">
+          <div class="col-12 col-s-12 center title fredoka">
+            <img id ="menu" class = "left" src = "img/menu.png"></img>
+            <h1 class = "fredoka">WORLDPET</h1>
+          </div>
       </div>
-    </div>
-    <div class="col-9 gray">
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-12 border-post background-principal box-shadow">
-          <textarea rows="2" cols="25" id="entered-text" class = "border col-12 width" placeholder="¿Qué estas pensando?"></textarea>
-          <div class="row">
-            <div class="col-6 col-s-6 xscol-2" ></div>
-            <div class="col-3 col-s-3 xscol-5" >
-              <select class="select-post background-principal width" id="post-type">
-                <option value="true">Público</option>
-                <option value="false">Amigos</option>
-              </select>
-            </div>
-            <div class="col-3 col-s-3 xscol-5 right">
-              <button type = "button" id="button-post"  class = "login width btn-post box-shadow"> Publicar </button>
-            </div>
+    </header>
+    <div class="row col-12"></div>
+    <div class="row">
+      <div class="col-3 ocultar" id="contenidolateral">
+        <div class="row">
+          <div class="col-12 col-sm-12">
+            <hr/>
+            <a id="post-all" type="button"  class = "width container" href="javascript:void(0)">Todas las publicaciones</a>
+            <hr/>
+            <a id="post-public" type="button"  class = "width container" href="javascript:void(0)">Posts públicos</a>
+            <hr/>
+            <a id="post-friend" type="button"  class = "width container" href="javascript:void(0)">Posts de amigos</a>
+            <hr/>
+            <a id="closeSesion" type="button"  class = "width container" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
+            <hr/>
           </div>
         </div>
-        <div class="col-1"></div>
       </div>
-      <div class="row">
-        <div class="col-1"></div>
-        <div id="notes-list" class="xscol-12">
+      <div class="col-9 gray">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-12 border-post background-principal box-shadow">
+            <textarea rows="2" cols="25" id="entered-text" class = "border col-12 width" placeholder="¿Qué estas pensando?"></textarea>
+            <div class="row">
+              <div class="col-6 col-s-6 xscol-2" ></div>
+              <div class="col-3 col-s-3 xscol-5" >
+                <select class="select-post background-principal width" id="post-type">
+                  <option value="true">Público</option>
+                  <option value="false">Amigos</option>
+                </select>
+              </div>
+              <div class="col-3 col-s-3 xscol-5 right">
+                <button type = "button" id="button-post"  class = "login width btn-post box-shadow"> Publicar </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div>
         </div>
-        <div class="col-1"></div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div id="notes-list" class="xscol-12">
+          </div>
+          <div class="col-1"></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>`;
+  </div>`;
     document.getElementById('body').classList.remove('backgroundLogin');
     const elem = document.createElement('div');
     elem.innerHTML = tmpl;
@@ -160,7 +159,6 @@ const objTemp = {
         </div>
       </div>
     </div>`;
-
     const elem = document.createElement('form');
     elem.innerHTML = tmpl;
     const btnSignUp = elem.querySelector('#signUpUser');
