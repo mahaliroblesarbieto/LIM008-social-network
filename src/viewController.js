@@ -10,19 +10,14 @@ import {authenticateGoogleAccount,
   UpdatedPost,
   deletePost,
   newAddLike,
-  updatePasswordUser,
+  updateNameUser,
   userCurrent
 } from './lib/index.js';
 import {changeTmp} from './lib/app.js';
-
 export const changeHash = (hash) => {
   location.hash = hash;
   changeTmp(window.location.hash);
 };  
-export const consultPosts = () => {
-  consultPost(showPosts);
-};
-
 const showPosts = (posts) => {
   const ul = document.querySelector('#notes-list');
   ul.innerHTML = '';
@@ -30,27 +25,28 @@ const showPosts = (posts) => {
     ul.appendChild(itemNote(post)); 
   });
 };
+export const consultPosts = () => {
+  consultPost(showPosts);
+};
 export const consultTypePosts = (type) => {
   consultTypePost(type, showPosts);
 };
 export const deletePosts = (postId) => {
   deletePost(postId)
     .then(() => {
-      console.log('Se eliminó el post');
+      alert('Se eliminó el post');
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 };
 export const UpdatedPosts = (postId, textNew) => {
   UpdatedPost(postId, textNew)
-    .then(console.log('Se actualizó el post'))
+    .then(alert('Se actualizó el post'))
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 };
-
-
 const saveData = (data) => {
   const uid = data.user.uid;
   const user = data.user.displayName;
@@ -60,16 +56,15 @@ const saveData = (data) => {
       changeHash('#/home');
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 }; 
-
-const updatePasswordCurrentUser = (nameNew) => {
-  updatePasswordUser(nameNew)
+const updateNameCurrentUser = (nameNew) => {
+  updateNameUser(nameNew)
     .then(() => {
-      console.log('Exito');
+      alert('Exito');
     })
-    .catch((error) => console.log(error));
+    .catch((error) => alert(error));
 };
 export const closedSesion = () => {
   closeSesion()
@@ -78,7 +73,6 @@ export const closedSesion = () => {
     })
     .catch();
 };
-
 export const authenticateWithGoogle = () => {
   authenticateGoogleAccount()
     .then((data) => saveData(data))
@@ -89,11 +83,9 @@ export const authenticateWithGoogle = () => {
       }
     });
 };
-
 export const goToRegister = () => {
   changeHash('#/registry');
 };
-
 export const signUpOnClick = () => {
   const name = document.querySelector('#nombres').value;
   const lastName = document.querySelector('#apellidos').value;
@@ -106,12 +98,11 @@ export const signUpOnClick = () => {
     createUserWithEmailAndPassword(email, password)
       .then((data) => { 
         saveData(data);
-        updatePasswordCurrentUser(nameNew);
+        updateNameCurrentUser(nameNew);
       })
       .catch((error) => showSignErrors(error));
   }
 };
-
 export const authenticateWithEmailAndPassword = () => {
   const email = document.querySelector('#txtEmail').value;
   const password = document.querySelector('#txtPassword').value;
@@ -123,7 +114,6 @@ export const authenticateWithEmailAndPassword = () => {
       .catch((error) => showLogErrors(error)); 
   }
 };
-
 export const authenticateFacebook = () => {
   authenticateFacebookAccount()
     .then((data) => saveData(data))
@@ -134,7 +124,6 @@ export const authenticateFacebook = () => {
       }
     });
 };
-
 export const showSignErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
@@ -153,7 +142,6 @@ export const showSignErrors = (error) => {
   default: document.querySelector('#emailError').innerHTML = '';
   }  
 };
-
 export const showLogErrors = (error) => {
   const errorCode = error.code;
   switch (errorCode) {
@@ -185,95 +173,90 @@ export const showNameUser = (nameUser) => {
 export const publish = () => {
   userCurrent(showNameUser);
 };
-
-
 export const showHide = (id) => {
   let x = window.matchMedia('(max-width: 768px)');
-  if (x.matches) { // If media query matches
-    if (document.getElementById) { // se obtiene el id
-      let el = document.getElementById(id); // se define la variable "el" igual a nuestro div
-      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; // damos un atributo display:none que oculta el div
+  if (x.matches) { 
+    if (document.getElementById) { 
+      let el = document.getElementById(id); 
+      el.style.display = (el.style.display === 'none') ? 'block' : 'none'; 
     }
   }
 };
-
 export const itemNote = (objNote) => {
   const liElement = document.createElement('li');
   liElement.className = 'list-post';
   const date = (objNote.date.toDate()).toString();
   const newDate = date.substr(4, date.length - 37);
-  liElement.innerHTML = `
-  <div class="row post-bar background-principal width" >
-    <div class="col-12 col-s-12 border-buttom null-padding-bottom">
-      <div class="row">
-        <div class="col-1 col-s-1 xscol-2">
-          <img src="./img/user.png"> </img>
-        </div>
-        <div class="col-10 col-s-10 xscol-8">
-          <p class="null-margin-top post-name-user">${objNote.uid}</p>
-          <p class="null-margin-top post-name-date"> ${newDate} </p>
-        </div>
-        <div class="col-1 col-s-1 xscol-1">
-          <img id ="typeimage"> </img>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-s-12 border-buttom" >
-      <div class="row col-12 col-s-12">
-      <form>
-        <textarea class="textarea-style-div width" id="my-post-${objNote.id}" readonly>${objNote.text}</textarea>
-        <div class="col-10 col-s-10 xscol-8">
-        </div>
-        <div class="col-2 col-s-2 xscol-4">
-            <button type = "button" id = "btnSave-${objNote.id}" class="login width btn-post box-shadow">Guardar</button>
-        </div>
-      </form>
-      </div>
-    </div>
-    <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
-      <div class="row">
-        <div class="col-12 col-s-12 ">
-          <div class="col-4 col-s-4 xscol-4 ">
-            <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like background-principal box-shadow"><p class="font-like">Like 
-            </p></button> <span class="post-total-like registry">${objNote.likes}</span>
-          </div>
-          <div class="col-4 col-s-4 xscol-2">
-          </div>
-          <div class="col-2 col-s-2 xscol-3">
-            <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post box-shadow"><i class="far fa-edit"></i></button>
-          </div>
-          <div class="col-2 col-s-2 xscol-3">
-            <button type = "button" id = "btnDelete-${objNote.id}"  class="registry width btn-post box-shadow"><i class="far fa-trash-alt"></i></button>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </div>
-  <div id="myModaldos" class="modal width">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <p>¿Estas seguro que deseas eliminar? </p>
-      <div class="row">
-        <div class="col-12 col-s-12">
-          <div class="col-8 col-s-8 xscol-2">
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-delete-confirm"  class="registry width btn-post box-shadow">Si</button>
-          </div>
-          <div class="col-2 col-s-2 xscol-5">
-            <button type = "button" id = "btn-delete-negative"  class="select-post width box-shadow">No</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>`;
+  liElement.innerHTML = `<div class="row post-bar background-principal width" >
+   <div class="col-12 col-s-12 border-buttom null-padding-bottom">
+     <div class="row">
+       <div class="col-1 col-s-1 xscol-2">
+         <img src="./img/user.png" alt = "fotouser" />
+       </div>
+       <div class="col-10 col-s-10 xscol-8">
+         <p class="null-margin-top post-name-user">${objNote.uid}</p>
+         <p class="null-margin-top post-name-date"> ${newDate} </p>
+       </div>
+       <div class="col-1 col-s-1 xscol-1">
+         <img id ="typeimage" src = ".img/" alt = "type" />
+       </div>
+     </div>
+   </div>
+   <div class="col-12 col-s-12 border-buttom" >
+     <div class="row col-12 col-s-12">
+     <form>
+       <textarea class="textarea-style-div width" id="my-post-${objNote.id}" readonly>${objNote.text}</textarea>
+       <div class="col-10 col-s-10 xscol-8">
+       </div>
+       <div class="col-2 col-s-2 xscol-4">
+           <button type = "button" id = "btnSave-${objNote.id}" class="login width btn-post box-shadow">Guardar</button>
+       </div>
+     </form>
+     </div>
+   </div>
+   <div class="col-12 col-s-12" style="padding-bottom: 0% ; padding-top: 0%">
+     <div class="row">
+       <div class="col-12 col-s-12 ">
+         <div class="col-4 col-s-4 xscol-4 ">
+           <button type = "button" id = "btnLike-${objNote.id}"  class="btn-like background-principal box-shadow font-like">Like
+           </button> <span class="post-total-like registry">${objNote.likes}</span>
+         </div>
+         <div class="col-4 col-s-4 xscol-2">
+         </div>
+         <div class="col-2 col-s-2 xscol-3">
+           <button type = "button" id = "btnUpdate-${objNote.id}" class="login width btn-post box-shadow"><i class="far fa-edit"></i></button>
+         </div>
+         <div class="col-2 col-s-2 xscol-3">
+           <button type = "button" id = "btnDelete-${objNote.id}"  class="registry width btn-post box-shadow"><i class="far fa-trash-alt"></i></button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div id="myModaldos" class="modal width">
+   <!-- Modal content -->
+   <div class="modal-content">
+     <p>¿Estas seguro que deseas eliminar? </p>
+     <div class="row">
+       <div class="col-12 col-s-12">
+         <div class="col-8 col-s-8 xscol-2">
+         </div>
+         <div class="col-2 col-s-2 xscol-5">
+           <button type = "button" id = "btn-delete-confirm"  class="registry width btn-post box-shadow">Si</button>
+         </div>
+         <div class="col-2 col-s-2 xscol-5">
+           <button type = "button" id = "btn-delete-negative"  class="select-post width box-shadow">No</button>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>`;
   if (objNote.public === 'true') {
     liElement.querySelector('#typeimage').src = 'img/world.png';
   } else {
     liElement.querySelector('#typeimage').src = 'img/animal-prints.png';
   }
   const btnUpdatePost = liElement.querySelector(`#btnUpdate-${objNote.id}`);
-  const modalUpdatePost = liElement.querySelector('#myModal');
   const btnSave = liElement.querySelector(`#btnSave-${objNote.id}`);
   btnSave.style.display = 'none';
   btnUpdatePost.addEventListener('click', () => {

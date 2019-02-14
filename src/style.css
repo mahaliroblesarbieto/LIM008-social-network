@@ -1,375 +1,310 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Kaushan+Script');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
 * {
-    box-sizing: border-box;
-    list-style:none;
-    text-decoration: none
-    
+ box-sizing: border-box;
+ list-style:none;
+ text-decoration: none
 }
-
 html,body{
-    margin: 0;
-    height: 100%;
-    font-family: -apple-
-    system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,
-    "Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3",
-    "Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Arial,sans-serif,
-    "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+ margin: 0;
+ height: 100%;
+ font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Meiryo,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
-
-/* Estilos para templates login y registry*/
 .backgroundLogin {
-    background-image: url(img/fondomascota.jpg);
-    zoom: 0.61;
-  }
-
-  .select-post{
-    color:  rgb(28, 190, 13);
-    border: 2px solid  rgb(28, 190, 13);
-    font-size: 0.9em;
-    font-weight: 500;
-    padding: 8%
+ background-image: url(img/fondomascota.jpg);
+ zoom: 0.61;
 }
-
+.select-post{
+ color:  rgb(28, 190, 13);
+ border: 2px solid  rgb(28, 190, 13);
+ font-size: 0.9em;
+ font-weight: 500;
+ padding: 8%
+}
 .background-principal{
-    background-color: #fff;
+ background-color: #fff;
 }
-  
 .container{
-    color: black;
-    font-weight: bold;
+ color: black;
+ font-weight: bold;
 }
-
 .fredoka{
-    font-family:'Fredoka One', cursive;
+ font-family:'Fredoka One', cursive;
 }
-
 h1{
-    font-size:2em;
-    margin: 0;
-    padding:0;
+ font-size:2em;
+ margin: 0;
+ padding:0;
 }
-
 .center{
-    text-align: center;
+ text-align: center;
 }
-
 .width{
-    width: 100%
+ width: 100%
 }
-
 .logo{
-    width: 25%;
-    height: 25%;
-    margin-left: 37%;
+ width: 25%;
+ height: 25%;
+ margin-left: 37%;
 }
-
 .border {
-    border-radius: 5px;
+ border-radius: 5px;
 }
-
 input {
-  height: auto;
-  font-size: 100%;
-  border: 1px solid rgb(152, 153, 155);
-  color:  rgb(152, 153, 155);
-  height: 20%;
+ height: auto;
+ font-size: 100%;
+ border: 1px solid rgb(152, 153, 155);
+ color:  rgb(152, 153, 155);
+ height: 20%;
 }
-
 ::-webkit-input-placeholder {
-    text-align: left;
+ text-align: left;
  }
- 
- :-moz-placeholder { 
-    text-align: left;  
- }
- 
- ::-moz-placeholder { 
-    text-align: left;  
- }
- 
- :-ms-input-placeholder {  
-    text-align: left; 
- }
-
+:-moz-placeholder { 
+ text-align: left;  
+}
+::-moz-placeholder { 
+ text-align: left;  
+}
+:-ms-input-placeholder {  
+ text-align: left; 
+}
 button{
-    color: white;
-    font-weight: bold;
-    font-size: 120%;
-    height: 25%;
-    font-weight: bolder;
+ color: white;
+ font-weight: bold;
+ font-size: 120%;
+ height: 25%;
+ font-weight: bolder;
 }
 .textarea-style-div{
-    border-style: none;
-    border-color: Transparent;
-    overflow: auto;
-    outline: none;
+ border-style: none;
+ border-color: Transparent;
+ overflow: auto;
+ outline: none;
 }
-
 .box-shadow{
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16);
+ box-shadow: 0 3px 3px rgba(0,0,0,0.16);
 }
-
 .left{
-    float:left;
+ float:left;
 }
-
 .icon{
-    border-radius: 2px;
+ border-radius: 2px;
 }
-
 .type{
-    border: none;
-    margin: auto;
+ border: none;
+ margin: auto;
 }
-
 .padding{
-    padding: 3%;
+ padding: 3%;
 }
-
 .login{
-    background:  rgb(28, 190, 13); 
+ background:  rgb(28, 190, 13); 
 }
-
 .facebook{
-    background: rgb(42, 65, 170);
+ background: rgb(42, 65, 170);
 }
-
 .google{
-    background: rgb(0, 102, 255);
+ background: rgb(0, 102, 255);
 }
-
 .create-count{
-    color: rgb(250, 63, 6);
-    border: 3px solid rgb(250, 63, 6);
+ color: rgb(250, 63, 6);
+ border: 3px solid rgb(250, 63, 6);
 }
-
 .registry{
-    background:  rgb(250, 63, 6); 
+ background:  rgb(250, 63, 6); 
 }
-
-/* css implemtado por kimberly para divs de errores */
 .errors{
-    color: red;
-    text-align: left;
-    font-size: 100%;
-    padding:2%;
+ color: red;
+ text-align: left;
+ font-size: 100%;
+ padding:2%;
 }
-
-/* Estilo para template home*/
-
 .title{
-    font-size:1em;
-    margin: 0;
-    padding:0;
-    color: white 
+font-size:1em;
+margin: 0;
+padding:0;
+color: white 
 }
-
-
 .gray{
-    background-color:#f2f2f2;
+ background-color:#f2f2f2;
 }
-
 .border-post{
-    border: none;  
+ border: none;  
 }
-
 textarea{
-    font-size: 1em;
-    border-radius: 5px;
-    font-family:'Source Sans Pro', sans-serif;
-    color: #2e2c2c;
+ font-size: 1em;
+ border-radius: 5px;
+ font-family:'Source Sans Pro', sans-serif;
+ color: #2e2c2c;
 }
-/*Todas estas columnas deben estar flotando hacia la izquierda y tener un relleno de 15px */
 [class*="col-"] {
-    float: left;
-    padding: 15px;
+ float: left;
+ padding: 15px;
 }
-
 .right {float: right;}
-
-/*Se coloca un estilo para que borre el flujo de las columnas dentro de la fila */
 .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    
+ content: "";
+ clear: both;
+ display: table;
 }
-
 [class*="col-"] {
-    width: 100%;
+ width: 100%;
 }
 [class*="col-s-"] {
-    width: 100%;
+ width: 100%;
 }
 .ocultar {
-    display:none;
+ display:none;
 }
 .headerfijo {
-	left: 0; /* Posicionamos la cabecera al lado izquierdo */
-	top: 0; /* Posicionamos la cabecera pegada arriba */
-	position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+ left: 0; 
+ top: 0; 
+ position: fixed; 
+}
+.padding-bottom-top-0{
+ padding-bottom: 0% ;
+ padding-top: 0%
+}
+.modal {
+ display: none; 
+ position: fixed; 
+ z-index: 1; 
+ padding-top: 100px; 
+ left: 0;
+ top: 0;
+ height: 100%; 
+ overflow: auto; 
+ background-color: rgb(0,0,0);
+ background-color: rgba(0,0,0,0.4); 
+ }
+.modal-content {
+ background-color: #fefefe;
+ margin: auto;
+ padding: 20px;
+ border: 1px solid #888;
+ width: 80%;
+}
+.close {
+ color: #aaaaaa;
+ float: right;
+ font-size: 28px;
+ font-weight: bold;
+}
+.close:hover,
+.close:focus {
+ color: #000;
+ text-decoration: none;
+ cursor: pointer;
+}
+.list-post{
+ margin-bottom: 50px;
+}
+.post-bar{
+ float: left;
+ border-left: 1px solid #e4e4e4;
+ border-right: 1px solid #e4e4e4;
+ border-bottom: 1px solid #e4e4e4;
+ margin-bottom: 20px;
+}
+.post-name-user{
+ color: #000000;
+ font-size: 16px;
+ text-transform: capitalize;
+ font-weight: 600;
+ margin-bottom: 6px;
+ margin-top: 2px;
+ margin-left: 25px;
+}
+.post-name-date{
+ color: #b2b2b2;
+ font-size: 14px;
+ margin-left: 25px;
+}
+.null-margin-top{
+ margin-top: 0px;
+}
+.null-padding-bottom{
+ padding-bottom: 0px;
+}
+.border-buttom{
+ border-bottom: 1px solid #e5e5e5;
+}
+.post-total-like{
+ color: #ffffff;
+ font-size: 13px;
+ width: 30px;
+ height: 30px;
+ line-height: 30px;
+ border-radius: 30px;
+ float: left;
+ text-align: center;
+ font-weight: 600;
+ margin-left: -25px;
+}
+.font-like{
+   font-size: 14px;
+   margin-top: 6px;
+   margin-right: 5px;
+   color: rgb(250, 63, 6);
+ }
+.btn-like{
+ border: 1px solid rgb(250, 63, 6);;
+ margin-left: 3px;
+ height: 30px;
+}
+.btn-post{
+ font-size: 0.9em;
+ border: none;
+ font-weight: 500;
+ padding: 10%
 }
 .xscol-1 {width: 8.33%;}
-    .xscol-2 {width: 16.66%;}
-    .xscol-3 {width: 25%;}
-    .xscol-4 {width: 33.33%;}
-    .xscol-5 {width: 41.66%;}
-    .xscol-6 {width: 50%;}
-    .xscol-7 {width: 58.33%;}
-    .xscol-8 {width: 66.66%;}
-    .xscol-9 {width: 75%;}
-    .xscol-10 {width: 83.33%;}
-    .xscol-11 {width: 91.66%;}
-    .xscol-12 {width: 100%;}
-/*Para las tablets*/
+.xscol-2 {width: 16.66%;}
+.xscol-3 {width: 25%;}
+.xscol-4 {width: 33.33%;}
+.xscol-5 {width: 41.66%;}
+.xscol-6 {width: 50%;}
+.xscol-7 {width: 58.33%;}
+.xscol-8 {width: 66.66%;}
+.xscol-9 {width: 75%;}
+.xscol-10 {width: 83.33%;}
+.xscol-11 {width: 91.66%;}
+.xscol-12 {width: 100%;}
 @media only screen and (min-width: 600px) {
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
-    .ocultar {
-        display:none;
-    }
+ .col-s-1 {width: 8.33%;}
+ .col-s-2 {width: 16.66%;}
+ .col-s-3 {width: 25%;}
+ .col-s-4 {width: 33.33%;}
+ .col-s-5 {width: 41.66%;}
+ .col-s-6 {width: 50%;}
+ .col-s-7 {width: 58.33%;}
+ .col-s-8 {width: 66.66%;}
+ .col-s-9 {width: 75%;}
+ .col-s-10 {width: 83.33%;}
+ .col-s-11 {width: 91.66%;}
+ .col-s-12 {width: 100%;}
+ .ocultar {
+    display:none;
+ }
 }
-/*Para el escritorio*/
 @media only screen and (min-width: 768px) {
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .xs-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-
-    .ocultar {
-        display:block;
-    }
+ .col-1 {width: 8.33%;}
+ .col-2 {width: 16.66%;}
+ .xs-2 {width: 16.66%;}
+ .col-3 {width: 25%;}
+ .col-4 {width: 33.33%;}
+ .col-5 {width: 41.66%;}
+ .col-6 {width: 50%;}
+ .col-7 {width: 58.33%;}
+ .col-8 {width: 66.66%;}
+ .col-9 {width: 75%;}
+ .col-10 {width: 83.33%;}
+ .col-11 {width: 91.66%;}
+ .col-12 {width: 100%;}
+ .ocultar {
+  display:block;
+ }
 }
 
-/**********/
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-
-  /* The Close Button */
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  /* estilo para las lista de post*/
-  .list-post{
-      margin-bottom: 50px;
-  }
-
-  /* estilo de post*/
-  .post-bar{
-    float: left;
-    border-left: 1px solid #e4e4e4;
-    border-right: 1px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
-    margin-bottom: 20px;
-  }
-  .post-name-user{
-    color: #000000;
-    font-size: 16px;
-    text-transform: capitalize;
-    font-weight: 600;
-    margin-bottom: 6px;
-    margin-top: 2px;
-    margin-left: 25px;
-  }
-
-  .post-name-date{
-    color: #b2b2b2;
-    font-size: 14px;
-    margin-left: 25px;
-  }
-
-  .null-margin-top{
-      margin-top: 0px;
-  }
-  .null-padding-bottom{
-      padding-bottom: 0px;
-  }
-  .border-buttom{
-    border-bottom: 1px solid #e5e5e5;
-  }
-  .post-total-like{
-    color: #ffffff;
-    font-size: 13px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-    border-radius: 30px;
-    float: left;
-    text-align: center;
-    font-weight: 600;
-    margin-left: -25px;
-  }
-  .font-like{
-    font-size: 14px;
-    float: left;
-    margin-top: 6px;
-    margin-right: 5px;
-    color: rgb(250, 63, 6);;
-  }
-  .btn-like{
-      border: 1px solid rgb(250, 63, 6);;
-      margin-left: 3px;
-      height: 30px;
-  }
-
-  .btn-post{
-    font-size: 0.9em;
-    border: none;
-    font-weight: 500;
-    padding: 10%
-}
