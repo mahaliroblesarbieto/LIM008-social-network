@@ -1,5 +1,4 @@
 import MockFirebase from 'mock-cloud-firestore';
-
 const fixtureData = {
   __collection__: {
     Posts: {
@@ -15,16 +14,13 @@ const fixtureData = {
     }
   },
 };
-
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 import { savePublication, deletePost, consultPost, UpdatedPost, newAddLike, consultTypePost, updatePasswordUser } from '../src/lib/index.js';
-
 describe('savePublication', () => {
   it('debería ser una función', () => {
     expect(typeof savePublication).toBe('function');
   });
 });
-
 describe('savePublication', () => {
   it('Debería poder agregar una nota', (done) => {
     return savePublication('mahali', 'karla', true)
@@ -37,13 +33,11 @@ describe('savePublication', () => {
       ));
   });
 });
-
 describe('UpdatePost', () => {
   it('debería ser una función', () => {
     expect(typeof UpdatedPost).toBe('function');
   });
 });
-
 describe('UpdatePost', () => {
   it('Debería poder actualizar un post', (done) => {
     return UpdatedPost('abc1d', 'sandra')
@@ -56,13 +50,11 @@ describe('UpdatePost', () => {
       ));
   });
 });
-
 describe('newAddLike', () => {
   it('debería ser una función', () => {
     expect(typeof newAddLike).toBe('function');
   });
 });
-
 describe('newAddLike', () => {
   it('Debería poder actualizar los likes', (done) => {
     return newAddLike('abc1d', '1')
@@ -80,7 +72,6 @@ describe('deletePost', () => {
     expect(typeof deletePost).toBe('function');
   });
 });
-
 describe('deletePost', () => {
   it('Debería poder eliminar un post', (done) => {
     return deletePost('abc1d')
@@ -93,13 +84,11 @@ describe('deletePost', () => {
       ));
   });
 });
-
 describe('consultPost', () => {
   it('debería ser una función', () => {
     expect(typeof consultPost).toBe('function');
   });
 });
-
 describe('consultPost', () => {
   it('Debería poder traer la colección de posts', (done) => {
     const callback = (data) => {
@@ -109,14 +98,11 @@ describe('consultPost', () => {
     consultPost(callback);
   });
 });
-
-
 describe('consultTypePost', () => {
   it('debería ser una función', () => {
     expect(typeof consultTypePost).toBe('function');
   });
 });
-
 describe('consultTypePost', () => {
   it('Debería poder obtener los post publicos', (done) => {
     const callback = (data) => {

@@ -12,16 +12,13 @@ const fixtureData = {
     }
   }
 };
-
 global.firebase = new MockFirebase(fixtureData, { isNaiveSnapshotListenerEnabled: true });
 import { createDocumentUserUid, consultUser} from '../src/lib/index.js';
-
 describe('createDocumentUserUid', () => {
   it('debería ser una función', () => {
     expect(typeof createDocumentUserUid).toBe('function');
   });
 });
-
 describe('createDocumentUserUid', () => {
   it('Debería poder agregar un usuario', (done) => {
     return createDocumentUserUid('abc12', {uid: 'abc12', user: 'kim', email: 'kimberlyrojasra@gmail.com'})

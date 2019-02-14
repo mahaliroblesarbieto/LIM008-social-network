@@ -1,6 +1,5 @@
 import {objTemp} from './tempString.js';
-import { consultPosts } from '../view_controller.js';
-
+import { consultPosts } from '../viewController.js';
 export const changeTmp = (hash) => {
   switch (hash) {
   case '' : 
@@ -17,7 +16,6 @@ export const changeTmp = (hash) => {
     break;
   }
 };
-    
 const viewTmp = (routers) => {
   let router = routers.substr(2, routers.length - 2);
   switch (router) {
@@ -43,7 +41,6 @@ export const initRouter = () => {
   window.addEventListener('load', changeTmp(window.location.hash));
   if (('onhashchange' in window)) window.onhashchange = () => changeTmp(window.location.hash);
 };
-
 export const resize = () => {
   let x = window.matchMedia('(min-width: 900px)');
   if (x.matches) { 
