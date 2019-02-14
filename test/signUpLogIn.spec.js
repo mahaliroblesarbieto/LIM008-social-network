@@ -98,17 +98,17 @@ describe('closeSesion', () => {
   });
 });
 
-describe('updatePasswordUser', () => {
-  it('debería ser una función', () => {
-    expect(typeof updatePasswordUser).toBe('function');
-  });
-});
+// describe('updatePasswordUser', () => {
+//   it('debería ser una función', () => {
+//     expect(typeof updatePasswordUser).toBe('function');
+//   });
+// });
 
-describe('updatePasswordUser', () => {
-  it('Debería poder actualizar el nombre del usuario', () => {
-    return updatePasswordUser('sandra')
-      .then((user) => {
-        expect(user.displayName).toBe('sandra');
-      });  
-  });
-});
+// describe('updatePasswordUser', () => {
+//   it('Debería poder actualizar el nombre del usuario', () => {
+//     return updatePasswordUser('sandra')
+//       .then((user) => {
+//         expect(user.displayName).toBe('sandra');
+//       });  
+//   });
+// });
