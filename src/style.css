@@ -244,12 +244,11 @@ textarea{
  margin-left: -25px;
 }
 .font-like{
- font-size: 14px;
- float: left;
- margin-top: 6px;
- margin-right: 5px;
- color: rgb(250, 63, 6);;
-}
+   font-size: 14px;
+   margin-top: 6px;
+   margin-right: 5px;
+   color: rgb(250, 63, 6);
+ }
 .btn-like{
  border: 1px solid rgb(250, 63, 6);;
  margin-left: 3px;
