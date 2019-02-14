@@ -55,7 +55,7 @@ const objTemp = {
     <header class="registry headerfijo width">
       <div class="row" id="title">
           <div class="col-12 col-s-12 center title fredoka">
-            <img id ="menu" class = "left" src = "img/menu.png"></img>
+            <img alt = "menu" id ="menu" class = "left" src = "img/menu.png"/>
             <h1 class = "fredoka">WORLDPET</h1>
           </div>
       </div>
@@ -66,13 +66,13 @@ const objTemp = {
         <div class="row">
           <div class="col-12 col-sm-12">
             <hr/>
-            <a id="post-all" type="button"  class = "width container" href="javascript:void(0)">Todas las publicaciones</a>
+            <a id="post-all"  class = "width container" href="javascript:void(0)">Todas las publicaciones</a>
             <hr/>
-            <a id="post-public" type="button"  class = "width container" href="javascript:void(0)">Posts públicos</a>
+            <a id="post-public"  class = "width container" href="javascript:void(0)">Posts públicos</a>
             <hr/>
-            <a id="post-friend" type="button"  class = "width container" href="javascript:void(0)">Posts de amigos</a>
+            <a id="post-friend"  class = "width container" href="javascript:void(0)">Posts de amigos</a>
             <hr/>
-            <a id="closeSesion" type="button"  class = "width container" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
+            <a id="closeSesion"  class = "width container" href="javascript:void(0)">Cerrar Sesión</a>   <i class="fas fa-sign-out-alt"></i>
             <hr/>
           </div>
         </div>
